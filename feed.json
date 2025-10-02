@@ -10,8 +10,8 @@
     },
     "items": [
         {
-            "id": "https://kynx.qzz.io/shu-ju-biao-xiu-gai-cao-zuo.html",
-            "url": "https://kynx.qzz.io/shu-ju-biao-xiu-gai-cao-zuo.html",
+            "id": "https://kynx.qzz.io/modification-of-data-tables.html",
+            "url": "https://kynx.qzz.io/modification-of-data-tables.html",
             "title": "数据表修改操作",
             "summary": "字段和数据是组成数据表的两大核心要素，因此对它们的更改操作至关重要，直接关系到数据的完整性、一致性和系统的稳定性。 重命名操作可以分为以下两种写法： RENAME 旧名字 TO 新名字; ALTER TABLE 旧名字 RENAME 新名字; 两种写法没有任何区别,选择一个好记和习惯的即可。 ALTER TABLE 表名 ADD 新字段名 数据类型 约束条件; 删除字段 ALTER TABLE 表名 DROP 字段名 ; 修改字段 修改除字段名的其他内容 ALTER TABLE 表名 MODIFY 字段名 数据类型 约束条件; 修改字段名+其他内容 ALTER TABLE 表名 CHANGE 旧字段名 新字段名 数据类型 约束条件; 数据操作&hellip;",
             "content_html": "<p><strong>字段</strong>和<strong>数据</strong>是组成数据表的两大核心要素，因此对它们的更改操作至关重要，直接关系到数据的完整性、一致性和系统的稳定性。</p><h2 id=\"字段信息的修改\">字段信息的修改</h2>\n<h3 id=\"重命名\">重命名</h3>\n<p><strong>重命名操作可以分为以下两种写法：</strong></p><pre><code class=\"language-mysql\">RENAME 旧名字 TO 新名字;\n</code></pre>\n<pre><code class=\"language-my\">ALTER TABLE 旧名字 RENAME 新名字;\n</code></pre>\n<p>两种写法没有任何区别,选择一个好记和习惯的即可。</p><h3 id=\"数据表中字段的增删改查操作\">数据表中字段的增删改查操作</h3>\n<h4 id=\"添加字段\">添加字段</h4>\n<pre><code class=\"language-mysql\">ALTER TABLE 表名 ADD 新字段名 数据类型 约束条件;\n</code></pre>\n<h4 id=\"删除字段\">删除字段</h4>\n<pre><code class=\"language-mysql\">ALTER TABLE 表名 DROP 字段名 ;\n</code></pre>\n<h4 id=\"修改字段\">修改字段</h4>\n<h5 id=\"修改除字段名的其他内容\">修改除字段名的其他内容</h5>\n<pre><code class=\"language-mysql\">ALTER TABLE 表名 MODIFY 字段名 数据类型 约束条件;\n</code></pre>\n<h5 id=\"修改字段名其他内容\">修改字段名+其他内容</h5>\n<pre><code class=\"language-mysql\">ALTER TABLE 表名 CHANGE 旧字段名 新字段名 数据类型 约束条件;\n</code></pre>\n<h2 id=\"数据操作\">数据操作</h2>\n<h3 id=\"插入\">插入</h3>\n<p><strong>格式：</strong></p><pre><code class=\"language-mysql\">INSERT INTO 表名 (字段, 字段) VALUES\n    (&#39;值1&#39;, &#39;值2&#39;),\n    (&#39;值1&#39;, &#39;值2&#39;);\n</code></pre>\n<p><strong>例：</strong></p><pre><code class=\"language-mysql\">INSERT INTO department (department_id, department_name) VALUES\n    (&#39;01&#39;, &#39;技术部&#39;),\n    (&#39;02&#39;, &#39;财务部&#39;),\n    (&#39;03&#39;, &#39;人力资源部&#39;);\n</code></pre>\n<h3 id=\"修改\">修改</h3>\n<p><strong>格式：</strong></p><pre><code class=\"language-mysql\">UPDATE 表名\n    SET 字段=值, 字段=值, 字段=值 WHERE 条件表达式;\n</code></pre>\n<p><strong>例：</strong></p><pre><code class=\"language-mysql\">UPDATE department\n    SET department_name=&#39;市场部&#39; WHERE department_id=&#39;01&#39;；\n</code></pre>\n<h3 id=\"删除\">删除</h3>\n<p><strong>格式：</strong></p><pre><code class=\"language-mysql\">DELETE FROM 表名 WHERE 条件表达式;\n</code></pre>\n<p><strong>例：</strong></p><pre><code class=\"language-mysql\">DELETE FROM department WHERE department_id=&#39;01&#39;；\n</code></pre>\n",
@@ -23,7 +23,7 @@
                    "MySQL学习笔记"
             ],
             "date_published": "2025-10-02T18:25:19+08:00",
-            "date_modified": "2025-10-02T18:26:07+08:00"
+            "date_modified": "2025-10-02T18:29:10+08:00"
         },
         {
             "id": "https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass.html",
