@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title>隙间集</title>
+    <link href="https://kynx.qzz.io/feed.xml" rel="self" />
+    <link href="https://kynx.qzz.io" />
+    <updated>2025-09-28T21:23:59+08:00</updated>
+    <author>
+        <name>和光同尘</name>
+    </author>
+    <id>https://kynx.qzz.io</id>
+
+    <entry>
+        <title>数据表修改操作</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/modification-of-data-tables.html"/>
+        <id>https://kynx.qzz.io/modification-of-data-tables.html</id>
+        <media:content url="https://kynx.qzz.io/media/posts/26/Shu-Ju-Biao-Xiu-Gai.png" medium="image" />
+            <category term="MySQL学习笔记"/>
+
+        <updated>2025-09-28T21:07:28+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/26/Shu-Ju-Biao-Xiu-Gai.png" alt="" />
+                    字段和数据是组成数据表的两大核心要素，因此对它们的更改操作至关重要，直接关系到数据的完整性、一致性和系统的稳定性。 重命名操作可以分为以下两种写法： RENAME&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/26/Shu-Ju-Biao-Xiu-Gai.png" class="type:primaryImage" alt="" /></p>
+                <p><strong>字段</strong>和<strong>数据</strong>是组成数据表的两大核心要素，因此对它们的更改操作至关重要，直接关系到数据的完整性、一致性和系统的稳定性。</p><h2 id="字段信息的修改">字段信息的修改</h2>
+<h3 id="重命名">重命名</h3>
+<p><strong>重命名操作可以分为以下两种写法：</strong></p><pre><code class="language-mysql">RENAME 旧名字 TO 新名字;
+</code></pre>
+<pre><code class="language-my">ALTER TABLE 旧名字 RENAME 新名字;
+</code></pre>
+<p>两种写法没有任何区别,选择一个好记和习惯的即可。</p><h3 id="数据表中字段的增删改查操作">数据表中字段的增删改查操作</h3>
+<h4 id="添加字段">添加字段</h4>
+<pre><code class="language-mysql">ALTER TABLE 表名 ADD 新字段名 数据类型 约束条件;
+</code></pre>
+<h4 id="删除字段">删除字段</h4>
+<pre><code class="language-mysql">ALTER TABLE 表名 DROP 字段名 ;
+</code></pre>
+<h4 id="修改字段">修改字段</h4>
+<h5 id="修改除字段名的其他内容">修改除字段名的其他内容</h5>
+<pre><code class="language-mysql">ALTER TABLE 表名 MODIFY 字段名 数据类型 约束条件;
+</code></pre>
+<h5 id="修改字段名其他内容">修改字段名+其他内容</h5>
+<pre><code class="language-mysql">ALTER TABLE 表名 CHANGE 旧字段名 新字段名 数据类型 约束条件;
+</code></pre>
+<h2 id="数据操作">数据操作</h2>
+<h3 id="插入">插入</h3>
+<p><strong>格式：</strong></p><pre><code class="language-mysql">INSERT INTO 表名 (字段, 字段) VALUES
+    (&#39;值1&#39;, &#39;值2&#39;),
+    (&#39;值1&#39;, &#39;值2&#39;);
+</code></pre>
+<p><strong>例：</strong></p><pre><code class="language-mysql">INSERT INTO department (department_id, department_name) VALUES
+    (&#39;01&#39;, &#39;技术部&#39;),
+    (&#39;02&#39;, &#39;财务部&#39;),
+    (&#39;03&#39;, &#39;人力资源部&#39;);
+</code></pre>
+<h3 id="修改">修改</h3>
+<p><strong>格式：</strong></p><pre><code class="language-mysql">UPDATE 表名
+    SET 字段=值, 字段=值, 字段=值 WHERE 条件表达式;
+</code></pre>
+<p><strong>例：</strong></p><pre><code class="language-mysql">UPDATE department
+    SET department_name=&#39;市场部&#39; WHERE department_id=&#39;01&#39;；
+</code></pre>
+<h3 id="删除">删除</h3>
+<p><strong>格式：</strong></p><pre><code class="language-mysql">DELETE FROM 表名 WHERE 条件表达式;
+</code></pre>
+<p><strong>例：</strong></p><pre><code class="language-mysql">DELETE FROM department WHERE department_id=&#39;01&#39;；
+</code></pre>
+
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>UI设计语言 — 观Liquid Glass发布感悟</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass.html"/>
+        <id>https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass.html</id>
+        <media:content url="https://kynx.qzz.io/media/posts/25/Real-ESRGANv3-anime_0921_125705.png" medium="image" />
+            <category term="隙光微尘​"/>
+
+        <updated>2025-09-21T12:53:21+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/25/Real-ESRGANv3-anime_0921_125705.png" alt="" />
+                    这个题目其实从一开始Beta版开始的时候就已经起草，但是一直到现在又重新写一遍，其中有我想讲的很多事情。 一开始看到的最多的是ios26的系统的发布，手机作为日常不离手的通讯工具，这个肯定是最收关注的。但是这种东西对于我来说其实是很无感的，毕竟就像Windows7换成Windows10，我反而会更喜欢Windows10一点，有可能是觉得平面的性能更好的缘故吧，但是在经历过很多的IDE洗礼之后我反而是更关注性能与视觉上的清晰——也就是文字的观感。在很多IDE上面其中背景的颜色以及文字的高亮都是可以调整的，但是在我自己瞎鼓捣的时候就很容易出现文字颜色和背景颜色十分相近而看不清楚的情况。 所以在一开始ios26&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/25/Real-ESRGANv3-anime_0921_125705.png" class="type:primaryImage" alt="" /></p>
+                <p>这个题目其实从一开始Beta版开始的时候就已经起草，但是一直到现在又重新写一遍，其中有我想讲的很多事情。</p><h2 id="为什么要用玻璃？">为什么要用玻璃？</h2>
+<p>一开始看到的最多的是ios26的系统的发布，手机作为日常不离手的通讯工具，这个肯定是最收关注的。但是这种东西对于我来说其实是很无感的，毕竟就像Windows7换成Windows10，我反而会更喜欢Windows10一点，有可能是觉得平面的性能更好的缘故吧，但是在经历过很多的IDE洗礼之后我反而是更关注性能与视觉上的清晰——也就是文字的观感。在很多IDE上面其中背景的颜色以及文字的高亮都是可以调整的，但是在我自己瞎鼓捣的时候就很容易出现文字颜色和背景颜色十分相近而看不清楚的情况。</p><p>所以在一开始ios26 Beta版本刚刚出来的时候我其实是十分不理解苹果的用意的，因为手机作为一个再平常不过的通讯工具，喜欢玩游戏的注意的是游戏内容，喜欢社交的更注意和朋友之间的关系，很多人对于系统升级其实是无感的，毕竟很多年轻人都是上手即用，都不存在学习成本的，但是中年人和老年人却觉得界面陌生，甚至有人还会觉得手机会被淘汰的更快。与我而言这其实是对于我的一种煎熬，虽然我不使用，但是对于安卓也是一种影响，后来升级之后性能降低，续航减弱，也让我对这个设计语言充满着排斥和敌意。</p><p>最近ios26的公测版和正式版陆续发布，我发现之前在Beta版中的问题都得到了解决，这也是我第一次对于质感有点感觉，毕竟之前一直是觉得Google的Material UI十分的好，甚至根本就不需要高斯模糊，有这观感留给性能和续航不好吗？但是苹果用玻璃确实是玩出了真真正正的层级的感觉，例如解锁的时候，上滑之后就像是一扇从下而上的打开，整个视觉逻辑更强了，使得交互动画的意义更强了。</p><h2 id="liquid-glass-和-windows-7-一个设计语言是不是过时了？">Liquid Glass 和 Windows 7 一个设计语言是不是过时了？</h2>
+<p>我觉得不会，毕竟在黑暗模式上面苹果已经证实了自己封闭的实力。不到一年时间，几乎全部的应用都已经吃上了黑暗模式，这个速度比安卓很多都要厂商用系统去强行将浅色模式应用改变成黑暗模式更彻底。毕竟是Swift，统一的标准执行起来确实速度是没话说的。</p><p>交互上面已经能够达到动画和外观的显示方式符合视觉逻辑，并且拥有自己的Swift语言，后面可能应用适配上面出现性能问题等，但是苹果应该是有能力去解决的。毕竟软件对于系统版本都卡的这么严，优化上比安卓这种要兼容各家系统的肯定是更快速，更轻松了。</p><h2 id="用续航和性能换得质感---关于我的看法">用续航和性能换得质感 - 关于我的看法</h2>
+<p>我知道，这是所有手机用户纠结的一个问题，而且至今，甚至是未来都不会有定论的一个问题，或者说是阴谋论。如果说抛开负优化等厂商能主观决定的事情，只是将这个系统完美的适配到你手机上，和原系统相比，一定是不如原系统的，但是如果没有这个参照的话，其实你也感觉不出来很明显的差距了。但是升级的权力在用户手上，而且升与不升也不是考试的是非对错。</p><p>不过在于我这样一个喜欢Windows只用LTSC版本，安卓拿到手第一件事情关闭甚至卸载系统更新软件的人看来，这个答案已经不言而喻了。虽然我一个从ios15开始就换到红米的人来说，对于苹果的系统的确是没有什么发言权了，而且系统质量上面，苹果一定也是优于小米的，但是这也只是我的一点点看法，或许经历过什么重大变更之后或许也能觉得手机的安全比性能更重要，就像我当初从Windows精简版变成使用Windows LTSC版本，所以适合自己的，往往需要自己的经历去决定，尊重绝对的数据结论有的时候未必不是一种盲从呢？</p><h3 id="更多详细升级建议，见：">更多详细升级建议，见：</h3>
+<h1 id="云泽の小屋"><a href="https://zeyun.dpdns.org/ios26.html">云泽の小屋</a></h1>
+
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>使用animation实现复杂形态过渡动画</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations.html"/>
+        <id>https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations.html</id>
+        <media:content url="https://kynx.qzz.io/media/posts/24/Animation.png" medium="image" />
+            <category term="HTML&amp;CSS指北"/>
+
+        <updated>2025-09-20T09:11:29+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/24/Animation.png" alt="" />
+                    之前使用transition属性确实是让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性animation。 格式： @keyframes&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/24/Animation.png" class="type:primaryImage" alt="" /></p>
+                <p>之前使用<code>transition</code>属性确实是让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性<code>animation</code>。</p><h2 id="animation属性组成"><code>animation</code>属性组成</h2>
+<blockquote>
+<ol>
+<li><strong>定义</strong> - 移动时间中每一个部分需要变换的属性</li>
+<li><strong>应用</strong> - 将定义的动画应用到元素上</li>
+</ol>
+</blockquote>
+<h3 id="定义">定义</h3>
+<p><strong>格式：</strong></p><pre><code class="language-css">@keyframes {
+    0% {
+        
+    }
+    50% {
+        
+    }
+    100% {
+        
+    }
+}
+</code></pre>
+<p><strong>写法：</strong></p><blockquote>
+<ul>
+<li>其中间可以是1-99的任意值，<code>50%</code>仅为格式示意</li>
+<li>在大括号内直接写属性需要实现的效果</li>
+</ul>
+</blockquote>
+<p>定义开始和结尾，可以使用上面的格式也可以使用下面的格式，虽然正确，但是统一性不强</p><pre><code class="language-css">@keyframes {
+    from {
+        
+    }
+    50% {
+        
+    }
+    to {
+        
+    }
+}
+</code></pre>
+<h3 id="应用">应用</h3>
+<p><strong>格式：</strong></p><pre><code class="language-css">.element {
+    animation: name(名称) duration(动画时间) timing-function(速度曲线) fill-mode(等待或者停止时显示的样式) delay(延迟时间) iteration-count(动画播放次数);
+    animation-play-state(动画暂停或者播放): ;
+}
+</code></pre>
+<p><strong>写法：</strong></p><blockquote>
+<ul>
+<li><code>animation-play-state</code>要单独写（<strong>例：</strong> 不要直接使用<code>animation: paused;</code>进行暂停）</li>
+<li>animation属性值需要按照顺序摆放，如果有<strong>不需要的直接不写即可</strong></li>
+</ul>
+</blockquote>
+<h2 id="animation进度条"><code>animation</code>进度条</h2>
+<pre><code class="language-css">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;进度条动画&lt;/title&gt;
+        &lt;style&gt;
+            .progressContainer {
+                margin: 20px auto;
+                width: 600px;
+                height: 20px;
+                background-color: grey;
+                border-radius: 20px;
+            }
+            .progressBar {
+                /* width: 200px; */
+                height: 20px;
+                background-color: green;
+                border-radius: 20px;
+                animation: fill 3s ease-in-out infinite;
+            }
+            @keyframes fill {
+                0% {
+                    width: 0;
+                }
+                100% {
+                    width: 600px;
+                }
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;progressContainer&quot;&gt;
+            &lt;div class=&quot;progressBar&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="详细教程-"><a href="./animation%E5%8A%A8%E7%94%BB%E5%B1%9E%E6%80%A7/%E6%95%99%E7%A8%8B.html">详细教程 =&gt;</a></h3>
+
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>数据表创建操作</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/data-table-create-operations.html"/>
+        <id>https://kynx.qzz.io/data-table-create-operations.html</id>
+        <media:content url="https://kynx.qzz.io/media/posts/23/IMG_20250916_222609.png" medium="image" />
+            <category term="MySQL学习笔记"/>
+
+        <updated>2025-09-16T22:27:06+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/23/IMG_20250916_222609.png" alt="" />
+                    在数据库中会存储很多相同类型，主键和外键的数据，这些数据为了同时显示会归纳整理起来，从而需要数据表统一其格式。在 上一篇文章 中已经可以对数据库进行增删查的操作，下面需要对数据库里面的数据表进行相同的操作。&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/23/IMG_20250916_222609.png" class="type:primaryImage" alt="" /></p>
+                <p>在数据库中会存储很多相同类型，主键和外键的数据，这些数据为了同时显示会归纳整理起来，从而需要数据表统一其格式。在 <strong><a href="https://cryozy.dpdns.org/database-operations-and-the-use-of-navicat-17.html">上一篇文章</a></strong> 中已经可以对数据库进行增删查的操作，下面需要对数据库里面的数据表进行相同的操作。</p><h2 id="建立学生数据库">建立学生数据库</h2>
+<h3 id="新建数据库">新建数据库</h3>
+<pre><code class="language-mysql">CREATE　DATABASE test;
+</code></pre>
+<figure class="post__image"><img loading="lazy" src="./input/media/files/MySQL学习笔记/数据库操作/image-20250916202458147.png" alt="image-20250916202458147" data-is-external-image="true"></figure><h3 id="在数据库中添加学生信息的数据表">在数据库中添加学生信息的数据表</h3>
+<blockquote>
+<ol>
+<li>学生的基本信息有<code>学号</code>，<code>姓名</code>等内容</li>
+<li>在基本信息中，学号一般不参加运算，所以采用字符类型<code>char</code>。姓名因为本身就是字符，也采用<code>char</code>，一般来说过学号长度一定，直接使用固定长度的<code>char</code>，姓名长短不一，使用自动分配字符长度的<code>varchar</code>更为合适一点</li>
+<li>学号是用来区分学生的唯一方式，应该是主键<code>PRIMARY KEY</code>，而姓名不能为空，所以使用<code>NOT NULL</code></li>
+</ol>
+</blockquote>
+<pre><code class="language-mysql">USE test;
+
+CREATE TABLE student (
+  student_id char(12) PRIMARY KEY COMMENT &#39;学号&#39;,
+  student_name varchar(4) NOT NULL COMMENT &#39;姓名&#39;
+)
+</code></pre>
+<figure class="post__image"><img loading="lazy" src="./input/media/files/MySQL学习笔记/数据库操作/image-20250916202755818.png" alt="image-20250916202755818" data-is-external-image="true"></figure><h3 id="成绩表中引用外键">成绩表中引用外键</h3>
+<blockquote>
+<ol>
+<li>需要有<code>学号</code>，<code>成绩</code>，<code>姓名</code>，<code>成绩ID</code>等，其中学号为外键，<code>成绩ID</code>则是主键</li>
+<li><code>成绩</code>，<code>姓名</code>，<code>成绩ID</code>均不能为空</li>
+</ol>
+</blockquote>
+<pre><code class="language-mysql">USE test;
+CREATE TABLE score(
+    score_id varchar(3) NOT NULL COMMENT &#39;成绩ID&#39;,
+    student_id varchar(3) NOT NULL COMMENT &#39;学号&#39;,
+    student_name varchar(4) NOT NULL COMMENT &#39;姓名&#39;,
+    CONSTRAINT score_student FOREIGN KEY (student_id) REFERENCES student (student_id)
+)
+</code></pre>
+<figure class="post__image"><img loading="lazy" src="./input/media/files/MySQL学习笔记/数据库操作/image-20250916221125244.png" alt="image-20250916221125244" data-is-external-image="true"></figure>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>transform属性使元素位移及形变</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/the-transform-property-enables-the-displacement-and-deformation-of-elements.html"/>
+        <id>https://kynx.qzz.io/the-transform-property-enables-the-displacement-and-deformation-of-elements.html</id>
+        <media:content url="https://kynx.qzz.io/media/posts/22/d2d58cd7eaa446a491946dea6f486e67.png" medium="image" />
+            <category term="HTML&amp;CSS指北"/>
+
+        <updated>2025-09-10T22:51:23+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/22/d2d58cd7eaa446a491946dea6f486e67.png" alt="" />
+                    使用transition制作元素外观之间的简单变换动画，但是类似于图形的移动，形变等并不太方便通过原本属性进行变换的则可以使用transform属性进行变换。 函数功能 函数用法&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/22/d2d58cd7eaa446a491946dea6f486e67.png" class="type:primaryImage" alt="" /></p>
+                <p>使用transition制作元素外观之间的简单变换动画，但是类似于图形的移动，形变等并不太方便通过原本属性进行变换的则可以使用transform属性进行变换。</p><h2 id="transform格式">transform格式</h2>
+<p><strong>函数功能</strong></p><blockquote>
+<ul>
+<li><code>translate</code>：<strong>控制元素平移</strong></li>
+<li><code>scale</code>：<strong>控制元素缩放大小</strong></li>
+<li><code>rotate</code>：<strong>控制元素旋转，在2D下默认是Z轴</strong></li>
+<li><code>skew</code>：<strong>控制元素倾斜角度</strong></li>
+<li><code>translate3d</code>：<strong>控制元素平移</strong></li>
+<li><code>scale3d</code>：<strong>控制元素缩放大小</strong></li>
+<li><code>rotate3d</code>：<strong>控制元素旋转</strong></li>
+<li><code>skew3d</code>：<strong>控制元素倾斜角度</strong></li>
+</ul>
+</blockquote>
+<p><strong>函数用法</strong></p><pre><code class="language-css">.element {
+    transform: translate(X轴移动位置, Y轴移动位置) scale(缩放比例，1为基础) rotate(角度) skew(相对于X轴的倾斜角度, 相对于Y轴的倾斜角度);
+}
+</code></pre>
+<p><strong>3d会比普通的的多一个Y值，最后一项是旋转角度，前面的X,Y,Z则是方向</strong></p><p>其中形变可以使用3D的一些效果，就分为2D和3D两个部分</p><h3 id="2d">2D</h3>
+<p><strong>实现（translate为例，其他根据用法带入即可）</strong></p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;transform属性&lt;/title&gt;
+        &lt;style&gt;
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: tomato;
+                transition: transform 1s;
+            }
+            .box:hover {
+                transform: translate(50%);
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="3d">3D</h3>
+<p>需要在父元素中创建3D效果展示区域，便于展示</p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;transform3D属性&lt;/title&gt;
+        &lt;style&gt;
+            .container {
+                transform-style: preserve-3d;
+                perspective: 800px;
+            }
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: tomato;
+                transition: transform 1s;
+            }
+            .box:hover {
+                transform: rotate3d(1, 0, -1, 30deg); /* 或者是transform: rotateX(30deg) rotateZ(-30deg) */
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="详细展示-"><a href="./transform%E5%8F%98%E6%8D%A2%E5%B1%9E%E6%80%A7/%E6%95%99%E7%A8%8B.html">详细展示 =&gt;</a></h3>
+<h3 id="自测题目-"><a href="./transform%E5%8F%98%E6%8D%A2%E5%B1%9E%E6%80%A7/%E8%AF%95%E9%A2%98.html">自测题目 =&gt;</a></h3>
+
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>数据库操作与Navicat 17使用</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/database-operations-and-the-use-of-navicat-17.html"/>
+        <id>https://kynx.qzz.io/database-operations-and-the-use-of-navicat-17.html</id>
+        <media:content url="https://kynx.qzz.io/media/posts/21/1757502719145.png" medium="image" />
+            <category term="MySQL学习笔记"/>
+
+        <updated>2025-09-10T19:12:14+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/21/1757502719145.png" alt="" />
+                    使用命令操作数据库 管理系统更像是没有桌面的Linux操作系统，需要使用命令对其进行控制与操作。 使用cmd连接MySQL数据库并进行操作&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/21/1757502719145.png" class="type:primaryImage" alt="" /></p>
+                <h2 id="使用命令操作数据库">使用命令操作数据库</h2>
+<p>管理系统更像是没有桌面的Linux操作系统，需要使用命令对其进行控制与操作。</p><p><strong>使用cmd连接MySQL数据库并进行操作</strong></p><p>使用Windows徽标键+R</p><figure class="post__image"><img src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185956113.png" alt="image-20250910185956113" data-is-external-image="true"></figure><p>输入cmd并回车，会打开一个新的窗口</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185147308.png" alt="image-20250910185147308" data-is-external-image="true"></figure><p>以</p><p><strong><code>mysql -hIP地址(如127.0.0.1) -P端口号(如3306) -u用户名(如root) -p密码(如root)</code></strong></p><p>这样的格式键入，即可连接本地数据库</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185246593.png" alt="image-20250910185246593" data-is-external-image="true"></figure><p>进入之后就可以对数据库进行增删改查的操作</p><blockquote>
+<ul>
+<li><strong>增加新的数据库</strong>：<code>create database 新建数据库的名字;</code></li>
+<li><strong>删除已经存在的数据库</strong>：<code>drop database 已经存在数据库的名字;</code></li>
+<li><strong>更改已有数据库核心属性</strong>：<code>alter database 数据库名 需要修改的东西;</code></li>
+<li><strong>查询数据库内容</strong>：<code>show 需要查看的东西（例如：databases, tables）;</code></li>
+</ul>
+</blockquote>
+<figure class="post__image"><img src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185319526.png" alt="image-20250910185319526" data-is-external-image="true"></figure><p><strong>使用Navicat 17连接管理MySQL</strong></p><p>在刚刚使用命令行对数据库进行操作的时候，不管是使用<code>create</code>还是<code>drop</code>对数据库进行更改的时候查看起来其实非常不方便，每次都要<code>show databases</code>，所以可以使用Navicat的图形界面更便于管理。</p><p>打开Navicat</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185349800.png" alt="image-20250910185349800" data-is-external-image="true"></figure><p>里面什么都没有，所以我们需要新建一个和本地数据库的连接。点击左上角的连接，会有一个弹出窗口</p><figure class="post__image"><img src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185430696.png" alt="image-20250910185430696" data-is-external-image="true"></figure><p>选中MySQL之后点击下一步</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185455911.png" alt="image-20250910185455911" data-is-external-image="true"></figure><p>在这里按照提示填入信息（如上图），点击测试连接，查看是否可以正常连接</p><figure class="post__image"><img src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185525688.png" alt="image-20250910185525688" data-is-external-image="true"></figure><p>提示可以正常连接之后点击确定即可。</p><p>在连接的右边有一个新建查询，点击后即可出现一下界面</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185542617.png" alt="image-20250910185542617" data-is-external-image="true"></figure><p>在出现的地方就可以使用命令操作数据库，以<code>create database new01</code>为例</p><figure class="post__image"><img src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185603240.png" alt="image-20250910185603240" data-is-external-image="true"></figure><p>单击运行</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185625820.png" alt="image-20250910185625820" data-is-external-image="true"></figure><p>提示成功之后，左侧数据库列表并没有显示，所以需要右键刷新</p><figure class="post__image"><img src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185650206.png" alt="image-20250910185650206" data-is-external-image="true"></figure><p>刷新后即可看到</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185708508.png" alt="image-20250911200137927" data-is-external-image="true"></figure><p>与<code>create</code>步骤一样，以下是<code>drop</code>执行完之后</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185727758.png" alt="image-20250910185727758" data-is-external-image="true"></figure>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>MySQL组件安装过程</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/mysql-component-installation-process.html"/>
+        <id>https://kynx.qzz.io/mysql-component-installation-process.html</id>
+        <media:content url="https://kynx.qzz.io/media/posts/20/image-20250909225031923.png" medium="image" />
+            <category term="MySQL学习笔记"/>
+
+        <updated>2025-09-09T23:47:23+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/20/image-20250909225031923.png" alt="" />
+                    MySQL是一个管理系统，所以在安装的时候需要一个可以方便与其交互的软件，所以必须要有Navicat这样一个图形化界面的软件，更便于对数据库进行操作 安装C++运行库，MySQL需要使用（安装完成后关闭即可） 安装MySQL&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/20/image-20250909225031923.png" class="type:primaryImage" alt="" /></p>
+                <p>MySQL是一个管理系统，所以在安装的时候需要一个可以方便与其交互的软件，所以必须要有Navicat这样一个图形化界面的软件，更便于对数据库进行操作</p><h2 id="准备">准备</h2>
+<blockquote>
+<ul>
+<li><a href="https://dev.mysql.com/downloads/installer/">MySQL社区版安装包</a></li>
+<li><a href="https://aka.ms/vs/16/release/VC_redist.x64.exe">Microsoft Visual C++ 2019 Redistributable</a></li>
+<li><a href="https://www.123865.com/s/3Zhljv-R93Eh">Navicat 17</a></li>
+</ul>
+</blockquote>
+<h2 id="安装">安装</h2>
+<p><strong>安装C++运行库，MySQL需要使用（安装完成后关闭即可）</strong></p><figure class="post__image"><img src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909224828699.png" alt="image-20250909224828699" data-is-external-image="true"></figure><p><strong>安装MySQL</strong></p><p>双击运行安装程序，直至出现这个界面：</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225031923.png" alt="image-20250909225031923" data-is-external-image="true"></figure><p>点击Next（<strong>如果对于英文界面熟悉，且需要更换数据存储目录可以选择Custom自定义安装</strong>）：</p><figure class="post__image"><img src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225106145.png" alt="image-20250909225106145" data-is-external-image="true"></figure><p>点击Execute，等待出现如下界面：</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225144059.png" alt="image-20250909225144059" data-is-external-image="true"></figure><p>点击Next：</p><figure class="post__image"><img src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225204005.png" alt="image-20250909225204005" data-is-external-image="true"></figure><p>继续点击Next：</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225231518.png" alt="image-20250909225231518" data-is-external-image="true"></figure><p>继续点击Next：</p><figure class="post__image"><img src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225251002.png" alt="image-20250909225251002" data-is-external-image="true"></figure><p>继续点击Next：</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225313793.png" alt="image-20250909225313793" data-is-external-image="true"></figure><p>出现这个界面之后就需要输入管理员账户密码，也就是Root密码，输入完成之后点击Next：</p><figure class="post__image"><img src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225425419.png" alt="image-20250909225425419" data-is-external-image="true"></figure><p>点击Next：</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909230043730.png" alt="image-20250909230043730" data-is-external-image="true"></figure><p>点击Next（<strong>这里调整了数据存储位置，与图片不一样不用在意</strong>）：</p><figure class="post__image"><img src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909230236778.png" alt="image-20250909230236778" data-is-external-image="true"></figure><p>点击Execute，出现这个界面就是已经安装完成，点击Finnish即可：</p><figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909231859102.png" alt="image-20250909231859102" data-is-external-image="true"></figure><p>添加环境变量：</p><p>找到安装文件目录，一般在<code>C:\Program Files\MySQL\MySQL Server 8.0\bin</code>，自定义的除外，复制其安装路径</p><p>打开环境变量编辑页面
+右键此电脑，选择属性
+<figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909232741321.png" alt="image-20250909232741321" data-is-external-image="true"></figure></p><p>找到<code>高级系统设置</code>
+<figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909232847556.png" alt="image-20250909232847556" data-is-external-image="true"></figure></p><p>选择环境变量
+<figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909232913654.png" alt="image-20250909232913654" data-is-external-image="true"></figure></p><p>上方的用户变量和下方的系统变量都可以，在其中找到Path双击即可
+<figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909233039443.png" alt="image-20250909233039443" data-is-external-image="true"></figure></p><p>点击新建并将刚刚复制的路径粘贴进去
+<figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909233243164.png" alt="image-20250909233243164" data-is-external-image="true"></figure></p><p>点击确定即可</p><p><strong>安装Navicat 17</strong></p><p>双击执行安装程序，无脑下一步即可</p><p>右键桌面上程序图标，选择打开文件所在位置，Windows11可以在显示更多选项中找到
+<figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909233528616.png" alt="image-20250909233528616" data-is-external-image="true"></figure></p><p>将winmm.dll应用程序扩展放入
+<figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909233656686.png" alt="image-20250909233656686" data-is-external-image="true"></figure></p><p>即可开始使用</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Windows系统重装</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/reinstall-windows.html"/>
+        <id>https://kynx.qzz.io/reinstall-windows.html</id>
+        <media:content url="https://kynx.qzz.io/media/posts/19/windows-20131111837.jpg" medium="image" />
+            <category term="隙光微尘​"/>
+
+        <updated>2025-09-06T22:33:47+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/19/windows-20131111837.jpg" alt="" />
+                    借着我朋友重装系统的机会，讲述一下我重装系统的过程。 准备好这些之后就可以主备开始安装系统了 将PE写进U盘&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/19/windows-20131111837.jpg" class="type:primaryImage" alt="" /></p>
+                <p>借着我朋友重装系统的机会，讲述一下我重装系统的过程。</p><h2 id="准备">准备</h2>
+<blockquote>
+<ul>
+<li>1个16G的空U盘（<strong>或者</strong>是里面数据备份好的U盘）</li>
+<li>一个<a href="https://www.wepe.com.cn/download.html">WePE工具箱的软件程序</a></li>
+<li><a href="https://winnew.cn/">Windows原版系统镜像</a></li>
+<li><a href="https://www.neatdownloadmanager.com/file/NeatDM_setup.exe">下载工具（可选）</a></li>
+<li>电脑的驱动程序及其所需要的软件</li>
+<li>备份好电脑中所有需要的数据</li>
+</ul>
+</blockquote>
+<p>准备好这些之后就可以主备开始安装系统了</p><h2 id="启动盘">启动盘</h2>
+<p><strong>将PE写进U盘</strong></p><p>打开WePE软件，点击红框中的选项：</p><figure class="post__image"><img src="./media/files/隙光微尘/Windows系统重装/image-20250906214520032.png" alt="image-20250906214520032" data-is-external-image="true"></figure><p>在待写入U盘的地方选择准备好的空U盘（<strong>或</strong>刚刚已经备份好数据的U盘），这个过程会将U盘的数据全部清除，注意<strong>备份</strong>：</p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/Windows系统重装/image-20250906214606058.png" alt="image-20250906214606058" data-is-external-image="true"></figure><p><strong>这个时候，资源管理器上会出现一个空的微PE工具箱，打开并将系统镜和电脑驱动程序放入PE：</strong></p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/Windows系统重装/image-20250906221636954.png" alt="image-20250906221636954" data-is-external-image="true"></figure><h2 id="进入pe，安装系统">进入PE，安装系统</h2>
+<p><strong>使用DiskGenius快速格式化系统硬盘（几个分区以及分区大小看个人喜好）：</strong></p><p>MBR：</p><figure class="post__image"><img src="./media/files/隙光微尘/Windows系统重装/image-20250906222030355.png" alt="image-20250906222030355" data-is-external-image="true"></figure><p>GPT（不管保留ESP分区显不显示，都按照这个方法）：</p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/Windows系统重装/image-20250906222155432.png" alt="image-20250906222155432" data-is-external-image="true"></figure><p><strong>使用WinNTSetup安装镜像（按照提示选择就可以）：</strong></p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/Windows系统重装/image-20250906222509009.png" alt="image-20250906222509009" data-is-external-image="true"></figure><h2 id="最后">最后</h2>
+<p>重启之后正常进入Windows系统，我使用的一直是LTSC版本，如果家庭版和专业版在安装网卡驱动的地方不能使用本地账户先进入再打驱动的话直接选择所有驱动所在的文件夹即可直接打上所有驱动，所以驱动也尽量放在PE盘中。</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>transition属性制作CSS交互动画</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/css-transition-property-for-interactive-animations.html"/>
+        <id>https://kynx.qzz.io/css-transition-property-for-interactive-animations.html</id>
+        <media:content url="https://kynx.qzz.io/media/posts/18/v2-f20d789d325adcc530a30d1cfcccc7b3_1440w.png" medium="image" />
+            <category term="HTML&amp;CSS指北"/>
+
+        <updated>2025-09-03T22:11:39+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/18/v2-f20d789d325adcc530a30d1cfcccc7b3_1440w.png" alt="" />
+                    动画在生活中很常见，手机的APP打开就是从本来规定的图标形状变化到屏幕全屏的形状，中间时间的所有变化都是动画。在手机上就成为过渡动画，这个动画的本质目的其实就是让人脑有一个来回过程的显示，更便于其理解。这种理解的本意就是知其何来，知其何去。虽然有不少的人会觉得这种动画在Windows，Linux系统上就是增加硬件的负担，降低硬件性能，但是也是因为有来有回，而且动画使用特定的曲线让苹果在桌面系统中获得一席之地。 这几个属性便可以分开去写（效果：鼠标放在图形上时，正方形在1秒之内使用ease的贝塞尔曲线值转变成圆形）： &lt;!DOCTYPE&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/18/v2-f20d789d325adcc530a30d1cfcccc7b3_1440w.png" class="type:primaryImage" alt="" /></p>
+                <p>动画在生活中很常见，手机的APP打开就是从本来规定的图标形状变化到屏幕全屏的形状，中间时间的所有变化都是动画。在手机上就成为过渡动画，这个动画的本质目的其实就是让人脑有一个来回过程的显示，更便于其理解。这种理解的本意就是知其何来，知其何去。虽然有不少的人会觉得这种动画在Windows，Linux系统上就是增加硬件的负担，降低硬件性能，但是也是因为有来有回，而且动画使用特定的曲线让苹果在桌面系统中获得一席之地。</p><h2 id="transition属性的属性值">transition属性的属性值</h2>
+<blockquote>
+<ul>
+<li><code>transition-property</code>：参与变换的属性（<strong>默认值：/</strong>）</li>
+<li><code>transition-duration</code>：变化的时间长度（<strong>默认值：0</strong>）</li>
+<li><code>transition-timing-function</code>：过渡动画的贝塞尔曲线设置（<strong>默认值：ease</strong>）</li>
+<li><code>transition-delay</code>：动画开始之前的等待时间（<strong>默认值：0</strong>）</li>
+</ul>
+</blockquote>
+<h2 id="效果展示">效果展示</h2>
+<p>这几个属性便可以分开去写（<strong>效果：鼠标放在图形上时，正方形在1秒之内使用ease的贝塞尔曲线值转变成圆形</strong>）：</p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;style&gt;
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: tomato;
+                margin: 50px auto;
+
+                transition-property: border-radius;
+                transition-duration: 1s;
+                transition-timing-function: ease;
+                transition-delay: 0s;
+            }
+
+            .box:hover {
+                border-radius: 50%;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>将其整合成<code>transition</code>一个属性：</strong></p><p>格式：</p><p><code>transtion: 变化属性 变化时间 变化时使用的贝塞尔曲线 开始动画前的等待时间, 变化属性 变化时间 变化时使用的贝塞尔曲线 开始动画前的等待时间</code></p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;style&gt;
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: tomato;
+                margin: 50px auto;
+                
+                transition: border-radius 1s ease;
+            }
+
+            .box:hover {
+                border-radius: 50%;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>同时操作两个属性一起变化</strong>（效果：鼠标放在图形上时，正方形在1秒之内使用ease的贝塞尔曲线值转变成圆形，<strong>同时宽度增加100px</strong>）：</p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;style&gt;
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: tomato;
+                margin: 50px auto;
+
+                transition: all 1s ease;
+            }
+
+            .box:hover {
+                width: 200px;
+                border-radius: 50%;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="详细展示-"><a href="./transition%E8%BF%87%E6%B8%A1%E5%B1%9E%E6%80%A7/%E6%95%99%E7%A8%8B.html">详细展示 =&gt;</a></h3>
+<h3 id="自测题目-"><a href="./transition%E8%BF%87%E6%B8%A1%E5%B1%9E%E6%80%A7/%E8%AF%95%E9%A2%98.html">自测题目 =&gt;</a></h3>
+
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>微信小程序开发体验</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/wechat-mini-program-development-experience.html"/>
+        <id>https://kynx.qzz.io/wechat-mini-program-development-experience.html</id>
+        <media:content url="https://kynx.qzz.io/media/posts/17/1679968545241320.png" medium="image" />
+            <category term="小程序开发与维护"/>
+
+        <updated>2025-08-31T20:12:26+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/17/1679968545241320.png" alt="" />
+                    以前一直是知道微信小程序是由前端的三个语言组合开发出来的，但是现在会变得如此简单，省去很多学习前端时不需要的后端知识。我做的是一个手机硬件数据库类型的小程序，目前已经搭建了一个雏形出来，但是还有很多的小功能需要去完善。 在这些天的开发之中学习到了很多新鲜的东西，就包括前端代码是怎么操作后端数据库（微信云开发的数据库），以及很多比float更好的布局方式，以及垂直向下滚动还需要代码…… HTML&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/17/1679968545241320.png" class="type:primaryImage" alt="" /></p>
+                <p>以前一直是知道微信小程序是由前端的三个语言组合开发出来的，但是现在会变得如此简单，省去很多学习前端时不需要的后端知识。我做的是一个手机硬件数据库类型的小程序，目前已经搭建了一个雏形出来，但是还有很多的小功能需要去完善。</p><h2 id="开发收获">开发收获</h2>
+<p>在这些天的开发之中学习到了很多新鲜的东西，就包括前端代码是怎么操作后端数据库（微信云开发的数据库），以及很多比float更好的布局方式，以及垂直向下滚动还需要代码……</p><p><strong>HTML / CSS — 布局</strong></p><p>我一直非常喜欢有规矩的布局方式，就类似于网格样式的卡片布局，所以之前一直在研究怎么漂浮可以做到，但是一直是没有成果的，所以索性问问AI，看看有什么比较好的方法。</p><p>AI这个时候就给我推荐了flex布局，但是flex布局是单项的，只能但横向或者是单竖向排列：</p><pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
+    &lt;img src=&quot;*&quot;&gt;
+    &lt;text&gt;Hello&lt;/text&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.container {
+    display: flex;
+    flex-direction: column; /* 这个是纵向布局，也就是两个元素竖向排列，column-reverse就是将首尾颠倒摆放 */
+    flex-direction: row; /* 这个是横向布局，也就是两个元素横向摆放，row-reverse就是将上下元素颠倒摆放 */
+    gap: 6px; /* 添加两个元素之间的间距，单纵向或者是横向 */
+}
+</code></pre>
+<p>但是还是不容易实现类似网格的样式，要是列数不一样就会显示成居中的样式，还是非常难受的，类似于这样：</p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/微信小程序开发体验/1756610504169.jpg" alt="" data-is-external-image="true"></figure><p>所以，我开始寻找一个更好的布局方式，晚上偶然间刷哔哩哔哩的时候看到了 <em><a href="https://b23.tv/AG3pGlI">这个视频</a></em> 之后学会了使用Grid布局，这个布局我后来是将其混合进flex布局里面，个人感觉看上去还不错，这里放一段小程序源码片段：</p><pre><code class="language-xml">&lt;view class=&quot;items&quot; wx:for=&quot;{{products}}&quot; wx:key=&quot;_id&quot; bindtap=&quot;goToDetail&quot; data-id=&quot;{{item._id}}&quot;&gt;
+      &lt;view class=&quot;image-container&quot;&gt;
+        &lt;image src=&quot;{{item.mainImage}}&quot; mode=&quot;widthFix&quot;/&gt;
+      &lt;/view&gt;
+      &lt;view class=&quot;general-informations&quot;&gt;
+        &lt;view class=&quot;core&quot;&gt;
+          &lt;view class=&quot;name&quot;&gt;{{item.name}}&lt;/view&gt;
+          &lt;view class=&quot;price&quot;&gt;{{item.briefInfo.price}}&lt;/view&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;specs&quot;&gt;
+          &lt;view class=&quot;cpu&quot;&gt;处理器：{{item.briefInfo.cpu}}&lt;/view&gt;
+          &lt;view class=&quot;battery&quot;&gt;电池：{{item.briefInfo.battery}}&lt;/view&gt;
+          &lt;view class=&quot;screen&quot;&gt;屏幕：{{item.briefInfo.screen}}&lt;/view&gt;
+          &lt;view class=&quot;mainCamera&quot;&gt;主摄：{{item.briefInfo.mainCamera}}&lt;/view&gt;
+        &lt;/view&gt;
+      &lt;/view&gt;
+    &lt;/view&gt;
+</code></pre>
+<pre><code class="language-css">.items {
+  background-color: #fff;
+  height: 160px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex; /* 使用flex布局 */
+  align-items: center; /* 垂直居中 */
+  gap: 15px; /* 图片和文字区域间距 */
+}
+.image-container {
+  /* 保留原有的宽度和比例设置 */
+  width: 30%;
+  aspect-ratio: 1/1;
+  /* 移除float，改用flex布局实现居中 */
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  padding: 0;
+  box-sizing: border-box;
+}
+.items image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  box-sizing: border-box;
+}
+.general-informations {
+  /* 保留原有的宽度和比例设置 */
+  width: 70%;
+  aspect-ratio: 1/1;
+  /* 移除float，改用flex布局实现居中 */
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  /* align-items: center; */
+  justify-content: center;
+
+  padding: 0;
+  box-sizing: border-box;
+}
+.core {
+  display: grid;
+  grid-template-columns: 55% 1fr;
+  gap: 6px;
+}
+.specs {
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  gap: 6px;
+  font-size: 12px;
+  color: #888;
+}
+.name {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #0a8290;
+  /* text-align: center; */
+}
+.price {
+  font-size: 14px;
+  color: #086470;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 8px;
+}
+.screen {
+  grid-column: 1 / span 2;
+}
+.mainCamera {
+  grid-column: 1 / span 2;
+}
+</code></pre>
+<p>下面是实现效果的图片：</p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/微信小程序开发体验/1756611582326.jpg" alt="" data-is-external-image="true"></figure><p><strong>Javascript - 数据库的增删改查</strong></p><p>其实我一开始写首页的代码的时候其实也是在想应该怎么去让其能够显示实时上传的数据，当时虽然知道Javascript是能够访问后端数据库的语言，但是算法使用C++自学的，但是入门编程的是Python，在自学C++期间也了解了不少C语言的相关知识，但是看到Javascript之后还是只能达到勉强看懂的程度，感觉学习起来还是差一点意思，所以就优先让AI写了一个产品页面的显示，这才搞懂是怎么从数据库获取数据并且在前端显示出来的。</p><ul>
+<li><p>首先就是要在xwml上面绑定数据库集合</p><pre><code class="language-css">&lt;view class=&quot;&quot; wx:for=&quot;{{products}}&quot;&gt;&lt;/view&gt;
+</code></pre>
+</li>
+<li><p>其次需要对数据库内条目进行查询并返回给前端页面，这个是我模仿AI给的示例模仿并编写的首页数据库加载程序源码：</p><pre><code class="language-css">loadProducts() {
+    db.collection(&quot;products&quot;)
+    .orderBy(&#39;releaseDate&#39;, &#39;desc&#39;)
+    .limit(15)
+    .get({
+      success: (res)=&gt; {
+        console.log(&quot;产品粗略信息查询成功，返回数据：&quot;, res.data);
+        this.setData({
+          products: res.data
+        });
+        fail: (err) =&gt; {
+          console.error(&#39;产品粗略信息查询成功，返回数据：&#39;, err);
+        }
+      }
+    })
+  }
+</code></pre>
+</li>
+<li><p>最后就是将结构数据全部换成其在数据库对应位置即可，例如这样：</p><pre><code class="language-css">&lt;view class=&quot;cpu&quot;&gt;处理器：{{item.briefInfo.cpu}}&lt;/view&gt;
+</code></pre>
+</li>
+</ul>
+<p>页面跳转是这一次最早接触到的，毕竟在一开始写底部菜单栏的时候就已经开始使用了，只不过其跳转方式与其他二级页面有所不同，二级页面需要其记忆上一级页面，但是底部菜单栏跳转的就不需要记忆了。所以两个跳转方式不相同。</p><p>菜单栏跳转，因为是全局的，所以就将其放在components目录下了，就统一编写了：</p><pre><code class="language-js">goToIndex() {
+      this.setData({ activeIndex: 0 }); // 更新激活索引
+      wx.redirectTo({ url: &#39;/pages/index/index&#39; });
+    },
+    goToBrand() {
+      this.setData({ activeIndex: 1 }); // 更新激活索引
+      wx.redirectTo({ url: &#39;/pages/brand/brand&#39;});
+    },
+    goToCpu() {
+      this.setData({ activeIndex: 2 }); // 更新激活索引
+      wx.redirectTo({ url: &#39;/pages/cpu/cpu&#39; });
+    },
+    goToManage() {
+      this.setData({ activeIndex: 3 }); // 更新激活索引
+      wx.redirectTo({ url: &#39;/pages/manage/manage&#39; });
+    }
+  }
+</code></pre>
+<p>二级页面跳转方式：</p><pre><code class="language-js">goToDetail(e) {
+    const productId = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/productDetail/productDetail?id=${productId}`
+    });
+  }
+</code></pre>
+<p>但是还是有一点遗憾，在写管理页面上面，编辑和上传数据这些我都没有办法写出来，于是交给AI去做，但是出来结果之后也只能面勉强看懂流程，但是完全不懂里面的技术，我决定根据后期的版本迭代再去学习里面的详细内容。</p>
+            ]]>
+        </content>
+    </entry>
+</feed>

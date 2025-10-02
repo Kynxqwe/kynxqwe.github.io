@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../media/website/Logo.png">
+    <title>CSS3过渡动画试题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #3498db;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #3498db;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin: 20px 0 10px;
+        }
+        
+        .student-info {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .student-info h2 {
+            margin-top: 0;
+        }
+        
+        .info-input {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .input-group {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .input-group label {
+            /* display: block; */
+            margin-bottom: 8px;
+            margin-right: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .input-group input {
+            width: 80%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .input-group input:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .quiz-section {
+            margin-bottom: 40px;
+        }
+        
+        .question {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .options {
+            list-style: none;
+        }
+        
+        .option {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background: #edf2f7;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option:hover {
+            background: #e2e8f0;
+        }
+        
+        .option input {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+        .option label {
+            cursor: pointer;
+            flex-grow: 1;
+        }
+        
+        .true-false {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .true-false label {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background: #edf2f7;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .true-false label:hover {
+            background: #e2e8f0;
+        }
+        
+        .true-false input {
+            margin-right: 8px;
+        }
+        
+        .submit-btn, .restart-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 30px;
+        }
+        
+        .submit-btn:hover, .restart-btn:hover {
+            background: #2980b9;
+        }
+        
+        .restart-btn {
+            background: #2ecc71;
+            display: none;
+        }
+        
+        .restart-btn:hover {
+            background: #27ae60;
+        }
+        
+        .result {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .correct {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .answer-feedback {
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        /* 结果表格样式 */
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .result-table th, .result-table td {
+            border: 1px solid #b2bec3;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .result-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .result-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .incorrect-answer {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .correct-answer {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .study-suggestions {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .study-suggestions h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .study-suggestions ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .study-suggestions li {
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .true-false {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .result-table {
+                font-size: 14px;
+            }
+            
+            .result-table th, .result-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS3过渡动画试题</h1>
+            <p>检验你对CSS3过渡动画的掌握程度 | 总分 60 分，共 25 题</p>
+        </header>
+        
+        <!-- 学生信息输入区域 -->
+        <section class="student-info">
+            <!-- <h2>学生信息</h2> -->
+            <div class="info-input">
+                <div class="input-group">
+                    <label for="student-id">学号</label>
+                    <input type="text" id="student-id" placeholder="请输入学号">
+                </div>
+                <div class="input-group">
+                    <label for="student-name">姓名</label>
+                    <input type="text" id="student-name" placeholder="请输入姓名">
+                </div>
+            </div>
+        </section>
+        
+        <form id="quiz-form">
+            <!-- 单项选择题 -->
+            <section class="quiz-section">
+                <h2>一、单项选择题（每题2分，共10题）</h2>
+                
+                <div class="question" id="q1">
+                    <div class="question-text">1. 如果希望过渡效果在0.5秒内完成，应该使用哪个值？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q1" id="q1a" value="A">
+                            <label for="q1a">A. 0.5s</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q1" id="q1b" value="B">
+                            <label for="q1b">B. 500</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q1" id="q1c" value="C">
+                            <label for="q1c">C. 0.5ms</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q1" id="q1d" value="D">
+                            <label for="q1d">D. duration-0.5</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q2">
+                    <div class="question-text">2. 下列哪个CSS属性不能应用过渡效果？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q2" id="q2a" value="A">
+                            <label for="q2a">A. opacity</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q2" id="q2b" value="B">
+                            <label for="q2b">B. display</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q2" id="q2c" value="C">
+                            <label for="q2c">C. width</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q2" id="q2d" value="D">
+                            <label for="q2d">D. background-color</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q3">
+                    <div class="question-text">3. 默认的transition-timing-function值是什么？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q3" id="q3a" value="A">
+                            <label for="q3a">A. linear</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q3" id="q3b" value="B">
+                            <label for="q3b">B. ease</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q3" id="q3c" value="C">
+                            <label for="q3c">C. ease-in</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q3" id="q3d" value="D">
+                            <label for="q3d">D. ease-out</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q4">
+                    <div class="question-text">4. 如果想要所有CSS属性都应用过渡效果，应该使用哪个值？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q4" id="q4a" value="A">
+                            <label for="q4a">A. *</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q4" id="q4b" value="B">
+                            <label for="q4b">B. any</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q4" id="q4c" value="C">
+                            <label for="q4c">C. all</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q4" id="q4d" value="D">
+                            <label for="q4d">D. default</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q5">
+                    <div class="question-text">5. 下列哪个时间函数表示匀速运动？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q5" id="q5a" value="A">
+                            <label for="q5a">A. ease</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q5" id="q5b" value="B">
+                            <label for="q5b">B. ease-in</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q5" id="q5c" value="C">
+                            <label for="q5c">C. linear</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q5" id="q5d" value="D">
+                            <label for="q5d">D. ease-in-out</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q6">
+                    <div class="question-text">6. 如果想要延迟1秒后开始过渡动画，应该使用哪个属性？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q6" id="q6a" value="A">
+                            <label for="q6a">A. transition-start</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q6" id="q6b" value="B">
+                            <label for="q6b">B. transition-wait</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q6" id="q6c" value="C">
+                            <label for="q6c">C. transition-delay</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q6" id="q6d" value="D">
+                            <label for="q6d">D. transition-pause</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q7">
+                    <div class="question-text">7. 下列哪个属性用于指定过渡效果持续的时间？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q7" id="q7a" value="A">
+                            <label for="q7a">A. transition-time</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q7" id="q7b" value="B">
+                            <label for="q7b">B. transition-duration</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q7" id="q7c" value="C">
+                            <label for="q7c">C. transition-length</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q7" id="q7d" value="D">
+                            <label for="q7d">D. transition-period</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q8">
+                    <div class="question-text">8. 下列哪个表示过渡效果先慢后快？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q8" id="q8a" value="A">
+                            <label for="q8a">A. ease-in</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q8" id="q8b" value="B">
+                            <label for="q8b">B. ease-out</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q8" id="q8c" value="C">
+                            <label for="q8c">C. ease-in-out</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q8" id="q8d" value="D">
+                           <label for="q8d">D. ease</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q9">
+                    <div class="question-text">9. 如果想要为宽度和高度设置不同的过渡时间，应该如何编写？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q9" id="q9a" value="A">
+                            <label for="q9a">A. transition: width 2s, height 1s;</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q9" id="q9b" value="B">
+                            <label for="q9b">B. transition: 2s width, 1s height;</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q9" id="q9c" value="C">
+                            <label for="q9c">C. transition: width and height 2s;</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q9" id="q9d" value="D">
+                            <label for="q9d">D. transition: width 2s; transition: height 1s;</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q10">
+                    <div class="question-text">10. transition-delay 属性的取值可以是以下哪种类型？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q10" id="q10a" value="A">
+                            <label for="q10a">A. 百分比</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q10" id="q10b" value="B">
+                            <label for="q10b">B. 像素（px）</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q10" id="q10c" value="C">
+                            <label for="q10c">C. 秒（s）或毫秒（ms）</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q10" id="q10d" value="D">
+                            <label for="q10d">D. 无单位数值</label>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- 多项选择题 -->
+            <section class="quiz-section">
+                <h2>二、多项选择题（每题4分，共5题）</h2>
+                
+                <div class="question" id="q11">
+                    <div class="question-text">11. 关于 transition 复合属性的写法规则，下列说法正确的有？（多选）</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="checkbox" name="q11" id="q11a" value="A">
+                            <label for="q11a">A. 必须包含 transition-duration 属性值，否则过渡无效</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q11" id="q11b" value="B">
+                            <label for="q11b">B. transition-delay 的取值必须在 transition-duration 之后</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q11" id="q11c" value="C">
+                            <label for="q11c">C. 可省略 transition-timing-function，默认值为 ease</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q11" id="q11d" value="D">
+                            <label for="q11d">D. 可直接写 “transition: all 1s;”，表示所有可过渡属性的动画持续时间为 1s</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q12">
+                    <div class="question-text">12. 下列哪些是transition-timing-function的合法值？（多选）</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="checkbox" name="q12" id="q12a" value="A">
+                            <label for="q12a">A. ease</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q12" id="q12b" value="B">
+                            <label for="q12b">B. linear</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q12" id="q12c" value="C">
+                            <label for="q12c">C. fast</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q12" id="q12d" value="D">
+                            <label for="q12d">D. cubic-bezier(0.1, 0.7, 1.0, 0.1)</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q13">
+                    <div class="question-text">13. 下列哪些属性可以应用CSS过渡效果？（多选）</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="checkbox" name="q13" id="q13a" value="A">
+                            <label for="q13a">A. border-radius</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q13" id="q13b" value="B">
+                            <label for="q13b">B. font-size</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q13" id="q13c" value="C">
+                            <label for="q13c">C. font-family</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q13" id="q13d" value="D">
+                            <label for="q13d">D. width</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q14">
+                    <div class="question-text">14. 下列哪些方法可以触发CSS过渡动画？（多选）</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="checkbox" name="q14" id="q14a" value="A">
+                            <label for="q14a">A. :hover伪类</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q14" id="q14b" value="B">
+                            <label for="q14b">B. :focus伪类</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q14" id="q14c" value="C">
+                            <label for="q14c">C. JavaScript添加/删除类</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q14" id="q14d" value="D">
+                            <label for="q14d">D. 页面加载时自动触发</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q15">
+                    <div class="question-text">15. 关于transition-timing-function属性，下列取值中表示 "先慢后快再慢" 的有？（多选）</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="checkbox" name="q15" id="q15a" value="A">
+                            <label for="q15a">A. ease</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q15" id="q15b" value="B">
+                            <label for="q15b">B. ease-in-out</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q15" id="q15c" value="C">
+                            <label for="q15c">C. cubic-bezier(0.25, 0.1, 0.25, 1)</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q15" id="q15d" value="D">
+                            <label for="q15d">D. linear</label>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- 判断题 -->
+            <section class="quiz-section">
+                <h2>三、判断题（每题2分，共10题）</h2>
+                
+                <div class="question" id="q16">
+                    <div class="question-text">16. CSS3过渡动画可以自动触发，不需要用户交互或JavaScript事件。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q16" id="q16true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q16" id="q16false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q17">
+                    <div class="question-text">17. transition-property: all; 表示所有CSS属性都将获得过渡效果。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q17" id="q17true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q17" id="q17false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q18">
+                    <div class="question-text">18. 使用display属性可以在元素显示和隐藏之间创建平滑的过渡效果。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q18" id="q18true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q18" id="q18false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q19">
+                    <div class="question-text">19. 贝塞尔曲线cubic-bezier(0,0,1,1)等同于linear时间函数。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q19" id="q19true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q19" id="q19false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q20">
+                    <div class="question-text">20. 过渡效果可以同时指定多个属性，每个属性可以有不同的持续时间和时间函数。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q20" id="q20true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q20" id="q20false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q21">
+                    <div class="question-text">21. transition-duration属性可以使用负值。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q21" id="q21true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q21" id="q21false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q22">
+                    <div class="question-text">22. 在transition简写属性中，过渡持续时间（transition-duration）是必须的，其他参数可以省略。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q22" id="q22true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q22" id="q22false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q23">
+                    <div class="question-text">23. CSS过渡效果在元素初始渲染时就会自动执行一次。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q23" id="q23true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q23" id="q23false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q24">
+                    <div class="question-text">24. 使用transition-delay属性可以为过渡效果设置延迟时间。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q24" id="q24true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q24" id="q24false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q25">
+                    <div class="question-text">25. CSS过渡只能应用于块级元素，不能应用于行内元素。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q25" id="q25true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q25" id="q25false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+            
+            <button type="button" class="submit-btn" onclick="calculateScore()">提交答案</button>
+            <button type="button" class="restart-btn" onclick="restartQuiz()">重新刷题</button>
+            
+            <div id="result" class="result"></div>
+            <div id="result-details"></div>
+        </form>
+    </div>
+
+    <script>
+        // 正确答案和解析
+        const correctAnswers = {
+            // 单选题答案和解析
+            q1: {answer: "A", explanation: "过渡时间使用秒(s)或毫秒(ms)作为单位，0.5s表示半秒。"},
+            q2: {answer: "B", explanation: "display属性不能应用过渡效果，因为它没有中间状态。元素要么显示要么隐藏，没有过渡状态。"},
+            q3: {answer: "B", explanation: "默认的transition-timing-function值是ease，它表示动画以低速开始，然后加快，在结束前变慢。"},
+            q4: {answer: "C", explanation: "使用'all'值可以让所有CSS属性都应用过渡效果。"},
+            q5: {answer: "C", explanation: "linear时间函数表示匀速运动，动画从头到尾的速度是相同的。"},
+            q6: {answer: "C", explanation: "transition-delay属性用于设置过渡效果开始前的延迟时间。"},
+            q7: {answer: "B", explanation: "transition-duration属性用于指定过渡效果持续的时间。"},
+            q8: {answer: "A", explanation: "ease-in表示过渡效果先慢后快，动画以低速开始。"},
+            q9: {answer: "A", explanation: "可以为不同属性设置不同的过渡时间，用逗号分隔多个属性设置。"},
+            q10: {answer: "C", explanation: "transition-delay 属性用于定义过渡效果延迟开始的时间，其取值只能是时间单位，即秒（s）或毫秒（ms）。"},
+            
+            // 多选题答案和解析
+            q11: {answer: ["A", "B", "C", "D"], explanation: "transition-duration 是必选属性，若省略（默认值为 0），过渡会瞬间完成，相当于无效；复合写法中，时间值遵循 “前为 duration，后为 delay” 的规则，delay 必须在 duration 之后；transition-timing-function 可省略，默认值为 ease；“transition: all 1s;” 中 “all” 表示所有可动画属性，1s 为过渡时间。"},
+            q12: {answer: ["A", "B", "D"], explanation: "ease、linear和cubic-bezier()都是transition-timing-function的合法值，但fast不是有效的值。"},
+            q13: {answer: ["A", "B", "D"], explanation: "border-radius、font-size和width都可以应用过渡效果，字体切换无法平滑过渡。"},
+            q14: {answer: ["A", "B", "C"], explanation: "CSS过渡可以通过:hover、:focus等伪类或JavaScript触发，但不会在页面加载时自动触发。"},
+            q15: {answer: ["A", "B", "C"], explanation: "ease和ease-in-out均为缓动效果，表现为速度先慢后快再慢；linear是匀速；选项 C 的贝塞尔曲线对应ease（先慢后快再慢）。"},
+            
+            // 判断题答案和解析
+            q16: {answer: "false", explanation: "CSS3过渡动画需要触发条件，如用户交互（:hover、:focus等）或JavaScript事件，不能自动触发。"},
+            q17: {answer: "false", explanation: "transition-property: all; 表示所有可过渡的CSS属性都将获得过渡效果。像 display、font-family 等属性，即使设置了 “all”，其变化也无法触发过渡动画，因此该说法错误。"},
+            q18: {answer: "false", explanation: "display属性不能创建平滑的过渡效果，因为它没有中间状态。可以使用opacity或visibility配合height等属性实现类似效果。"},
+            q19: {answer: "true", explanation: "cubic-bezier(0,0,1,1)确实等同于linear时间函数，表示匀速运动。"},
+            q20: {answer: "true", explanation: "过渡效果可以同时指定多个属性，每个属性可以有不同的持续时间和时间函数，用逗号分隔。"},
+            q21: {answer: "false", explanation: "transition-duration属性不能使用负值，它必须是一个正数或0。"},
+            q22: {answer: "true", explanation: "在 transition 简写属性中，过渡持续时间（transition-duration）是唯一必须指定的参数，其他参数（如过渡属性、延迟时间、时间函数）均可省略，且省略后会使用各自的默认值。"},
+            q23: {answer: "false", explanation: "CSS过渡需要状态变化才能触发，不会在元素初始渲染时自动执行。"},
+            q24: {answer: "true", explanation: "transition-delay属性可以为过渡效果设置延迟时间，单位与transition-duration相同。"},
+            q25: {answer: "false", explanation: "CSS过渡可以应用于任何元素，包括块级元素和行内元素。"}
+        };
+        
+        // 计算分数并显示结果
+        function calculateScore() {
+            // 获取学生信息
+            const studentId = document.getElementById('student-id').value.trim();
+            const studentName = document.getElementById('student-name').value.trim();
+            
+            // 验证学生信息
+            if (!studentId || !studentName) {
+                alert('请填写学号和姓名！');
+                return;
+            }
+            
+            let score = 0;
+            let totalScore = 60; // 总分60分
+            let resultHTML = "";
+            let resultDetailsHTML = "<h3>答题详情</h3><table class='result-table'><tr><th>题号</th><th>你的答案</th><th>正确答案</th><th>解析</th></tr>";
+            
+            // 单选题评分（每题2分）
+            for (let i = 1; i <= 10; i++) {
+                const questionName = "q" + i;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                const userAnswer = selectedOption ? selectedOption.value : "未作答";
+                const correctAnswer = correctAnswers[questionName].answer;
+                
+                if (userAnswer === correctAnswer) {
+                    score += 2;
+                }
+                
+                // 添加到结果详情
+                resultDetailsHTML += `<tr><td>${i}</td><td class="${userAnswer === correctAnswer ? 'correct-answer' : 'incorrect-answer'}">${userAnswer}</td><td class="correct-answer">${correctAnswer}</td><td>${correctAnswers[questionName].explanation}</td></tr>`;
+            }
+            
+            // 多选题评分（每题4分）
+            for (let i = 11; i <= 15; i++) {
+                const questionName = "q" + i;
+                const selectedOptions = document.querySelectorAll(`input[name="${questionName}"]:checked`);
+                const userAnswers = Array.from(selectedOptions).map(option => option.value).sort().join("");
+                const correctAnswer = Array.isArray(correctAnswers[questionName].answer) ? 
+                    correctAnswers[questionName].answer.sort().join("") : 
+                    correctAnswers[questionName].answer;
+                
+                if (userAnswers === correctAnswer) {
+                    score += 4;
+                }
+                
+                // 添加到结果详情
+                resultDetailsHTML += `<tr><td>${i}</td><td class="${userAnswers === correctAnswer ? 'correct-answer' : 'incorrect-answer'}">${userAnswers || '未作答'}</td><td class="correct-answer">${correctAnswer}</td><td>${correctAnswers[questionName].explanation}</td></tr>`;
+            }
+            
+            // 判断题评分（每题2分）
+            for (let i = 16; i <= 25; i++) {
+                const questionName = "q" + i;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                const userAnswer = selectedOption ? selectedOption.value : "未作答";
+                const correctAnswer = correctAnswers[questionName].answer;
+                
+                if (userAnswer === correctAnswer) {
+                    score += 2;
+                }
+                
+                // 添加到结果详情
+                resultDetailsHTML += `<tr><td>${i}</td><td class="${userAnswer === correctAnswer ? 'correct-answer' : 'incorrect-answer'}">${userAnswer === 'true' ? '正确' : userAnswer === 'false' ? '错误' : '未作答'}</td><td class="correct-answer">${correctAnswer === 'true' ? '正确' : '错误'}</td><td>${correctAnswers[questionName].explanation}</td></tr>`;
+            }
+            
+            resultDetailsHTML += "</table>";
+            
+            // 显示结果
+            const percentage = (score / totalScore * 100).toFixed(1);
+            resultHTML = `<div class="${percentage >= 60 ? 'correct' : 'incorrect'}">
+                <h2>测试结果</h2>
+                <p>学号: ${studentId} | 姓名: ${studentName}</p>
+                <p>得分: ${score} / ${totalScore}</p>
+                <p>正确率: ${percentage}%</p>
+                <p>${percentage >= 60 ? '恭喜你通过了测试！' : '请继续努力，多练习CSS3过渡动画知识。'}</p>
+            </div>`;
+            
+            document.getElementById('result').innerHTML = resultHTML;
+            document.getElementById('result').style.display = 'block';
+            
+            document.getElementById('result-details').innerHTML = resultDetailsHTML;
+            
+            // 添加学习建议
+            addStudySuggestions(score, totalScore);
+            
+            document.querySelector('.submit-btn').style.display = 'none';
+            document.querySelector('.restart-btn').style.display = 'block';
+            
+            // 生成成绩文档
+            generateScoreDocument(studentId, studentName, score, totalScore, percentage);
+        }
+        
+        // 添加学习建议
+        function addStudySuggestions(score, totalScore) {
+            const percentage = (score / totalScore * 100);
+            let suggestionsHTML = '<div class="study-suggestions"><h3>学习建议</h3>';
+            
+            if (percentage >= 80) {
+                suggestionsHTML += `
+                    <p>恭喜你！你对CSS3过渡动画有很好的掌握！以下是一些进一步提高的建议：</p>
+                    <ul>
+                        <li>尝试结合CSS动画(animation)和过渡(transition)创建更复杂的效果</li>
+                        <li>学习使用贝塞尔曲线自定义过渡 timing function</li>
+                        <li>熟练运用 transition 属性的复合语法实现多个过渡动画的顺序执行</li>
+                        <li>尝试实现一些复杂的UI交互效果，如折叠面板、图片画廊等</li>
+                    </ul>
+                `;
+            } else if (percentage >= 60) {
+                suggestionsHTML += `
+                    <p>不错！你对CSS3过渡动画有基本了解，但还需要进一步学习。建议关注以下方面：</p>
+                    <ul>
+                        <li>复习transition-property的用法，了解哪些属性可以应用过渡效果</li>
+                        <li>练习使用不同的transition-timing-function值</li>
+                        <li>学习如何为多个属性设置不同的过渡时间和延迟</li>
+                        <li>尝试在实际项目中应用过渡效果，如按钮悬停、表单焦点效果等</li>
+                    </ul>
+                `;
+            } else {
+                suggestionsHTML += `
+                    <p>需要加强学习！以下是针对初学者的学习建议：</p>
+                    <ul>
+                        <li>从基础开始，理解CSS过渡的基本概念和工作原理</li>
+                        <li>学习transition-property、transition-duration、transition-timing-function和transition-delay四个属性的用法</li>
+                        <li>练习为颜色、大小、位置等属性添加过渡效果</li>
+                        <li>通过实际例子理解不同的timing function（ease、linear、ease-in等）的区别</li>
+                        <li>参考MDN Web文档的CSS过渡教程进行系统学习</li>
+                    </ul>
+                `;
+            }
+            
+            suggestionsHTML += '</div>';
+            document.getElementById('result-details').innerHTML += suggestionsHTML;
+        }
+        
+        // 生成成绩文档
+        function generateScoreDocument(studentId, studentName, score, totalScore, percentage) {
+            // 创建成绩文档内容
+            let content = `学生成绩文档\n`;
+            content += `====================\n\n`;
+            content += `学号: ${studentId}\n`;
+            content += `姓名: ${studentName}\n`;
+            content += `得分: ${score}\n`;
+            content += `正确率: ${percentage}%\n`;
+            content += `测试时间: ${new Date().toLocaleString()}\n\n`;
+            
+            content += `答题详情:\n`;
+            content += `====================\n\n`;
+            
+            // 添加单选题答题详情
+            content += `一、单项选择题:\n`;
+            for (let i = 1; i <= 10; i++) {
+                const questionName = "q" + i;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                const userAnswer = selectedOption ? selectedOption.value : "未作答";
+                const correctAnswer = correctAnswers[questionName].answer;
+                
+                content += `${i}. 你的答案: ${userAnswer} | 正确答案: ${correctAnswer}\n`;
+            }
+            content += `\n`;
+            
+            // 添加多选题答题详情
+            content += `二、多项选择题:\n`;
+            for (let i = 11; i <= 15; i++) {
+                const questionName = "q" + i;
+                const selectedOptions = document.querySelectorAll(`input[name="${questionName}"]:checked`);
+                const userAnswers = Array.from(selectedOptions).map(option => option.value).sort().join("");
+                const correctAnswer = Array.isArray(correctAnswers[questionName].answer) ? 
+                    correctAnswers[questionName].answer.sort().join("") : 
+                    correctAnswers[questionName].answer;
+                
+                content += `${i}. 你的答案: ${userAnswers || '未作答'} | 正确答案: ${correctAnswer}\n`;
+            }
+            content += `\n`;
+            
+            // 添加判断题答题详情
+            content += `三、判断题:\n`;
+            for (let i = 16; i <= 25; i++) {
+                const questionName = "q" + i;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                const userAnswer = selectedOption ? (selectedOption.value === 'true' ? '正确' : '错误') : "未作答";
+                const correctAnswer = correctAnswers[questionName].answer === 'true' ? '正确' : '错误';
+                
+                content += `${i}. 你的答案: ${userAnswer} | 正确答案: ${correctAnswer}\n`;
+            }
+            
+            content += `\n学习建议:\n`;
+            content += `====================\n\n`;
+            
+            // 添加学习建议
+            if (percentage >= 80) {
+                content += `恭喜你！你对CSS3过渡动画有很好的掌握！\n`;
+                content += `进一步提高的建议：\n`;
+                content += `- 尝试结合CSS动画(animation)和过渡(transition)创建更复杂的效果\n`;
+                content += `- 学习使用贝塞尔曲线自定义过渡 timing function\n`;
+                content += `- 熟练运用 transition 属性的复合语法实现多个过渡动画的顺序执行\n`;
+                content += `- 尝试实现一些复杂的UI交互效果，如折叠面板、图片画廊等\n`;
+            } else if (percentage >= 60) {
+                content += `不错！你对CSS3过渡动画有基本了解，但还需要进一步学习。\n`;
+                content += `建议关注以下方面：\n`;
+                content += `- 复习transition-property的用法，了解哪些属性可以应用过渡效果\n`;
+                content += `- 练习使用不同的transition-timing-function值\n`;
+                content += `- 学习如何为多个属性设置不同的过渡时间和延迟\n`;
+                content += `- 尝试在实际项目中应用过渡效果，如按钮悬停、表单焦点效果等\n`;
+            } else {
+                content += `需要加强学习！以下是针对初学者的学习建议：\n`;
+                content += `- 从基础开始，理解CSS过渡的基本概念和工作原理\n`;
+                content += `- 学习transition-property、transition-duration、transition-timing-function和transition-delay四个属性的用法\n`;
+                content += `- 练习为颜色、大小、位置等属性添加过渡效果\n`;
+                content += `- 通过实际例子理解不同的timing function（ease、linear、ease-in等）的区别\n`;
+                content += `- 参考MDN Web文档的CSS过渡教程进行系统学习\n`;
+            }
+            
+            // 创建Blob对象
+            const blob = new Blob([content], { type: 'text/plain' });
+            
+            // 创建下载链接
+            const downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = `${studentId}${studentName}.txt`;
+            
+            // 触发下载
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+        
+        // 重新开始测试
+        function restartQuiz() {
+            document.getElementById('quiz-form').reset();
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('result-details').innerHTML = '';
+            document.querySelector('.submit-btn').style.display = 'block';
+            document.querySelector('.restart-btn').style.display = 'none';
+            
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>

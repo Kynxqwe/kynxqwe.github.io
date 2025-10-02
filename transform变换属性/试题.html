@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../media/website/Logo.png">
+    <title>CSS3变换试题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #3498db;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #3498db;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin: 20px 0 10px;
+        }
+        
+        .student-info {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .student-info h2 {
+            margin-top: 0;
+        }
+        
+        .info-input {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .input-group {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .input-group label {
+            margin-bottom: 8px;
+            margin-right: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .input-group input {
+            width: 80%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .input-group input:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .quiz-section {
+            margin-bottom: 40px;
+        }
+        
+        .question {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .options {
+            list-style: none;
+        }
+        
+        .option {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background: #edf2f7;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option:hover {
+            background: #e2e8f0;
+        }
+        
+        .option input {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+        .option label {
+            cursor: pointer;
+            flex-grow: 1;
+        }
+        
+        .true-false {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .true-false label {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background: #edf2f7;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .true-false label:hover {
+            background: #e2e8f0;
+        }
+        
+        .true-false input {
+            margin-right: 8px;
+        }
+        
+        .submit-btn, .restart-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 30px;
+        }
+        
+        .submit-btn:hover, .restart-btn:hover {
+            background: #2980b9;
+        }
+        
+        .restart-btn {
+            background: #2ecc71;
+            display: none;
+        }
+        
+        .restart-btn:hover {
+            background: #27ae60;
+        }
+        
+        .result {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .correct {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .answer-feedback {
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .result-table th, .result-table td {
+            border: 1px solid #b2bec3;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .result-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .result-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .incorrect-answer {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .correct-answer {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .study-suggestions {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .study-suggestions h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .study-suggestions ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .study-suggestions li {
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .true-false {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .result-table {
+                font-size: 14px;
+            }
+            
+            .result-table th, .result-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS3变换试题</h1>
+            <p>检验你对CSS3变换的掌握程度 | 总分 60 分，共 25 题</p>
+        </header>
+        
+        <!-- 学生信息输入区域 -->
+        <section class="student-info">
+            <div class="info-input">
+                <div class="input-group">
+                    <label for="student-id">学号</label>
+                    <input type="text" id="student-id" placeholder="请输入学号">
+                </div>
+                <div class="input-group">
+                    <label for="student-name">姓名</label>
+                    <input type="text" id="student-name" placeholder="请输入姓名">
+                </div>
+            </div>
+        </section>
+        
+        <form id="quiz-form">
+            <!-- 单项选择题 -->
+            <section class="quiz-section">
+                <h2>一、单项选择题（每题2分，共10题）</h2>
+                
+                <div class="question" id="q1">
+                    <div class="question-text">1. 下列哪个CSS属性用于实现2D变换？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q1" id="q1a" value="A">
+                            <label for="q1a">A. transform</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q1" id="q1b" value="B">
+                            <label for="q1b">B. transition</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q1" id="q1c" value="C">
+                            <label for="q1c">C. animation</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q1" id="q1d" value="D">
+                            <label for="q1d">D. translate</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q2">
+                    <div class="question-text">2. 下列哪个函数用于移动元素？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q2" id="q2a" value="A">
+                            <label for="q2a">A. rotate()</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q2" id="q2b" value="B">
+                            <label for="q2b">B. scale()</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q2" id="q2c" value="C">
+                            <label for="q2c">C. translate()</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q2" id="q2d" value="D">
+                            <label for="q2d">D. skew()</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q3">
+                    <div class="question-text">3. 要将元素放大1.5倍，应该使用哪个函数？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q3" id="q3a" value="A">
+                            <label for="q3a">A. scale(1.5)</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q3" id="q3b" value="B">
+                            <label for="q3b">B. scale(150%)</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q3" id="q3c" value="C">
+                            <label for="q3c">C. scale(0.5)</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q3" id="q3d" value="D">
+                            <label for="q3d">D. scale(15)</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q4">
+                    <div class="question-text">4. 要将元素旋转45度，应该使用哪个函数？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q4" id="q4a" value="A">
+                            <label for="q4a">A. rotate(45)</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q4" id="q4b" value="B">
+                            <label for="q4b">B. rotate(45deg)</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q4" id="q4c" value="C">
+                            <label for="q4c">C. rotate(45px)</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q4" id="q4d" value="D">
+                            <label for="q4d">D. rotate(45%)</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q5">
+                    <div class="question-text">5. 下列哪个函数用于倾斜元素？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q5" id="q5a" value="A">
+                            <label for="q5a">A. translate()</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q5" id="q5b" value="B">
+                            <label for="q5b">B. rotate()</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q5" id="q5c" value="C">
+                            <label for="q5c">C. scale()</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q5" id="q5d" value="D">
+                            <label for="q5d">D. skew()</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q6">
+                    <div class="question-text">6. 要实现3D变换，需要设置哪个属性？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q6" id="q6a" value="A">
+                            <label for="q6a">A. transform-style: preserve-3d;</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q6" id="q6b" value="B">
+                            <label for="q6b">B. transform: 3d;</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q6" id="q6c" value="C">
+                            <label for="q6c">C. perspective: yes;</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q6" id="q6d" value="D">
+                            <label for="q6d">D. 3d-mode: enable;</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q7">
+                    <div class="question-text">7. 下列哪个函数用于在3D空间中移动元素？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q7" id="q7a" value="A">
+                            <label for="q7a">A. translate3d()</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q7" id="q7b" value="B">
+                            <label for="q7b">B. move3d()</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q7" id="q7c" value="C">
+                            <label for="q7c">C. position3d()</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q7" id="q7d" value="D">
+                            <label for="q7d">D. transform3d()</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q8">
+                    <div class="question-text">8. 要围绕X轴旋转元素，应该使用哪个函数？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q8" id="q8a" value="A">
+                            <label for="q8a">A. rotateX()</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q8" id="q8b" value="B">
+                            <label for="q8b">B. rotateY()</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q8" id="q8c" value="C">
+                            <label for="q8c">C. rotateZ()</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q8" id="q8d" value="D">
+                            <label for="q8d">D. rotate3d()</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q9">
+                    <div class="question-text">9. 要设置3D视角的深度，应该使用哪个属性？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q9" id="q9a" value="A">
+                            <label for="q9a">A. perspective</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q9" id="q9b" value="B">
+                            <label for="q9b">B. depth</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q9" id="q9c" value="C">
+                            <label for="q9c">C. view-depth</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q9" id="q9d" value="D">
+                            <label for="q9d">D. 3d-perspective</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q10">
+                    <div class="question-text">10. 要设置变换的原点，应该使用哪个属性？</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="radio" name="q10" id="q10a" value="A">
+                            <label for="q10a">A. transform-origin</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q10" id="q10b" value="B">
+                            <label for="q10b">B. origin</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q10" id="q10c" value="C">
+                            <label for="q10c">C. transform-center</label>
+                        </li>
+                        <li class="option">
+                            <input type="radio" name="q10" id="q10d" value="D">
+                            <label for="q10d">D. center-point</label>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- 多项选择题 -->
+            <section class="quiz-section">
+                <h2>二、多项选择题（每题4分，共5题）</h2>
+                
+                <div class="question" id="q11">
+                    <div class="question-text">11. 下列哪些是2D变换函数？（多选）</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="checkbox" name="q11" id="q11a" value="A">
+                            <label for="q11a">A. translate()</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q11" id="q11b" value="B">
+                            <label for="q11b">B. rotate()</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q11" id="q11c" value="C">
+                            <label for="q11c">C. scale()</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q11" id="q11d" value="D">
+                            <label for="q11d">D. skew()</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q12">
+                    <div class="question-text">12. 以下关于 scale () 函数的说法，正确的有？（多选）</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="checkbox" name="q12" id="q12a" value="A">
+                            <label for="q12a">A. scale () 函数可以同时设置水平和垂直方向的缩放比例</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q12" id="q12b" value="B">
+                            <label for="q12b">B. scaleX () 函数用于设置水平方向的缩放比例</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q12" id="q12c" value="C">
+                            <label for="q12c">C. scaleY () 函数用于设置垂直方向的缩放比例</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q12" id="q12d" value="D">
+                            <label for="q12d">D. 当缩放比例大于 1 时，元素放大；小于 1 时，元素缩小</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q13">
+                    <div class="question-text">13. 关于transform-origin属性，下列说法正确的有？（多选）</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="checkbox" name="q13" id="q13a" value="A">
+                            <label for="q13a">A. 可以设置变换的中心点</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q13" id="q13b" value="B">
+                            <label for="q13b">B. 默认值是50% 50%</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q13" id="q13c" value="C">
+                            <label for="q13c">C. 可以使用像素值、百分比或关键字</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q13" id="q13d" value="D">
+                            <label for="q13d">D. 只能用于3D变换</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q14">
+                    <div class="question-text">14. 关于 skew () 函数，下列说法正确的有？（多选）</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="checkbox" name="q14" id="q14a" value="A">
+                            <label for="q14a">A. skew () 函数用于使元素倾斜</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q14" id="q14b" value="B">
+                            <label for="q14b">B. skewX () 函数使元素在水平方向倾斜</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q14" id="q14c" value="C">
+                            <label for="q14c">C. skewY () 函数使元素在垂直方向倾斜</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q14" id="q14d" value="D">
+                            <label for="q14d">D. skew () 函数的参数单位是 deg</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question" id="q15">
+                    <div class="question-text">15. 以下关于 CSS3 变换的说法，正确的有？（多选）</div>
+                    <ul class="options">
+                        <li class="option">
+                            <input type="checkbox" name="q15" id="q15a" value="A">
+                            <label for="q15a">A. 2D 变换和 3D 变换都可以通过 transform 属性实现</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q15" id="q15b" value="B">
+                            <label for="q15b">B. 一个元素可以同时应用多个变换函数</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q15" id="q15c" value="C">
+                            <label for="q15c">C. 变换函数的顺序会影响最终的变换效果</label>
+                        </li>
+                        <li class="option">
+                            <input type="checkbox" name="q15" id="q15d" value="D">
+                            <label for="q15d">D. 变换不会改变元素的实际尺寸和位置（文档流中）</label>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- 判断题 -->
+            <section class="quiz-section">
+                <h2>三、判断题（每题2分，共10题）</h2>
+                
+                <div class="question" id="q16">
+                    <div class="question-text">16. transform属性可以同时应用多个变换函数。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q16" id="q16true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q16" id="q16false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q17">
+                    <div class="question-text">17. 变换会影响文档流，周围的元素会重新排列。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q17" id="q17true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q17" id="q17false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q18">
+                    <div class="question-text">18. 2D变换只能在二维平面上操作元素。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q18" id="q18true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q18" id="q18false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q19">
+                    <div class="question-text">19. 在 2D 变换中，rotate () 函数和 rotateZ () 函数的效果完全相同。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q19" id="q19true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q19" id="q19false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q20">
+                    <div class="question-text">20. translateZ () 函数需要配合 perspective 属性，才能看到元素沿 Z 轴移动的效果。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q20" id="q20true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q20" id="q20false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q21">
+                    <div class="question-text">21. transform属性可以与其他CSS属性一起使用。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q21" id="q21true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q21" id="q21false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q22">
+                    <div class="question-text">22. CSS3 变换只能应用于块级元素，不能应用于行内元素。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q22" id="q22true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q22" id="q22false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q23">
+                    <div class="question-text">23. 当使用 transform 属性实现多个变换效果时，变换函数的顺序不会影响最终结果。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q23" id="q23true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q23" id="q23false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q24">
+                    <div class="question-text">24. perspective 属性设置在子元素上，才能让子元素产生 3D 透视效果。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q24" id="q24true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q24" id="q24false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" id="q25">
+                    <div class="question-text">25. 变换不会影响元素的盒模型。</div>
+                    <div class="true-false">
+                        <label>
+                            <input type="radio" name="q25" id="q25true" value="true">
+                            <span>正确</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q25" id="q25false" value="false">
+                            <span>错误</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+            
+            <button type="button" class="submit-btn" onclick="calculateScore()">提交答案</button>
+            <button type="button" class="restart-btn" onclick="restartQuiz()">重新刷题</button>
+            
+            <div id="result" class="result"></div>
+            <div id="result-details"></div>
+        </form>
+    </div>
+
+    <script>
+        // 正确答案和解析
+        const correctAnswers = {
+            // 单选题答案和解析
+            q1: {answer: "A", explanation: "transform属性用于实现2D和3D变换。"},
+            q2: {answer: "C", explanation: "translate()函数用于移动元素。"},
+            q3: {answer: "A", explanation: "scale(1.5)表示将元素放大1.5倍。"},
+            q4: {answer: "B", explanation: "rotate()函数使用deg单位表示角度。"},
+            q5: {answer: "D", explanation: "skew()函数用于倾斜元素。"},
+            q6: {answer: "A", explanation: "transform-style: preserve-3d;用于启用3D变换。"},
+            q7: {answer: "A", explanation: "translate3d()函数用于在3D空间中移动元素。"},
+            q8: {answer: "A", explanation: "rotateX()函数用于围绕X轴旋转元素。"},
+            q9: {answer: "A", explanation: "perspective属性用于设置3D视角的深度。"},
+            q10: {answer: "A", explanation: "transform-origin属性用于设置变换的原点。"},
+            
+            // 多选题答案和解析
+            q11: {answer: ["A", "B", "C", "D"], explanation: "translate()、rotate()、scale()和skew()都是2D变换函数。"},
+            q12: {answer: ["A", "B", "C", "D"], explanation: "scale () 可同时设水平和垂直缩放比例；scaleX () 水平缩放，scaleY () 垂直缩放；缩放比例大于 1 放大，小于 1 缩小。"},
+            q13: {answer: ["A", "B", "C"], explanation: "transform-origin可以设置变换的中心点，默认值是50% 50%，可以使用像素值、百分比或关键字，不仅限于3D变换。"},
+            q14: {answer: ["A", "B", "C", "D"], explanation: "skew () 用于元素倾斜；skewX () 水平倾斜，skewY () 垂直倾斜；参数单位可以是 deg。"},
+            q15: {answer: ["A", "B", "C", "D"], explanation: "2D 和 3D 变换都通过 transform 属性实现；一个元素可同时应用多个变换函数；变换函数顺序影响最终效果；变换不改变元素实际尺寸和文档流位置。"},
+            
+            // 判断题答案和解析
+            q16: {answer: "true", explanation: "transform属性可以同时应用多个变换函数，用空格分隔。"},
+            q17: {answer: "false", explanation: "变换不会影响文档流，周围的元素不会重新排列。"},
+            q18: {answer: "true", explanation: "2D变换在二维平面上操作元素。"},
+            q19: {answer: "true", explanation: "在 2D 变换中，坐标系只有 x 轴和 y 轴，rotate () 函数默认围绕 Z 轴旋转，与 rotateZ () 函数效果完全相同，该说法正确。"},
+            q20: {answer: "true", explanation: "translateZ () 函数使元素沿 Z 轴移动，若不配合 perspective 属性，无法看到元素远近变化的效果，只有设置 perspective 后，才能看到明显的 3D 移动效果，该说法正确。"},
+            q21: {answer: "true", explanation: "transform属性可以与其他CSS属性一起使用。"},
+            q22: {answer: "false", explanation: "CSS3 变换不仅可应用于块级元素，也可应用于行内元素，但行内元素默认无法设置宽高，部分变换效果（如 scale 缩放宽高）可能不明显，可通过 display: inline-block; 将行内元素转换为行内块元素后，更好地应用变换，该说法错误。"},
+            q23: {answer: "false", explanation: "当使用 transform 属性实现多个变换效果时，变换函数的顺序会影响最终结果。"},
+            q24: {answer: "false", explanation: "perspective 属性需要设置在父元素上，才能让子元素产生 3D 透视效果；设置在子元素上，无法使子元素产生预期的 3D 透视效果，该说法错误。"},
+            q25: {answer: "true", explanation: "变换不会影响元素的盒模型，它是在视觉效果上改变元素。"}
+        };
+        
+        // 计算分数并显示结果
+        function calculateScore() {
+            // 获取学生信息
+            const studentId = document.getElementById('student-id').value.trim();
+            const studentName = document.getElementById('student-name').value.trim();
+            
+            // 验证学生信息
+            if (!studentId || !studentName) {
+                alert('请填写学号和姓名！');
+                return;
+            }
+            
+            let score = 0;
+            let totalScore = 60; // 总分60分
+            let resultHTML = "";
+            let resultDetailsHTML = "<h3>答题详情</h3><table class='result-table'><tr><th>题号</th><th>你的答案</th><th>正确答案</th><th>解析</th></tr>";
+            
+            // 单选题评分（每题2分）
+            for (let i = 1; i <= 10; i++) {
+                const questionName = "q" + i;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                const userAnswer = selectedOption ? selectedOption.value : "未作答";
+                const correctAnswer = correctAnswers[questionName].answer;
+                
+                if (userAnswer === correctAnswer) {
+                    score += 2;
+                }
+                
+                // 添加到结果详情
+                resultDetailsHTML += `<tr><td>${i}</td><td class="${userAnswer === correctAnswer ? 'correct-answer' : 'incorrect-answer'}">${userAnswer}</td><td class="correct-answer">${correctAnswer}</td><td>${correctAnswers[questionName].explanation}</td></tr>`;
+            }
+            
+            // 多选题评分（每题4分）
+            for (let i = 11; i <= 15; i++) {
+                const questionName = "q" + i;
+                const selectedOptions = document.querySelectorAll(`input[name="${questionName}"]:checked`);
+                const userAnswers = Array.from(selectedOptions).map(option => option.value).sort().join("");
+                const correctAnswer = Array.isArray(correctAnswers[questionName].answer) ? 
+                    correctAnswers[questionName].answer.sort().join("") : 
+                    correctAnswers[questionName].answer;
+                
+                if (userAnswers === correctAnswer) {
+                    score += 4;
+                }
+                
+                // 添加到结果详情
+                resultDetailsHTML += `<tr><td>${i}</td><td class="${userAnswers === correctAnswer ? 'correct-answer' : 'incorrect-answer'}">${userAnswers || '未作答'}</td><td class="correct-answer">${correctAnswer}</td><td>${correctAnswers[questionName].explanation}</td></tr>`;
+            }
+            
+            // 判断题评分（每题2分）
+            for (let i = 16; i <= 25; i++) {
+                const questionName = "q" + i;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                const userAnswer = selectedOption ? selectedOption.value : "未作答";
+                const correctAnswer = correctAnswers[questionName].answer;
+                
+                if (userAnswer === correctAnswer) {
+                    score += 2;
+                }
+                
+                // 添加到结果详情
+                resultDetailsHTML += `<tr><td>${i}</td><td class="${userAnswer === correctAnswer ? 'correct-answer' : 'incorrect-answer'}">${userAnswer === 'true' ? '正确' : userAnswer === 'false' ? '错误' : '未作答'}</td><td class="correct-answer">${correctAnswer === 'true' ? '正确' : '错误'}</td><td>${correctAnswers[questionName].explanation}</td></tr>`;
+            }
+            
+            resultDetailsHTML += "</table>";
+            
+            // 显示结果
+            const percentage = (score / totalScore * 100).toFixed(1);
+            resultHTML = `<div class="${percentage >= 60 ? 'correct' : 'incorrect'}">
+                <h2>测试结果</h2>
+                <p>学号: ${studentId} | 姓名: ${studentName}</p>
+                <p>得分: ${score} / ${totalScore}</p>
+                <p>正确率: ${percentage}%</p>
+                <p>${percentage >= 60 ? '恭喜你通过了测试！' : '请继续努力，多练习CSS3变换知识。'}</p>
+            </div>`;
+            
+            document.getElementById('result').innerHTML = resultHTML;
+            document.getElementById('result').style.display = 'block';
+            
+            document.getElementById('result-details').innerHTML = resultDetailsHTML;
+            
+            // 添加学习建议
+            addStudySuggestions(score, totalScore);
+            
+            document.querySelector('.submit-btn').style.display = 'none';
+            document.querySelector('.restart-btn').style.display = 'block';
+            
+            // 生成成绩文档
+            generateScoreDocument(studentId, studentName, score, totalScore, percentage);
+        }
+        
+        // 添加学习建议
+        function addStudySuggestions(score, totalScore) {
+            const percentage = (score / totalScore * 100);
+            let suggestionsHTML = '<div class="study-suggestions"><h3>学习建议</h3>';
+            
+            if (percentage >= 80) {
+                suggestionsHTML += `
+                    <p>恭喜你！你对CSS3变换有很好的掌握！以下是一些进一步提高的建议：</p>
+                    <ul>
+                        <li>尝试结合CSS动画(animation)和变换(transform)创建更复杂的效果</li>
+                        <li>学习使用matrix()和matrix3d()函数实现更复杂的变换</li>
+                        <li>熟练运用 transform 属性的复合语法实现多个变换的组合效果</li>
+                        <li>尝试实现一些复杂的UI交互效果，如3D卡片翻转、图片画廊等</li>
+                    </ul>
+                `;
+            } else if (percentage >= 60) {
+                suggestionsHTML += `
+                    <p>不错！你对CSS3变换有基本了解，但还需要进一步学习。建议关注以下方面：</p>
+                    <ul>
+                        <li>复习2D变换函数的用法，包括translate()、rotate()、scale()和skew()</li>
+                        <li>练习使用不同的transform-origin值改变变换原点</li>
+                        <li>学习3D变换的基本概念和使用方法</li>
+                        <li>尝试在实际项目中应用变换效果，如按钮悬停、卡片翻转等</li>
+                    </ul>
+                `;
+            } else {
+                suggestionsHTML += `
+                    <p>需要加强学习！以下是针对初学者的学习建议：</p>
+                    <ul>
+                        <li>从基础开始，理解CSS变换的基本概念和工作原理</li>
+                        <li>学习2D变换函数的使用方法，包括移动、旋转、缩放和倾斜</li>
+                        <li>练习为不同元素添加变换效果，理解变换对元素的影响</li>
+                        <li>通过实际例子理解不同的变换函数的效果和区别</li>
+                        <li>参考MDN Web文档的CSS变换教程进行系统学习</li>
+                    </ul>
+                `;
+            }
+            
+            suggestionsHTML += '</div>';
+            document.getElementById('result-details').innerHTML += suggestionsHTML;
+        }
+        
+        // 生成成绩文档
+        function generateScoreDocument(studentId, studentName, score, totalScore, percentage) {
+            // 创建成绩文档内容
+            let content = `学生成绩文档\n`;
+            content += `====================\n\n`;
+            content += `学号: ${studentId}\n`;
+            content += `姓名: ${studentName}\n`;
+            content += `得分: ${score}\n`;
+            content += `正确率: ${percentage}%\n`;
+            content += `测试时间: ${new Date().toLocaleString()}\n\n`;
+            
+            content += `答题详情:\n`;
+            content += `====================\n\n`;
+            
+            // 添加单选题答题详情
+            content += `一、单项选择题:\n`;
+            for (let i = 1; i <= 10; i++) {
+                const questionName = "q" + i;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                const userAnswer = selectedOption ? selectedOption.value : "未作答";
+                const correctAnswer = correctAnswers[questionName].answer;
+                
+                content += `${i}. 你的答案: ${userAnswer} | 正确答案: ${correctAnswer}\n`;
+            }
+            content += `\n`;
+            
+            // 添加多选题答题详情
+            content += `二、多项选择题:\n`;
+            for (let i = 11; i <= 15; i++) {
+                const questionName = "q" + i;
+                const selectedOptions = document.querySelectorAll(`input[name="${questionName}"]:checked`);
+                const userAnswers = Array.from(selectedOptions).map(option => option.value).sort().join("");
+                const correctAnswer = Array.isArray(correctAnswers[questionName].answer) ? 
+                    correctAnswers[questionName].answer.sort().join("") : 
+                    correctAnswers[questionName].answer;
+                
+                content += `${i}. 你的答案: ${userAnswers || '未作答'} | 正确答案: ${correctAnswer}\n`;
+            }
+            content += `\n`;
+            
+            // 添加判断题答题详情
+            content += `三、判断题:\n`;
+            for (let i = 16; i <= 25; i++) {
+                const questionName = "q" + i;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                const userAnswer = selectedOption ? (selectedOption.value === 'true' ? '正确' : '错误') : "未作答";
+                const correctAnswer = correctAnswers[questionName].answer === 'true' ? '正确' : '错误';
+                
+                content += `${i}. 你的答案: ${userAnswer} | 正确答案: ${correctAnswer}\n`;
+            }
+            
+            content += `\n学习建议:\n`;
+            content += `====================\n\n`;
+            
+            // 添加学习建议
+            if (percentage >= 80) {
+                content += `恭喜你！你对CSS3变换有很好的掌握！\n`;
+                content += `进一步提高的建议：\n`;
+                content += `- 尝试结合CSS动画(animation)和变换(transform)创建更复杂的效果\n`;
+                content += `- 学习使用matrix()和matrix3d()函数实现更复杂的变换\n`;
+                content += `- 熟练运用 transform 属性的复合语法实现多个变换的组合效果\n`;
+                content += `- 尝试实现一些复杂的UI交互效果，如3D卡片翻转、图片画廊等\n`;
+            } else if (percentage >= 60) {
+                content += `不错！你对CSS3变换有基本了解，但还需要进一步学习。\n`;
+                content += `建议关注以下方面：\n`;
+                content += `- 复习2D变换函数的用法，包括translate()、rotate()、scale()和skew()\n`;
+                content += `- 练习使用不同的transform-origin值改变变换原点\n`;
+                content += `- 学习3D变换的基本概念和使用方法\n`;
+                content += `- 尝试在实际项目中应用变换效果，如按钮悬停、卡片翻转等\n`;
+            } else {
+                content += `需要加强学习！以下是针对初学者的学习建议：\n`;
+                content += `- 从基础开始，理解CSS变换的基本概念和工作原理\n`;
+                content += `- 学习2D变换函数的使用方法，包括移动、旋转、缩放和倾斜\n`;
+                content += `- 练习为不同元素添加变换效果，理解变换对元素的影响\n`;
+                content += `- 通过实际例子理解不同的变换函数的效果和区别\n`;
+                content += `- 参考MDN Web文档的CSS变换教程进行系统学习\n`;
+            }
+            
+            // 创建Blob对象
+            const blob = new Blob([content], { type: 'text/plain' });
+            
+            // 创建下载链接
+            const downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = `${studentId}${studentName}.txt`;
+            
+            // 触发下载
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+        
+        // 重新开始测试
+        function restartQuiz() {
+            document.getElementById('quiz-form').reset();
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('result-details').innerHTML = '';
+            document.querySelector('.submit-btn').style.display = 'block';
+            document.querySelector('.restart-btn').style.display = 'none';
+            
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>

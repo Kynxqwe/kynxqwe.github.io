@@ -1,0 +1,610 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Debian12+i3-wm - 隙间集</title><meta name="description" content="简介 最近一直在使用Debian12的Xfce桌面，学习Python爬虫的时候电脑性能不够，在开启一个哔哩哔哩和VScode之后就已经卡的不行了，下面我就用这台电脑讲解一下我安装和美化i3-wm的经历。 电脑的配置，以及安装i3-wm后的效果&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="stylesheet" href="https://kynx.qzz.io/media/plugins/syntaxHighlighter/prism-black.css"><link rel="stylesheet" href="https://kynx.qzz.io/media/plugins/syntaxHighlighter/prism-inline-color.css"><link rel="canonical" href="https://kynx.qzz.io/debian-i3-20250725.html"><link rel="alternate" type="application/atom+xml" href="https://kynx.qzz.io/feed.xml" title="隙间集 - RSS"><link rel="alternate" type="application/json" href="https://kynx.qzz.io/feed.json" title="隙间集 - JSON"><meta property="og:title" content="Debian12+i3-wm"><meta property="og:image" content="https://kynx.qzz.io/media/posts/1/OIP-C.jpg"><meta property="og:image:width" content="1000"><meta property="og:image:height" content="563"><meta property="og:site_name" content="隙间集"><meta property="og:description" content="简介 最近一直在使用Debian12的Xfce桌面，学习Python爬虫的时候电脑性能不够，在开启一个哔哩哔哩和VScode之后就已经卡的不行了，下面我就用这台电脑讲解一下我安装和美化i3-wm的经历。 电脑的配置，以及安装i3-wm后的效果&hellip;"><meta property="og:url" content="https://kynx.qzz.io/debian-i3-20250725.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://kynx.qzz.io/media/website/Logo.png" type="image/png"><link rel="preload" href="https://kynx.qzz.io/assets/dynamic/fonts/sourcecodepro/sourcecodepro.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="https://kynx.qzz.io/assets/dynamic/fonts/sourcecodepro/sourcecodepro-italic.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="https://kynx.qzz.io/assets/dynamic/fonts/lora/lora.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="https://kynx.qzz.io/assets/dynamic/fonts/lora/lora-italic.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="https://kynx.qzz.io/assets/css/style.css?v=cc2154a4673606b81109a5ead3034b4f"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://kynx.qzz.io/debian-i3-20250725.html"},"headline":"Debian12+i3-wm","datePublished":"2025-07-25T12:02+08:00","dateModified":"2025-08-09T17:37+08:00","image":{"@type":"ImageObject","url":"https://kynx.qzz.io/media/posts/1/OIP-C.jpg","height":563,"width":1000},"description":"简介 最近一直在使用Debian12的Xfce桌面，学习Python爬虫的时候电脑性能不够，在开启一个哔哩哔哩和VScode之后就已经卡的不行了，下面我就用这台电脑讲解一下我安装和美化i3-wm的经历。 电脑的配置，以及安装i3-wm后的效果&hellip;","author":{"@type":"Person","name":"和光同尘","url":"https://kynx.qzz.io/authors/cryozy/"},"publisher":{"@type":"Organization","name":"和光同尘"}}</script><noscript><style>img[loading] {
+                    opacity: 1;
+                }</style></noscript></head><body class="post-template"><header class="top js-header"><a class="logo" href="https://kynx.qzz.io/">隙间集</a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="选单" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">选单</span></span></button><ul class="navbar__menu"><li><a href="https://kynx.qzz.io/" target="_self">🏡首页</a></li><li><span class="is-separator"></span></li><li class="has-submenu"><a href="https://kynx.qzz.io/tags/" target="_self" aria-haspopup="true">🏷️文签集</a><ul class="navbar__submenu level-2" aria-hidden="true"><li><a href="https://kynx.qzz.io/tags/ephemeral-light-fleeting-dust/" target="_self">🔖隙光微尘</a></li><li><a href="https://kynx.qzz.io/tags/html-and-css-field-manual/" target="_self">🔖HTML&amp;CSS指北</a></li><li><a href="https://kynx.qzz.io/tags/mysql-study-notes/" target="_self">🔖MySQL学习笔记</a></li><li><a href="https://kynx.qzz.io/tags/mini-app-development-and-maintenance/" target="_self">🔖小程序开发与维护</a></li><li><a href="https://kynx.qzz.io/tags/linux-internals-uncovered/" target="_self">🔖Linux探微录</a></li></ul></li><li class="has-submenu"><span class="is-separator" aria-haspopup="true">💾软件集</span><ul class="navbar__submenu level-2" aria-hidden="true"><li><a href="https://kynx.qzz.io/typora-activate.html" target="_self">💾Typora</a></li><li><a href="https://kynx.qzz.io/capcutnoupdate.html" target="_self">💾CapCut</a></li></ul></li><li><span class="is-separator"></span></li><li><a href="https://kynx.qzz.io/./工具/chat-ai-api.html" target="_blank">🤖AI 助手</a></li><li><span class="is-separator"></span></li><li class="has-submenu"><span class="is-separator" aria-haspopup="true">博客星图✨</span><ul class="navbar__submenu level-2" aria-hidden="true"><li><a href="https://zeyun.dpdns.org/" target="_blank">云泽の小屋🌵</a></li></ul></li><li><a href="https://kynx.qzz.io/about-site.html" target="_self">🌐站述</a></li></ul></nav></header><main class="post"><article class="content"><div class="hero"><header class="hero__content hero__content--centered"><div class="wrapper"><h1>Debian12+i3-wm</h1><div class="feed__meta content__meta content__meta--centered"><img src="https://kynx.qzz.io/media/website/Tou-Xiang.png" loading="eager" height="1920" width="1920" class="feed__author-thumb" alt=""> <a href="https://kynx.qzz.io/authors/cryozy/" class="feed__author">和光同尘</a> <time datetime="2025-07-25T12:02" class="feed__date">2025-07-25 12:02:00</time></div></div></header><figure class="hero__image"><div class="hero__image-wrapper"><img src="https://kynx.qzz.io/media/posts/1/OIP-C.jpg" srcset="https://kynx.qzz.io/media/posts/1/responsive/OIP-C-xs.webp 640w, https://kynx.qzz.io/media/posts/1/responsive/OIP-C-sm.webp 768w, https://kynx.qzz.io/media/posts/1/responsive/OIP-C-md.webp 1024w, https://kynx.qzz.io/media/posts/1/responsive/OIP-C-lg.webp 1366w, https://kynx.qzz.io/media/posts/1/responsive/OIP-C-xl.webp 1600w, https://kynx.qzz.io/media/posts/1/responsive/OIP-C-2xl.webp 1920w" sizes="88vw" loading="eager" height="563" width="1000" alt=""></div></figure></div><div class="entry-wrapper content__entry"><h2 id="简介">简介</h2><p>最近一直在使用Debian12的Xfce桌面，学习Python爬虫的时候电脑性能不够，在开启一个哔哩哔哩和VScode之后就已经卡的不行了，下面我就用这台电脑讲解一下我安装和美化i3-wm的经历。</p><figure class="post__image"><img loading="lazy" src="./media/files/Linux探微录/Debian12+i3-wm/post.png" alt="" data-is-external-image="true"></figure><p>电脑的配置，以及安装i3-wm后的效果</p><hr><h2 id="debian12的安装">Debian12的安装</h2><p>我不会用命令行安装Debian12的live版本，所以就使用耗时较长的netinst版本进行安装</p><h3 id="镜像下载与写入">镜像下载与写入</h3><p>点击<a href="https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.5.0-amd64-netinst.iso">此链接</a>即可下载镜像。</p><p><strong>在Windows系统上</strong>，使用Rufus工具写入，此为标准版<a href="https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe">下载链接</a>。在Linux和Windows系统都可以使用的是ventoy，<a href="https://www.lanzoui.com/i5ETa219q9qj">Windows下载</a> <a href="https://www.lanzoui.com/iIzVH219q9dg">Linux下载</a></p><p>如果电脑不可以使用，手边正好有一部安卓手机的可以尝试<a href="http://x1.ydyspc.com/etchdroid.apk">下载EtchDroid</a>，在手机上写镜像。</p><h3 id="debian12网络安装与注意事项">Debian12网络安装与注意事项</h3><p>正常引导并进入，正常选择即可。在选择镜像源的时候建议选择清华的，我多次安装只有清华源每次都正常。</p><p>选择完软件源后就会出现桌面选择的界面，这里只选择最后一项，也就是标准系统工具即可。</p><h2 id="i3-wm的安装与配置">i3-wm的安装与配置</h2><p>在进入本地系统后就是类似于终端的界面，这里<em><strong>用户名填root</strong></em>，密码就是你自己设置的<strong>管理员密码</strong>，<strong>并非用户密码</strong>。</p><h3 id="安装">安装</h3><p>所需要的软件有：</p><p>sudo（普通用户调用管理员权限）</p><p>lightdm （登录管理器）</p><p>i3（i3的所有软件包，只想要窗口管理器的可以选择i3-wm）</p><p>Thunar / ranger（文件管理器，thunar是图形界面，ranger是命令行，自行选择即可）</p><p>xfce4-terminal / Alacritty （都为终端，xfce4-terminal具有图形界面，自行选择即可）</p><p>rofi（图形化drun）</p><p>picom（轻量级窗口管理特效的首选）</p><p>i3-gaps （i3窗口界面，安装i3的直接跳过即可，只安装i3-wm的需要安装）</p><p>i3lock（i3锁屏界面，自行选择是否安装。安装i3的自带）</p><p>i3stauts（i3bar中显示时间，电量等信息的小组件。安装i3自带）</p><p>network-manager-gnome（gnome网络管理器，用于切换WiFi网络）</p><p>xfce4-power-manager（电源管理器）</p><p>blueman（蓝牙管理器）</p><p>volumeicon-alsa（声音控制）</p><p>lxappearance（界面外观更换）</p><p>feh（更换壁纸工具）</p><hr><p>只需要输入：</p><pre><code class="language-bash">apt install sudo lightdm i3 ranger alacritty rofi  picom network-manager-gnome xfce4-power-manager blueman volumeicon-alsa lxappearance feh
+</code></pre><p>普通用户使用sudo</p><pre><code class="language-bash">sudo usermod -aG sudo username
+</code></pre><p>执行完成后输入重启命令即可</p><pre><code class="language-bash">reboot
+</code></pre><h3 id="i3的常用快捷键">i3的常用快捷键</h3><p>刚进桌面时会让你选择快捷键的Mod键是<strong>Windows徽标键</strong>或<strong>Ctrl键</strong>，自行选择即可。</p><p>$mod + Enter 启动虚拟终端</p><p>$mod + A 焦点转义到父窗口上</p><p>$mod + S 堆叠布局</p><p>$mod + W 标签布局</p><p>$mod + E 默认布局 连续按下 可以从 纵向排列和竖向排列之间 来回切换</p><p>$mod + SpaceBar 焦点在平铺式／浮动式转换</p><p>$mod + Shift + SpaceBar 窗口在平铺式／浮动式转换</p><p>$mod + shift + &lt;数字键&gt; 将当前程序发送到指定window</p><p>$mod + &lt;方向键&gt; 移动鼠标到焦点</p><p>$mod + shift + &lt;方向键&gt; 移动窗口位置</p><p>$mod + D 启动 dmenu</p><p>$mod + H 水平分割窗口</p><p>$mod + V 垂直分割窗口</p><p>$mod + J 焦点往左窗口移</p><p>$mod + K 焦点往下窗口移</p><p>$mod + L 焦点往上窗口移</p><p>$mod + ; 焦点往右窗口移</p><p>$mod + Shift + Q 杀死当前窗口的进程</p><p>$mod + Shift + E 退出 i3</p><p>$mod + Shift + C 当场重新加载 i3config, 无需重启</p><p>$mod + Shift + R 重启 i3 （还重新加载了 i3config, 又没有退出过程）</p><p>$mod + &lt;数字键&gt; 切换window</p><p>$mod + F 焦点窗口全屏</p><p>可在i3配置中更换快捷键对应操作</p><h3 id="i3的配置与配置文件">i3的配置与配置文件</h3><p>配置文件位置在</p><pre><code class="language-bash">./home/username/.config/i3/config
+</code></pre><p>username位置填自己的用户名即可。<em><strong>.config是隐藏文件夹，用Ctrl+H键显示。</strong></em></p><figure class="post__image"><img loading="lazy" src="./media/files/Linux探微录/Debian12+i3-wm/ranger.png" alt="" data-is-external-image="true"></figure><p>ranger中文件位置</p><p>将这几条添加进去即可</p><pre><code class="language-bash">exec --no-startup-id fcitx
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id volumeicon
+exec --no-startup-id blueman
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+new_window none
+new_float none
+hide_edge_borders both #隐藏窗口边框
+gaps inner 8
+gaps outer 6
+</code></pre><p>更改dmenu</p><figure class="post__image"><img loading="lazy" src="./media/files/Linux探微录/Debian12+i3-wm/dmenu.png" alt="" data-is-external-image="true"></figure><p>将原本配置文件改成这样即可</p><p>mod + Shift + R 重启 i3</p><hr><p>picom配置透明窗口，渐变动画</p><p>文件位置（如果没有新建即可）：</p><pre><code class="language-bash">./home/username/.config/picom.conf
+</code></pre><p>这是我的配置文件:</p><pre><code class="language-bash">#################################
+#             Shadows           #
+#################################
+# 在 Windows 上启用客户端阴影。注意桌面窗口
+# (windows with &#39;_NET_WM_WINDOW_TYPE_DESKTOP&#39;) 永远不会有阴影，
+# 除非使用 wintypes 选项明确要求。
+#
+# shadow = false
+shadow = false;
+# 阴影的模糊半径，以像素为单位。 （默认为 12）
+# shadow-radius = 12
+shadow-radius = 7;
+# 阴影的不透明度。 （0.0 - 1.0，默认为 0.75）
+# shadow-opacity = .75
+# 阴影的左偏移，以像素为单位。 （默认为 -15）
+# shadow-offset-x = -15
+shadow-offset-x = -7;
+# 阴影的顶部偏移量，以像素为单位。 （默认为 -15）
+# shadow-offset-y = -15
+shadow-offset-y = -7;
+# 阴影的红色值（0.0 - 1.0，默认为 0）。
+# shadow-red = 0
+# 阴影的绿色值（0.0 - 1.0，默认为 0）。
+# shadow-green = 0
+# 阴影的蓝色值（0.0 - 1.0，默认为 0）。
+# shadow-blue = 0
+# 阴影的十六进制字符串颜色值（#000000 - #FFFFFF，默认为#000000）。此选项将覆盖选项集阴影-（红色/绿色/蓝色）
+# shadow-color = &quot;#000000&quot;
+# 指定不应该有阴影的窗口的条件列表。
+#
+# examples:
+
+#   shadow-exclude = &quot;n:e:Notification&quot;;
+
+#
+
+# shadow-exclude = []
+
+shadow-exclude = [
+  &quot;name = &#39;Notification&#39;&quot;,
+  &quot;class_g = &#39;Conky&#39;&quot;,
+  &quot;class_g ?= &#39;Notify-osd&#39;&quot;,
+  &quot;class_g = &#39;Cairo-clock&#39;&quot;,
+  &quot;_GTK_FRAME_EXTENTS@:c&quot;
+];
+# 指定不应覆盖阴影的窗口条件列表，例如停靠窗口。
+# clip-shadow-above = []
+# 指定一个 X 几何图形来描述不应该出现阴影的区域
+# 被绘制在，比如一个停靠窗口区域。采用
+# shadow-exclude-reg u003d &quot;x10+0+0&quot;
+# 例如，如果屏幕底部的 10 个像素不应绘制阴影。
+#
+# shadow-exclude-reg = &quot;&quot;
+# 在特定的 Xinerama 屏幕上将窗口的阴影完全裁剪到屏幕上。
+# xinerama-shadow-crop = false
+
+#################################
+#           Fading              #
+#################################
+# 在打开/关闭和不透明度变化时淡入/淡出窗口，
+#  unless no-fading-openclose is used.
+# fading = false
+fading = true;
+
+# 淡入时步骤之间的不透明度变化。（0.01 - 1.0，默认为 0.028）
+# fade-in-step = 0.028
+
+fade-in-step = 0.03;
+# 淡出时步骤之间的不透明度变化。 （0.01 - 1.0，默认为 0.03）
+# fade-out-step = 0.03
+
+fade-out-step = 0.03;
+# 淡入淡出步骤之间的时间，以毫秒为单位。 （&gt; 0，默认为 10）
+# fade-delta = 10
+# 指定不应褪色的窗口条件列表。
+# fade-exclude = []
+# 不要在窗口打开/关闭时淡入淡出。
+# no-fading-openclose = false
+# 不要使用 WM 框架淡化被破坏的 ARGB 窗口。解决 Openbox、Fluxbox 等中的错误。
+# no-fading-destroyed-argb = false
+
+#################################
+
+#   Transparency / Opacity      #
+
+#################################
+# 非活动窗口的不透明度。 （0.1 - 1.0，默认为 1.0）
+# inactive-opacity = 1
+
+inactive-opacity = 0.5;
+
+# 窗口标题栏和边框的不透明度。 （0.1 - 1.0，默认禁用）
+# frame-opacity = 1.0
+
+frame-opacity = 0.8;
+
+# 让 -i 设置的非活动不透明度覆盖窗口的 &#39;_NET_WM_WINDOW_OPACITY&#39; 值。
+# inactive-opacity-override = true
+
+inactive-opacity-override = false;
+
+# 活动窗口的默认不透明度。 （0.0 - 1.0，默认为 1.0）
+
+active-opacity = 0.8
+
+# 使非活动窗口变暗。 （0.0 - 1.0，默认为 0.0）
+# inactive-dim = 0.0
+# 指定不应该被视为焦点的窗口的条件列表。
+# focus-exclude = []
+
+focus-exclude = [ &quot;class_g = &#39;Cairo-clock&#39;&quot; ];
+
+# 使用固定的非活动暗度值，而不是根据窗口不透明度进行调整。
+# inactive-dim-fixed = 1.0
+# 指定不透明度规则列表，格式为 `PERCENT:PATTERN`,
+# 像 `50:name *u003d &quot;Firefox&quot;`。建议使用 picom-trans。
+# 请注意，我们不保证可能与其他人发生冲突
+# 在框架或客户端窗口上设置“_NET_WM_WINDOW_OPACITY”的程序。
+# example:
+#    opacity-rule = [ &quot;80:class_g = &#39;URxvt&#39;&quot; ];
+#
+# opacity-rule = []
+
+#################################
+#           Corners             #
+#################################
+
+# 设置圆角窗口角的半径。当 &gt; 0 时，合成器将
+# 圆窗户的角落。不能很好的互动
+# `transparent-clipping`.
+corner-radius = 0
+
+# 排除圆角的条件。
+
+rounded-corners-exclude = [
+  &quot;window_type = &#39;dock&#39;&quot;,
+  &quot;window_type = &#39;desktop&#39;&quot;
+];
+
+#################################
+#     Background-Blurring       #
+#################################
+# 背景模糊的参数，请参阅 *BLUR* 部分了解更多信息。
+# blur-method =
+# blur-size = 12
+#
+# blur-deviation = false
+#
+# blur-strength = 5
+# 模糊半透明/ARGB 窗口的背景。
+# 性能不佳，具有依赖于驱动程序的行为。
+# 交换机名称可能会更改，恕不另行通知。
+#
+# blur-background = false
+# 当窗口框架不透明时模糊窗口的背景。
+# Implies:
+#    blur-background
+# 性能不佳，具有依赖于驱动程序的行为。名称可能会改变。
+#
+# blur-background-frame = false
+# 使用固定的模糊强度，而不是根据窗口不透明度进行调整。
+# 模糊背景固定 = 假
+# 指定模糊卷积核，格式如下：
+# example:
+#   blur-kern = &quot;5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1&quot;;
+#
+# blur-kern = &quot;&quot;
+
+blur-kern = &quot;3x3box&quot;;
+
+# 排除背景模糊的条件。
+
+# blur-background-exclude = []
+blur-background-exclude = [
+  &quot;window_type = &#39;dock&#39;&quot;,
+  &quot;window_type = &#39;desktop&#39;&quot;,
+  &quot;_GTK_FRAME_EXTENTS@:c&quot;
+];
+
+
+
+#################################
+#       General Settings        #
+#################################
+# 守护进程。初始化后分叉到后台。导致某些（编写错误的）驱动程序出现问题。
+# daemon = false
+# 指定要使用的后端：`xrender`、`glx` 或 `xr_glx_hybrid`。
+# `xrender` is the default one.
+# backend = &quot;glx&quot;
+
+backend = &quot;xrender&quot;;
+
+# 启用/禁用垂直同步。
+# vsync = false
+
+vsync = true;
+
+# 通过 D-Bus 启用远程控制。有关详细信息，请参阅下面的 *D-BUS API* 部分。
+# dbus = false
+# 尝试检测 WM 窗口（一个非覆盖重定向窗口，没有
+# 具有&#39;WM_STATE&#39;的孩子）并将它们标记为活动。
+#
+# mark-wmwin-focused = false
+
+mark-wmwin-focused = true;
+
+# 标记没有以“WM_STATE”为焦点的子窗口的覆盖重定向窗口。
+# mark-ovredir-focused = false
+
+mark-ovredir-focused = true;
+
+# 尝试检测带有圆角的窗口并且不考虑它们
+# 形状的窗户。不幸的是，准确度不是很高。
+#
+# detect-rounded-corners = false
+
+detect-rounded-corners = true;
+
+# 在客户端窗口上检测&#39;_NET_WM_WINDOW_OPACITY&#39;，对窗口管理器很有用
+# 不将客户端窗口的“_NET_WM_WINDOW_OPACITY”传递给框架窗口。
+#
+# detect-client-opacity = false
+
+detect-client-opacity = true;
+
+# 使用 EWMH &#39;_NET_ACTIVE_WINDOW&#39; 来确定当前聚焦的窗口，
+# 而不是听 &#39;FocusIn&#39;/&#39;FocusOut&#39; 事件。可能精度更高，
+# 前提是 WM 支持它。
+#
+# use-ewmh-active-win = false
+# 如果检测到全屏不透明窗口，则取消重定向所有窗口，
+# 最大化全屏窗口的性能。已知会导致闪烁
+# 当重定向/取消重定向窗口时。
+#
+# unredir-if-possible = false
+# 取消重定向窗口前的延迟，以毫秒为单位。默认为 0。
+# unredir-if-possible-delay = 0
+# 不应该被视为非重定向屏幕全屏的窗口条件。
+# unredir-if-possible-exclude = []
+# 使用 &#39;WM_TRANSIENT_FOR&#39; 对窗口进行分组，并考虑窗口
+#在同一组中同时专注。
+#
+# detect-transient = false
+
+detect-transient = true;
+
+# 使用 &#39;WM_CLIENT_LEADER&#39; 对窗口进行分组，并考虑同一个窗口
+# 小组同时聚焦。这通常意味着来自同一应用程序的窗口
+# 将同时被视为专注或不专注。
+# 如果启用了检测瞬态，&#39;WM_TRANSIENT_FOR&#39; 具有更高的优先级。
+#
+# detect-client-leader = false
+# 将损坏区域的大小调整为特定数量的像素。
+# 正值放大，负值缩小。
+# 如果值为正，则不会实际绘制那些额外的像素
+# 到屏幕，仅用于模糊计算等。 （由于技术限制，
+# 使用损坏，这些像素仍然会错误地绘制到屏幕上。）
+# 主要用于修复模糊的线路损坏问题，
+# 在这种情况下你应该在这里使用模糊半径值
+# （例如，对于 3x3 内核，您应该使用 `--resize-damage 1`，
+# 使用 5x5 的 `--resize-damage 2`，依此类推）。
+# 可能会也可能不会与 *--glx-no-stencil* 一起使用。收缩功能不正常。
+#
+# resize-damage = 1
+# 指定应该用反转颜色绘制的窗口的条件列表。
+# 资源占用，并且没有经过很好的测试。
+#
+# invert-color-include = []
+
+# GLX 后端：避免使用模板缓冲区，如果您没有模板缓冲区，这很有用。
+# 在渲染透明内容时可能会导致不正确的不透明度（但绝不会
+# 实际上发生了）并且可能不适用于模糊背景。
+# 我的测试显示性能提升了 15%。推荐的。
+#
+
+glx-no-stencil = true;
+
+# GLX 后端：避免在窗口损坏时重新绑定像素图。
+# 可能可以提高快速窗口内容更改的性能，
+# 但已知会破坏某些驱动程序（LLVMpipe、xf86-video-intel 等）。
+# 如果可行，推荐。
+#
+# glx-no-rebind-pixmap = false
+# 禁用损坏信息。
+# 这会导致每次重绘整个屏幕，而不是屏幕的一部分
+#实际上已经改变了。可能会降低性能，但可能会修复一些伪影。
+# 对立的选项是使用伤害
+#
+# no-use-damage = false
+
+use-damage = true;
+
+# 使用 X Sync fence 来同步客户端的draw call，确保所有draw
+# 调用在 picom 开始绘制之前完成。需要 nvidia 驱动程序
+# 为某些用户使用 GLX 后端。
+#
+# xrender-sync-fence = false
+
+# GLX 后端：使用指定的 GLSL 片段着色器来渲染窗口内容。
+# 参见 `compton-default-fshader-win.glsl` 和 `compton-fake-transparency-fshader-win.glsl`
+# 在源代码树中作为示例。
+#
+# glx-fshader-win = &quot;&quot;
+
+# 强制所有窗口使用混合进行绘制。如果你有用
+# 有一个 glx-fshader-win 可以把不透明的像素变成透明的。
+#
+# force-win-blend = false
+# 不要使用 EWMH 检测全屏窗口。
+# 恢复为仅根据其大小和坐标检查窗口是否为全屏。
+#
+# no-ewmh-fullscreen = false
+# 调暗明亮的窗户，使其亮度不超过此设定值。
+# 窗口的亮度是通过平均窗口中的所有像素来估计的，
+# 所以这可能会带来性能损失。
+# 将此设置为 1.0 会禁用此行为。需要禁用 --use-damage。 （默认值：1.0）
+#
+# max-brightness = 1.0
+# 让透明窗口像非透明窗口一样剪辑其他窗口，
+# 而不是在它们之上混合。
+#
+# transparent-clipping = false
+# 设置日志级别。可能的值为：
+#  &quot;trace&quot;, &quot;debug&quot;, &quot;info&quot;, &quot;warn&quot;, &quot;error&quot;
+# 越来越重要。大小写无关紧要。
+# 如果使用“TRACE”日志级别，最好登录到文件中
+# 使用 *--log-file*，因为它可以生成大量日志。
+#
+# log-level = &quot;debug&quot;
+
+log-level = &quot;warn&quot;;
+
+# 设置日志文件。
+# 如果 *--log-file* 从未指定，日志将被写入标准错误。
+# 否则，日志将写入给定文件，尽管一些早期的
+# 日志可能仍会写入标准错误。
+# 从配置文件中设置此选项时，建议使用绝对路径。
+#
+# log-file = &quot;/path/to/your/log/file&quot;
+# 显示所有 X 错误（用于调试）
+# show-all-xerrors = false
+# 将进程 ID 写入文件。
+# write-pid-path = &quot;/path/to/your/log/file&quot;
+# 窗口类型设置
+#
+# &#39;WINDOW_TYPE&#39; 是 EWMH 标准中定义的 15 种窗口类型之一：
+#     &quot;unknown&quot;, &quot;desktop&quot;, &quot;dock&quot;, &quot;toolbar&quot;, &quot;menu&quot;, &quot;utility&quot;,
+#     &quot;splash&quot;, &quot;dialog&quot;, &quot;normal&quot;, &quot;dropdown_menu&quot;, &quot;popup_menu&quot;,
+#     &quot;tooltip&quot;, &quot;notification&quot;, &quot;combo&quot;, and &quot;dnd&quot;.
+#
+
+# 以下每个窗口类型选项可用：::
+#
+#   fade, shadow:::
+#     Controls window-type-specific shadow and fade settings.
+#
+#   opacity:::
+#     Controls default opacity of the window type.
+#
+#   focus:::
+#     Controls whether the window of this type is to be always considered focused.
+#     (By default, all window types except &quot;normal&quot; and &quot;dialog&quot; has this on.)
+#
+#   full-shadow:::
+#     Controls whether shadow is drawn under the parts of the window that you
+#     normally won&#39;t be able to see. Useful when the window has parts of it
+#     transparent, and you want shadows in those areas.
+#
+#   clip-shadow-above:::
+#     Controls wether shadows that would have been drawn above the window should
+#     be clipped. Useful for dock windows that should have no shadow painted on top.
+#
+#   redir-ignore:::
+#     Controls whether this type of windows should cause screen to become
+#     redirected again after been unredirected. If you have unredir-if-possible
+#     set, and doesn&#39;t want certain window to cause unnecessary screen redirection,
+#     you can set this to `true`.
+#
+wintypes:
+{
+  tooltip = { fade = true; shadow = false; opacity = 0.75; focus = true; full-shadow = false; };
+  dock = { shadow = false; clip-shadow-above = true; }
+  dnd = { shadow = false; }
+  popup_menu = { opacity = 0.8; }
+  dropdown_menu = { opacity = 0.8; }
+};
+</code></pre><hr><h2 id="安装后软件安装">安装后软件安装</h2><h3 id="浏览器安装">浏览器安装</h3><p>我是直接终端下载Chrome的deb安装包安装</p><pre><code class="language-bash">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+</code></pre><p>然后本地安装</p><pre><code class="language-bash">sudo apt install google*.deb
+</code></pre><h3 id="spark-store安装">spark store安装</h3><p>打开浏览器并访问其官网或<a href="https://gitee.com/spark-store-project/spark-store/releases/download/4.2.12/spark-store_4.2.12_amd64.deb">点此下载4.2.12的amd64安装包</a></p><p>然后打开终端</p><pre><code class="language-bash">cd ./Download
+
+sudo apt install spark*.deb
+</code></pre><p>随后使用Mod+D即可找到星火商店。</p><h3 id="alacritty">Alacritty</h3><p>配置文件的位置在/home/username/.config/alacritty/alacritty.yml（若不存在可自行创建）</p><p>下面是我的配置，使用前要安装JetBrains Mono字体</p><pre><code class="language-bash"># Colors (Aura Theme)
+colors:
+  # Default colors
+  primary:
+    background: &#39;#15141b&#39;
+    foreground: &#39;#edecee&#39;
+
+  cursor:
+    cursor: &#39;#00D1FF&#39;
+
+  selection:
+    bash: CellForeground
+    background: &#39;#29263c&#39;
+
+  # Normal colors
+  normal:
+    black: &#39;#110f18&#39;
+    red: &#39;#ff6767&#39;
+    green: &#39;#61ffca&#39;
+    yellow: &#39;#ffca85&#39;
+    blue: &#39;#a277ff&#39;
+    magenta: &#39;#a277ff&#39;
+    cyan: &#39;#61ffca&#39;
+    white: &#39;#edecee&#39;
+
+  # Bright colors
+  bright:
+    black: &#39;#4d4d4d&#39;
+    red: &#39;#ff6767&#39;
+    green: &#39;#61ffca&#39;
+    yellow: &#39;#ffca85&#39;
+    blue: &#39;#a277ff&#39;
+    magenta: &#39;#a277ff&#39;
+    cyan: &#39;#61ffca&#39;
+    white: &#39;#edecee&#39;
+
+  search:
+
+    matches:
+      foreground: &#39;#000000&#39;
+      background: &#39;#ffffff&#39;
+    focused_match:
+      foreground: &#39;#ffffff&#39;
+      background: &#39;#00D1FF&#39;
+
+# 设置字体
+font:
+  normal:
+    family: &#39;JetBrains Mono&#39;
+    style: Regular
+
+  bold:
+    family: &#39;JetBrains Mono&#39;
+    style: Regular
+
+  italic:
+    family: &#39;JetBrains Mono&#39;
+    style: Italic
+
+  bold_italic:
+    family: &#39;JetBrains Mono&#39;
+    style: Italic
+
+  # 字大小
+  size: 8
+
+  offset:
+    x: 0
+    y: 1
+
+  glyph_offset:
+    x: 0
+    y: 1
+
+
+
+window:
+  padding:
+    x: 22
+    y: 22
+
+  decorations: transparent
+
+  dimensions:
+
+    columns: 80
+    lines: 25
+
+
+
+scrolling:
+  # 回滚缓冲区中的最大行数,指定“0”将禁用滚动。
+  history: 100000
+  # 滚动行数
+  multiplier: 4
+
+
+
+cursor:
+  style:
+    shape: Beam
+
+# 如果为‘true’，则使用亮色变体绘制粗体文本。
+draw_bold_bash_with_bright_colors: false
+
+selection:
+  semantic_escape_chars: &#39;,│`|:&quot;&#39;&#39; ()[]{}&lt;&gt;&#39;
+  save_to_clipboard: true
+
+live_config_reload: true
+key_bindings:
+  - { key: R, mods: Command, mode: ~Vi|~Search, chars: &quot;\x0c&quot; }
+  - { key: R, mods: Command, mode: ~Vi|~Search, action: ClearHistory }
+  - { key: W, mods: Command, action: Hide }
+  - { key: W, mods: Command|Shift, action: Quit }
+  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: T, mods: Command, action: CreateNewWindow }
+  - { key: Left, mods: Alt, chars: &quot;\x1bb&quot; } # Skip word left
+  - { key: Right, mods: Alt, chars: &quot;\x1bf&quot; } # Skip word right
+  - { key: Left, mods: Command, chars: &quot;\x01&quot; } # Home
+  - { key: Right, mods: Command, chars: &quot;\x05&quot; } # End
+  - { key: Back, mods: Command, chars: &quot;\x15&quot; } # Delete line
+  - { key: Back, mods: Alt, chars: &quot;\x1b\x7f&quot; } # Delete word
+</code></pre><h3 id="ranger">Ranger</h3><pre><code class="language-bash">输入：ranger --copy-config=all
+</code></pre><p>在./home/username/.config/ranger/rc.conf中可以调整字体的大小</p><h3 id="redshift">Redshift</h3><p>在./home/username/.config目录下新建redshift.conf</p><p>下面是我的配置文件：</p><pre><code class="language-bash">; Global settings for redshift
+
+[redshift]
+; Set the day and night screen temperatures
+temp-day=5000
+temp-night=3500
+; Enable/Disable a smooth transition between day and night
+; 0 will cause a direct change from day to night screen temperature.
+; 1 will gradually increase or decrease the screen temperature.
+transition=1
+; Set the screen brightness. Default is 1.0.
+;brightness=0.9
+; It is also possible to use different settings for day and night
+; since version 1.8.
+;brightness-day=0.7
+;brightness-night=0.4
+; Set the screen gamma (for all colors, or each color channel
+; individually)
+gamma=0.8
+;gamma=0.8:0.7:0.8
+; This can also be set individually for day and night since
+; version 1.10.
+;gamma-day=0.8:0.7:0.8
+;gamma-night=0.6
+; Set the location-provider: geoclue, geoclue2, manual
+; type redshift -l list to see possible values.
+; The location provider settings are in a different section.
+location-provider=manual
+; Set the adjustment-method: randr, vidmode
+; type redshift -m list to see all possible values.
+; randr is the preferred method, vidmode is an older API.
+; but works in some cases when randr does not.
+; The adjustment method settings are in a different section.
+adjustment-method=randr
+; Configuration of the location-provider:
+; type redshift -l PROVIDER:help to see the settings.
+; ex: redshift -l manual:help
+; Keep in mind that longitudes west of Greenwich (e.g. the Americas)
+; are negative numbers.
+
+[manual]
+lat=22.5
+lon=88.3
+; Configuration of the adjustment-method
+; type redshift -m METHOD:help to see the settings.
+; ex: redshift -m randr:help
+; In this example, randr is configured to adjust screen 1.
+; Note that the numbering starts from 0, so this is actually the
+; second screen. If this option is not specified, Redshift will try
+; to adjust _all_ screens.
+
+[randr]
+screen=0
+</code></pre><h3 id="vim">Vim</h3><p>在./home/username目录下新建.vimrc文件</p><p>下面是我的配置文件：</p><pre><code class="language-bash">&quot;=========================================================================
+&quot;
+&quot;&quot; 根据他人配置进行增加个性化设置
+&quot;
+&quot;&quot;=========================================================================
+
+map &lt;F3&gt; :Explore&lt;CR&gt;
+map &lt;S-F3&gt; :Vexplore&lt;CR&gt;
+map &lt;C-F3&gt; :Sexplore&lt;CR&gt;  
+
+imap jk &lt;Esc&gt;
+
+nmap &lt;space&gt; :
+
+syntax on
+</code></pre></div><footer class="content__footer"><div class="entry-wrapper"><p class="content__updated">此文更新于 2025-08-09 17:37:15</p><div class="content__actions"><ul class="content__tag"><li><a href="https://kynx.qzz.io/tags/linux-internals-uncovered/">Linux探微录</a></li></ul></div><div class="content__bio bio"><img src="https://kynx.qzz.io/media/website/Tou-Xiang.png" loading="lazy" height="1920" width="1920" class="bio__avatar" alt=""><div><h3 class="h4 bio__name"><a href="https://kynx.qzz.io/authors/cryozy/" rel="author">和光同尘</a></h3><div class="bio__desc"><h6>和其光，同其尘</h6></div></div></div></div><nav class="content__nav"><div class="wrapper"><div class="content__nav-inner"><div class="content__nav-next"><a href="https://kynx.qzz.io/mastering-the-css-box-model.html" class="content__nav-link" rel="next"><div><span>后文</span> 掌握盒子模型</div><figure class="content__nav-image"><img src="https://kynx.qzz.io/media/posts/6/responsive/1-xs.webp" class="lazyload" loading="lazy" alt="" height="316" width="316"></figure></a></div></div></div></nav></footer></article></main><footer class="footer footer--glued"><div class="wrapper"><div class="footer__copyright"><h6 class="align-center"><strong>澄观 · 隙载</strong></h6></div><button id="backToTop" class="footer__bttop" aria-label="复归其上" title="复归其上"><svg width="20" height="20"><use xlink:href="https://kynx.qzz.io/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://kynx.qzz.io/assets/js/scripts.min.js?v=700105c316933a8202041b6415abb233"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'overlay',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><script defer="defer" src="https://kynx.qzz.io/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://kynx.qzz.io/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://kynx.qzz.io/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://kynx.qzz.io/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script><script defer="defer" src="https://kynx.qzz.io/media/plugins/syntaxHighlighter/prism-inline-color.min.js"></script><script defer="defer" src="https://kynx.qzz.io/media/plugins/syntaxHighlighter/prism-autolinker.min.js"></script></body></html>

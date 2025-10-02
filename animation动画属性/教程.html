@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="../media/website/Logo.png">
+    <title>CSS3动画教程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            overflow: hidden;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #3498db;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #3498db;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            text-indent: 2em;
+        }
+
+        ul {
+            margin-left: 60px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        ul li {
+            padding-left: 5px;
+            margin-bottom: 10px;
+        }
+        
+        /* 动画实现步骤 */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .step-card {
+            background: #f9f9f9;
+            /* border-left: 5px solid #3498db; */
+            /* padding: 20px; */
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        .step-title {
+            background: #3498db;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #1b71ab;
+        }
+        .step-content {
+            padding: 20px;
+            min-height: 100px;
+        }
+        .step-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #3498db;
+            color: white;
+            text-align: center;
+            line-height: 32px;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .describe {
+            background: #f9f9f9;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        .code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            margin: 15px 0;
+            overflow-x: auto;
+            line-height: 1.5;
+        }
+        
+        .unit {
+            color: #9b59b6;
+        }
+        
+        .note {
+            background: #fff8e1;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .note p {
+            text-indent: 0;
+        }
+        
+        .note ul {
+            margin-left: 40px;
+        }
+        
+        .value {
+            color: #3498db;
+        }
+        
+        .explanation {
+            background-color: #e8f4fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #f5f6fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .copy-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #2980b9;
+        }
+        
+        .demo-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .demo {
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+        
+        .demo-box {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            background: tomato;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .demo p {
+            text-indent: 0rem;
+            margin-top: 20px;
+        }
+
+        /* 简单动画演示 */
+        .simple-demo-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .simple-container {
+            width: 100%;
+            height: 102px;
+            /* border: 1px solid #ccc; */
+            /* background-color: #fff; */
+        }
+        
+        .simple-box {
+            width: 100px;
+            height: 100px;
+            animation: slideAndChangeColor 3s ease-in-out 0.5s infinite;
+        }
+
+        @keyframes slideAndChangeColor {
+            0% {
+                transform: translateX(0);
+                background-color: red;
+            }
+            50% {
+                transform: translateX(400px);
+                background-color: blue;
+                border-radius: 50%;
+            }
+            100% {
+                transform: translateX(800px);
+                background-color: green;
+            }
+        }
+
+        /* 进度条演示样式 */
+        .progress-demo-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px 0;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            border-radius: 15px;
+            background: #4CAF50;
+            animation: progress-animation 5s ease-in-out infinite;
+        }
+        
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #2c3e50;
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+
+        @keyframes progress-animation {
+            0% { width: 0%; }
+            50% { width: 80%; }
+            100% { width: 100%; }
+        }
+
+
+
+
+
+        /* 动画演示样式 */
+        .demo-animation-1 .demo-box {
+            animation: simple-move 3s infinite;
+        }
+        
+        @keyframes simple-move {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(100px); }
+            100% { transform: translateX(0); }
+        }
+        
+        .demo-animation-2 .demo-box {
+            animation: complex-animation 4s infinite;
+        }
+        
+        @keyframes complex-animation {
+            0% { 
+                transform: translate(0, 0) rotate(0deg); 
+                background-color: tomato;
+            }
+            25% { 
+                transform: translate(100px, 0) rotate(90deg); 
+                background-color: gold;
+            }
+            50% { 
+                transform: translate(100px, 100px) rotate(180deg); 
+                background-color: lightseagreen;
+            }
+            75% { 
+                transform: translate(0, 100px) rotate(270deg); 
+                background-color: violet;
+            }
+            100% { 
+                transform: translate(0, 0) rotate(360deg); 
+                background-color: tomato;
+            }
+        }
+        
+        .property-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .property-table th, .property-table td {
+            border: 1px solid #b2bec3;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .property-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .property-table tr:nth-child(even) {
+            background-color: #dfe6e9;
+        }
+        
+        .timing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .timing-table th, .timing-table td {
+            border: 1px solid #b2bec3;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .timing-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .timing-table tr:nth-child(even) {
+            background-color: #dfe6e9;
+        }
+        
+        /* 动画控制演示 */
+        .animation-controls {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .control-group {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .control-group h4 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .slider-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .slider-container span {
+            min-width: 40px;
+            text-align: right;
+            margin-left: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: rgba(52, 152, 219, 0.2);
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3498db;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background: #2980b9;
+        }
+        
+        select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            background: white;
+        }
+        
+        .control-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        
+        .control-btn {
+            padding: 8px 15px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .control-btn:hover {
+            background: #2980b9;
+        }
+        
+        /* 小球动画演示 */
+        .ball-demo-container {
+            height: 120px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+        
+        .ball {
+            width: 40px;
+            height: 40px;
+            background: #e74c3c;
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+            left: 0;
+        }
+        
+        .ball-track {
+            position: absolute;
+            top: 59px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #bdc3c7;
+        }
+        
+
+        /* 实时代码显示区域样式 */
+        #animation-code-display {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            line-height: 1.2;
+            color: #f5f6fa;
+            white-space: pre-wrap;
+        }
+
+        #animation-code-display code {
+            display: block;
+        }
+
+        .example {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .example .code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+
+
+        /* 淡入淡出动画演示 */
+        .fade-in-out h1 {
+            font-size: 3em;
+            color: tomato;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .fade-in-out {
+            animation-name: fade-in-out;
+            animation-duration: 5s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes fade-in-out {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+
+        /* 诗词滚动效果样式 */
+        .poem-scroll-card {
+            width: 350px;
+            background: linear-gradient(to bottom, #fff 0%, #f9f6f0 100%);
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid #e0d6c2;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            margin: 20px auto;
+        }
+        
+        .decorative-border {
+            padding: 15px;
+            border: 1px solid #e0d6c2;
+            border-radius: 6px;
+            pointer-events: none;
+        }
+        
+        .poem-scroll-card h3 {
+            color: #8b5a2b;
+            margin-top: 0;
+            border-bottom: 1px solid #e0d6c2;
+            padding-bottom: 10px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        
+        .author {
+            color: #d4a76a;
+            font-size: 0.95em;
+            margin: 5px 0 15px;
+            text-align: center;
+            font-style: italic;
+            text-indent: 0;
+        }
+        
+        .scroll-container {
+            height: 300px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .poem-scroll-content {
+            font-family: '宋体', serif;
+            line-height: 1.5;
+            animation: scrollPoem 15s linear 2s infinite;
+        }
+        
+        .poem-scroll-content p {
+            text-align: center;
+            margin: 0;
+            line-height: 2;
+            font-size: 16px;
+            text-indent: 0;
+        }
+
+
+        @keyframes scrollPoem {
+            0% { transform: translateY(0%); }
+            80% { transform: translateY(calc(-100% + 300px)); }
+            100% { transform: translateY(calc(-100% + 300px)); }
+        }
+        
+        .poem-scroll-card:hover .poem-scroll-content {
+            animation-play-state: paused;  /* 鼠标悬停时，诗词停止滚动 */
+        }
+        
+        .card-controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .card-btn {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 0 10px;
+            display: inline-block;
+        }
+        
+        .card-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+        
+        /* 动画演示盒子 */
+        .animation-demo-box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+            margin: 20px auto;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .animation-controls {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS3动画教程</h1>
+            <p>掌握CSS3动画，为网页元素添加流畅的动态效果和交互体验</p>
+        </header>
+        
+        <section>
+            <h2>1. CSS3动画简介</h2>
+            <p><b>CSS3动画（Animation）</b>通过关键帧控制元素的样式变化过程，创建复杂的动画效果。与过渡（transition）不同，动画不需要触发事件，可以自动播放，并且可以定义多个中间状态。</p>
+          
+            <h3>简单动画演示：</h3>
+            <div class="simple-demo-container">
+                <div class="simple-container">
+                    <div class="simple-box"></div>
+                </div>
+            </div>
+
+
+            <h2>2. 实现CSS3动画的步骤</h2>
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-title">步骤 1: 定义关键帧</div>
+                    <div class="step-content">
+                        <p>使用 @keyframes 规则创建动画序列，通过定义多个关键帧实现元素在不同状态之间的平滑过渡。</p>
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-title">步骤 2: 应用动画到元素</div>
+                    <div class="step-content">
+                        <p>使用 animation 属性将动画绑定到元素，至少需要指定动画名称和持续时间。</p>
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-title">步骤 3: 配置动画属性</div>
+                    <div class="step-content">
+                        <p>配置动画的延迟、播放次数、方向、时间函数等参数。</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        
+        <section>
+            <h2>3. CSS3 动画组成部分</h2>
+            <h3>CSS3 动画由以下两个部分组成：</h3>
+            <ul>
+                <li><b>@keyframes规则</b>：定义动画的规则和内容。它就像是动画的“剧本”，规定了元素在动画过程中不同时间点应该呈现的样式状态（即关键帧）。</li>
+                <li><b>animation 动画属性</b>：定义动画的行为和控制。它就像是“导演”，负责挑选演员（元素）、决定用哪个剧本（动画名称）、演出速度、次数等。</li>
+            </ul>
+
+
+            <h3>关键帧动画演示：进度条动画</h3>
+            <div class="progress-demo-container">
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                    <div class="progress-text">加载中...</div>
+                </div>
+            </div>
+
+            <h2>3.1 关键帧 @keyframes</h2>
+            <p>@keyframes规则是CSS动画的核心，它定义了动画从开始到结束的整个序列。可以在动画序列中设置多个关键帧，每个关键帧描述元素在特定时间点应用的样式。</p>
+            
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS语法</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+                @keyframes animation-name {<br>
+                &nbsp;&nbsp;0% {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;/* 起始状态样式 */<br>
+                &nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;50% {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;/* 中间状态样式 */<br>
+                &nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;100% {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;/* 结束状态样式 */<br>
+                &nbsp;&nbsp;}<br>
+                }<br>
+                <br>
+                /* 或者使用from和to关键字 */<br>
+                @keyframes animation-name {<br>
+                &nbsp;&nbsp;from {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;/* 起始状态样式 */<br>
+                &nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;to {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;/* 结束状态样式 */<br>
+                &nbsp;&nbsp;}<br>
+                }
+            </div>
+            
+            <div class="note">
+                <p><strong>注意：</strong></p>
+                <ul>
+                    <li>关键帧选择器可以使用百分比（0%到100%）或from（0%）和to（100%）关键字</li>
+                    <li>如果0%或100%未指定关键帧，浏览器将使用元素的默认样式</li>
+                    <li>关键帧中的样式将覆盖元素原有的样式</li>
+                </ul>
+            </div>
+            
+            <h3 style="color: #4CAF50;">定义进度条动画关键帧：</h3>
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS代码</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+                <pre><code>/* 步骤1：定义关键帧 */
+@keyframes progress {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}</code></pre>
+            </div>
+        </section>
+        
+        <section>
+            <h2>3.2 animation动画属性</h2>
+            <p>CSS动画通过一系列属性来控制动画的播放方式，这些属性可以单独设置，也可以使用animation简写属性。</p>
+            
+            <table class="property-table">
+                <tr>
+                    <th>属性</th>
+                    <th>描述</th>
+                    <th>示例值</th>
+                </tr>
+                <tr>
+                    <td>animation-name</td>
+                    <td>指定要应用的@keyframes动画名称</td>
+                    <td>slide, fade, progress</td>
+                </tr>
+                <tr>
+                    <td>animation-duration</td>
+                    <td>动画完成一个周期所需的时间</td>
+                    <td>2s, 500ms</td>
+                </tr>
+                <tr>
+                    <td>animation-timing-function</td>
+                    <td>动画的速度曲线</td>
+                    <td>ease, linear, ease-in-out ...</td>
+                </tr>
+                <tr>
+                    <td>animation-delay</td>
+                    <td>动画开始前的延迟时间</td>
+                    <td>1s, 200ms</td>
+                </tr>
+                <tr>
+                    <td>animation-iteration-count</td>
+                    <td>动画播放次数</td>
+                    <td>1, 3, infinite</td>
+                </tr>
+                <tr>
+                    <td>animation-direction</td>
+                    <td>动画播放方向</td>
+                    <td>normal, reverse, alternate, alternate-reverse</td>
+                </tr>
+                <tr>
+                    <td>animation-fill-mode</td>
+                    <td>动画执行前后如何应用样式</td>
+                    <td>none, forwards, backwards, both</td>
+                </tr>
+                <tr>
+                    <td>animation-play-state</td>
+                    <td>动画播放状态</td>
+                    <td>running, paused</td>
+                </tr>
+            </table>
+
+            <h3 style="color: #4CAF50;">定义进度条动画的animation属性：</h3>
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS代码</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+                <pre><code>/* 步骤2：将动画应用到元素 */
+.progress-bar {
+    animation-name: progress;
+    animation-duration: 5s;
+}
+
+/* 步骤3：配置动画属性 */
+.progress-bar {
+    animation-timing-function: linear;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+}</code></pre>
+            </div>
+
+            
+            <h2>3.3 animation简写属性</h2>
+
+            <p>CSS <code>animation</code> 属性是多个动画属性的简写形式，可以一次性设置所有动画参数，使代码更简洁、易读。</p>
+            
+            <div class="code-block">
+                <div class="code-header">
+                    <span>基本语法</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+                /* 语法格式 */<br>
+                animation: name duration timing-function delay iteration-count direction fill-mode play-state;<br>
+                <br>
+                /* 实际应用示例 */<br>
+                animation: progress 5s linear 1s infinite;
+            </div>
+            <div class="example">
+        <h3>属性顺序记忆技巧</h3>
+        <p>记住这个顺序的一个简单方法是使用助记符：</p>
+        <div class="code">N（名称） D（持续时间） T（时间函数） D（延迟） I（迭代次数） D（方向） F（填充模式） P（播放状态）</div>
+        <p>口诀：<strong>"名字持续怎么动，延迟几次往哪动，填充状态别漏掉"</strong></p>
+    </div>
+
+<div class="note">
+    <p><strong>注意：</strong></p>
+    <ul>
+        <li>简写属性中，<code>animation-duration</code>和<code>animation-delay</code>的时间值顺序很重要：第一个时间值总是duration，第二个是delay</li>
+        <li>不是所有属性都必须指定，但<code>animation-name</code>和<code>animation-duration</code>是必需的</li>
+        <li>可以同时为元素应用多个动画，用逗号分隔：<code>animation: slide 2s ease, fade 3s linear;</code></li>
+    </ul>
+</div>
+
+            <div class="animation-controls">
+                <div class="control-group">
+                    <h4>动画持续时间: <output id="duration-value">2s</output></h4>
+                    <div class="slider-container">
+                        <input type="range" id="duration" min="0.5" max="5" step="0.5" value="2">
+                    </div>
+                    
+                    <h4>动画延迟: <output id="delay-value">0s</output></h4>
+                    <div class="slider-container">
+                        <input type="range" id="delay" min="0" max="3" step="0.5" value="0">
+                    </div>
+                    
+                    <h4>动画方向:</h4>
+                    <select id="direction">
+                        <option value="normal">normal</option>
+                        <option value="reverse">reverse</option>
+                        <option value="alternate">alternate</option>
+                        <option value="alternate-reverse">alternate-reverse</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <h4>动画迭代次数: <output id="iteration-value">infinite</output></h4>
+                    <div class="slider-container">
+                        <input type="range" id="iteration" min="1" max="10" value="0">
+                    </div>
+                    
+                    <h4>时间函数:</h4>
+                    <select id="timing-function">
+                        <option value="ease">ease</option>
+                        <option value="ease-in">ease-in</option>
+                        <option value="ease-out">ease-out</option>
+                        <option value="ease-in-out">ease-in-out</option>
+                        <option value="linear" selected>linear</option>
+                    </select>
+                    
+                    <h4>填充模式:</h4>
+                    <select id="fill-mode">
+                        <option value="none">none</option>
+                        <option value="forwards">forwards</option>
+                        <option value="backwards">backwards</option>
+                        <option value="both">both</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- <div class="control-buttons">
+                <button class="control-btn" id="start-animation">开始动画</button>
+                <button class="control-btn" id="pause-animation">暂停动画</button>
+                <button class="control-btn" id="reset-animation">重置动画</button>
+            </div> -->
+            
+            <!-- 小球动画演示 -->
+            <div class="ball-demo-container">
+                <div class="ball-track"></div>
+                <div class="ball" id="controlled-ball"></div>
+            </div>
+
+            <!-- 实时代码显示区域 -->
+            <div class="code-block">
+                <div class="code-header">
+                    <span>当前动画属性：</span>
+                    <button class="copy-btn" id="copy-animation-code">复制代码</button>
+                </div>
+                <pre id="animation-code-display"><code>@keyframes move-ball {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+}
+
+.ball {
+    animation: move-ball 2s linear 0s infinite normal none;
+}</code></pre>
+            </div>
+
+        </section>
+        
+        <section>
+            <h2>4. 练一练：淡入淡出动画</h2>
+            <p>淡入淡出动画是网页设计中常用的入场和离场效果，可以平滑地显示或隐藏元素。</p>
+            
+            <div class="fade-in-out">
+                <h1>淡入淡出动画</h1>
+            </div>
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS代码</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+                <pre><code>/* 淡入淡出动画 */
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+.fade-in-out {
+    animation: fade-in-out 5s ease-in-out 1s infinite;
+}</code></pre>
+            </div>
+        </section>
+        
+        <section>
+            <h2>5. 综合案例：诗词滚动效果</h2>
+            <p>下面是一个使用CSS3动画实现的古诗词卡片滚动效果，展示了如何将多个动画属性结合使用。</p>
+            
+            <div class="poem-scroll-card">
+                <div class="decorative-border">
+                    <h3>将进酒</h3>
+                    <p class="author">李白 · 唐</p>
+                    <div class="scroll-container">
+                        <div class="poem-scroll-content">
+                            <p>君不见黄河之水天上来，</p>
+                            <p>奔流到海不复回。</p>
+                            <p>君不见高堂明镜悲白发，</p>
+                            <p>朝如青丝暮成雪。</p>
+                            <p>人生得意须尽欢，莫使金樽空对月。</p>
+                            <p>天生我材必有用，千金散尽还复来。</p>
+                            <p>烹羊宰牛且为乐，会须一饮三百杯。</p>
+                            <p>岑夫子，丹丘生，将进酒，杯莫停。</p>
+                            <p>与君歌一曲，请君为我倾耳听。</p>
+                            <p>钟鼓馔玉不足贵，但愿长醉不愿醒。</p>
+                            <p>古来圣贤皆寂寞，惟有饮者留其名。</p>
+                            <p>陈王昔时宴平乐，斗酒十千恣欢谑。</p>
+                            <p>主人何为言少钱，径须沽取对君酌。</p>
+                            <p>五花马，千金裘，</p>
+                            <p>呼儿将出换美酒，与尔同销万古愁。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>参考代码：</h3>
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS代码</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+                /* 滚动动画 */<br>
+                @keyframes scrollPoem {<br>
+                &nbsp;&nbsp;0% {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(0);<br>
+                &nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;100% {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(-25%);<br>
+                &nbsp;&nbsp;}<br>
+                }<br>
+                /* 应用动画 */<br>
+                .poem-content {<br>
+                    &nbsp;&nbsp;animation: scrollPoem 15s linear 1s forwards infinite;<br>
+                    &nbsp;&nbsp;animation-play-state: running; /* 默认运行动画 */<br>
+                }<br>
+                .poem-card:hover .poem-content {<br>
+                    &nbsp;&nbsp;animation-play-state: paused;  /* 暂停动画 */<br>
+                }
+            </div>
+            
+            <div class="note">
+                <h3>技术要点：</h3>
+                <ul>
+                    <li>使用<code>@keyframes</code>创建文字滚动动画效果</li>
+                    <li>使用<code>animation: scrollPoem 15s linear infinite</code>实现无限循环滚动</li>
+                    <li>使用<code>overflow: hidden</code>隐藏超出容器的内容</li>
+                    <li>使用<code>transform: translateY()</code>实现垂直方向的移动</li>
+                    <li>使用<code>animation-play-state: paused</code>实现鼠标悬停时诗词暂停滚动</li>
+                </ul>
+            </div>
+        </section>
+        
+        <footer>
+            <p>澄观 · 隙载</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 复制代码功能
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const codeBlock = this.parentElement.nextElementSibling;
+                const textArea = document.createElement('textarea');
+                textArea.value = codeBlock.textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // 显示复制成功提示
+                const originalText = this.textContent;
+                this.textContent = '已复制!';
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 1500);
+            });
+        });
+        
+        // 小球动画控制功能
+        const durationSlider = document.getElementById('duration');
+        const delaySlider = document.getElementById('delay');
+        const iterationSlider = document.getElementById('iteration');
+        const timingFunctionSelect = document.getElementById('timing-function');
+        const directionSelect = document.getElementById('direction');
+        const fillModeSelect = document.getElementById('fill-mode');
+        const startButton = document.getElementById('start-animation');
+        const pauseButton = document.getElementById('pause-animation');
+        const resetButton = document.getElementById('reset-animation');
+        const ballElement = document.getElementById('controlled-ball');
+        
+        // 入场离场控制
+        const enterBallButton = document.getElementById('enter-ball');
+        const moveBallButton = document.getElementById('move-ball');
+        const exitBallButton = document.getElementById('exit-ball');
+        const completeAnimationButton = document.getElementById('complete-animation');
+        const enterExitBallElement = document.getElementById('enter-exit-ball');
+        
+        // 更新输出值
+        function updateOutputValue(outputId, value, unit = '') {
+            document.getElementById(outputId).textContent = value + unit;
+        }
+        
+        // 应用动画设置
+        function applyAnimationSettings() {
+            const duration = durationSlider.value;
+            const delay = delaySlider.value;
+            const iteration = iterationSlider.value === '0' ? 'infinite' : iterationSlider.value;
+            const timingFunction = timingFunctionSelect.value;
+            const direction = directionSelect.value;
+            const fillMode = fillModeSelect.value;
+            
+            // 移除现有动画
+            ballElement.style.animation = 'none';
+            
+            // 应用新动画
+            setTimeout(() => {
+                ballElement.style.animation = `move-ball ${duration}s ${timingFunction} ${delay}s ${iteration} ${direction} ${fillMode}`;
+                ballElement.style.animationPlayState = 'running';
+                
+                // 更新代码显示
+                updateAnimationCodeDisplay();
+            }, 10);
+        }
+        
+        // 定义小球移动动画
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes move-ball {
+                0% { left: 0; }
+                100% { left: calc(100% - 40px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+
+        // 更新动画代码显示
+        function updateAnimationCodeDisplay() {
+            const duration = durationSlider.value;
+            const delay = delaySlider.value;
+            const iteration = iterationSlider.value === '0' ? 'infinite' : iterationSlider.value;
+            const timingFunction = timingFunctionSelect.value;
+            const direction = directionSelect.value;
+            const fillMode = fillModeSelect.value;
+            
+            const codeDisplay = document.getElementById('animation-code-display');
+            codeDisplay.innerHTML = `<code>@keyframes move-ball {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+}
+
+.ball {
+  animation: move-ball ${duration}s ${timingFunction} ${delay}s ${iteration} ${direction} ${fillMode};
+}</code>`;
+        }
+        
+        // 初始化
+        updateOutputValue('duration-value', durationSlider.value, 's');
+        updateOutputValue('delay-value', delaySlider.value, 's');
+        updateOutputValue('iteration-value', iterationSlider.value === '0' ? 'infinite' : iterationSlider.value);
+        
+        // 事件监听
+        durationSlider.addEventListener('input', function() {
+            updateOutputValue('duration-value', this.value, 's');
+            applyAnimationSettings();
+        });
+        
+        delaySlider.addEventListener('input', function() {
+            updateOutputValue('delay-value', this.value, 's');
+            applyAnimationSettings();
+        });
+        
+        iterationSlider.addEventListener('input', function() {
+            const value = this.value === '0' ? 'infinite' : this.value;
+            updateOutputValue('iteration-value', value);
+            applyAnimationSettings();
+        });
+        
+        timingFunctionSelect.addEventListener('change', applyAnimationSettings);
+        directionSelect.addEventListener('change', applyAnimationSettings);
+        fillModeSelect.addEventListener('change', applyAnimationSettings);
+        
+        startButton.addEventListener('click', function() {
+            ballElement.style.animationPlayState = 'running';
+        });
+        
+        pauseButton.addEventListener('click', function() {
+            ballElement.style.animationPlayState = 'paused';
+        });
+        
+        resetButton.addEventListener('click', function() {
+            ballElement.style.animation = 'none';
+            setTimeout(applyAnimationSettings, 10);
+        });
+        
+        // 初始化应用动画设置
+        applyAnimationSettings();
+        
+        // 为动画代码复制按钮添加事件监听
+        document.getElementById('copy-animation-code').addEventListener('click', function() {
+            const codeBlock = document.getElementById('animation-code-display');
+            const textArea = document.createElement('textarea');
+            textArea.value = codeBlock.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // 显示复制成功提示
+            const originalText = this.textContent;
+            this.textContent = '已复制!';
+            setTimeout(() => {
+                this.textContent = originalText;
+            }, 1500);
+        });
+        
+        
+        // 入场离场动画控制
+        enterBallButton.addEventListener('click', function() {
+            enterExitBallElement.style.animation = 'none';
+            setTimeout(() => {
+                enterExitBallElement.classList.remove('exit', 'move', 'complete');
+                enterExitBallElement.classList.add('enter');
+            }, 10);
+        });
+        
+        moveBallButton.addEventListener('click', function() {
+            enterExitBallElement.style.animation = 'none';
+            setTimeout(() => {
+                enterExitBallElement.classList.remove('enter', 'exit', 'complete');
+                enterExitBallElement.classList.add('move');
+            }, 10);
+        });
+        
+        exitBallButton.addEventListener('click', function() {
+            enterExitBallElement.style.animation = 'none';
+            setTimeout(() => {
+                enterExitBallElement.classList.remove('enter', 'move', 'complete');
+                enterExitBallElement.classList.add('exit');
+            }, 10);
+        });
+        
+        completeAnimationButton.addEventListener('click', function() {
+            enterExitBallElement.style.animation = 'none';
+            setTimeout(() => {
+                enterExitBallElement.classList.remove('enter', 'move', 'exit');
+                enterExitBallElement.classList.add('complete');
+            }, 10);
+        });
+        
+        
+        // 淡入淡出动画
+        function fadeIn() {
+            const box = document.getElementById('fadeBox');
+            box.classList.remove('fade-out');
+            box.classList.add('fade-in');
+        }
+        
+        function fadeOut() {
+            const box = document.getElementById('fadeBox');
+            box.classList.remove('fade-in');
+            box.classList.add('fade-out');
+        }
+        
+
+       
+
+        // 初始化应用动画设置
+        applyAnimationSettings();
+    </script>
+</body>
+</html>

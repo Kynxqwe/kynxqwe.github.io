@@ -1,0 +1,2740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../media/website/Logo.png">
+    <title>CSS3变换教程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            overflow: hidden;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #3498db;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #3498db;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+			text-indent: 2em;
+        }
+
+        ul {
+            margin-left: 60px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        ul li {
+            padding-left: 5px;
+        }
+        
+		
+		.code {
+		    background: #2c3e50;
+		    color: #ecf0f1;
+		    padding: 15px;
+		    border-radius: 5px;
+		    font-family: 'Courier New', Courier, monospace;
+		    font-size: 14px;
+		    margin: 15px 0;
+		    overflow-x: auto;
+		    line-height: 1.5;
+			font-size: 16px;
+		}
+		
+		.unit {
+		    color: #9b59b6;
+		}
+		
+		.note {
+		    background: #fff8e1;
+		    padding: 15px;
+		    border-left: 4px solid #ffc107;
+		    margin: 20px 0;
+		    border-radius: 4px;
+		}
+		
+		.note p {
+			text-indent: 0;
+		}
+		
+		.note ul {
+			margin-left: 40px;
+		}
+		
+		.value {
+		    color: #3498db;
+		}
+		
+		
+        .explanation {
+            background-color: #e8f4fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #f5f6fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .copy-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #2980b9;
+        }
+        
+        .demo-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+        }
+        
+        .demo {
+			/* display: flex;
+            flex-direction: column; */
+            /* background: white; */
+            /* border-radius: 10px; */
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+		
+        /* .demo::after {
+            content: '';
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+
+        } */
+
+		.demo p {
+			text-indent: 0rem;
+            margin-top: 140px;
+		}
+		
+        .origin-box {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            border: 2px dashed #ddd;
+            z-index: 1;
+            position: absolute;
+            left: calc(50% - 50px);
+        }
+
+
+        .demo-box {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            background: tomato;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.5s ease;
+			cursor: pointer;
+            position: absolute;
+            left: calc(50% - 50px);
+            z-index: 2;
+        }
+
+        .demo-box:hover {
+            opacity: 0.8;
+        }
+
+        /* .demo-box:hover ～ .origin-box{
+            pointer-events: none;
+            z-index: 3;
+        } */
+        
+        /* 2D 变换演示 */
+        .demo-translate1 .demo-box:hover {
+            transform: translate(50px, 20px);
+        }
+        
+		.demo-translate2 .demo-box:hover {
+		    transform: translate(50%);
+		}
+		
+        .demo-skew1 .demo-box:hover {
+            transform: skew(20deg, 0deg);
+        }
+		
+		.demo-skew2 .demo-box:hover {
+		    transform: skew(0deg, 10deg);
+		}
+		
+		.demo-skew3 .demo-box:hover {
+		    transform: skew(20deg, 10deg);
+		}
+        
+        .demo-scale1 .demo-box:hover {
+            transform: scale(1.5);
+        }
+		.demo-scale2 .demo-box:hover {
+		    transform: scale(1.5, 0.8);
+		}
+        
+        .demo-rotate1 .demo-box:hover {
+            transform: rotate(30deg);
+        }
+		
+		.demo-rotate2 .demo-box:hover {
+		    transform: rotate(-45deg);
+		}
+        
+		.demo-compound1 .demo-box:hover {
+			transform: translate(100px) rotate(45deg);
+		}
+		
+		.demo-compound2 .demo-box:hover {
+			transform: rotate(45deg) translate(100px);
+		}
+
+        /* 3D 变换演示 */
+        .demo3d {
+            perspective: 800px;
+            transform-style: preserve-3d;
+        }
+
+        /* .demo3d-box {
+        } */
+
+        .demo-translate-3d-1 .demo-box:hover {
+            transform: translateZ(200px);
+        }
+
+        .demo-translate-3d-2 .demo-box:hover {
+            transform: translate3d(50px, -10px, 200px);
+        }
+        
+        .demo-rotate-3d-1 .demo-box:hover {
+            transform: rotateZ(45deg);  /* 相当于 2D 的 rotate(45deg) */
+        }
+
+        .demo-rotate-3d-2 .demo-box:hover {
+            transform: rotate3d(1, 1, 0, 45deg);  /* 定义了一个在xy平面上的对角线轴 */
+        }
+
+
+        /* 3D变换演示 */
+		/* 1）3D正反面翻转 */
+        /* .demo-3d-container {
+            perspective: 800px;
+            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .demo-3d-box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+        
+        .demo-3d-front, .demo-3d-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+        
+        .demo-3d-front {
+            background: #3498db;
+        }
+        
+        .demo-3d-back {
+            background: #e74c3c;
+            transform: rotateY(180deg);
+        }
+        
+        .demo-3d-container:hover .demo-3d-box {
+            transform: rotateY(180deg);
+        } */
+		
+		/* 2)仅有正面 */
+
+
+        .demo3d-container {
+            /* height: 220px; */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+        }
+
+        .demo3d-container p {
+            margin-top: 10px;
+        }
+
+        .demo-3d-container {
+			perspective: 800px;
+			transform-style: preserve-3d;
+			margin: 20px auto;
+			width: 200px;
+			height: 200px;
+		}
+		
+		.demo-3d-front {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			transition: transform 1s;
+		}
+		
+		.demo-3d-front {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			/* backface-visibility: hidden; */
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-weight: bold;
+			border-radius: 8px;
+		}
+		
+		.demo-3d-front {
+			background: #3498db;
+		}
+		
+		.demo-3d-container:hover .demo-3d-front {
+			transform: rotateY(180deg);
+		}
+		
+
+
+        
+        /* 变换演示区域样式 */
+        .coordinate-demo {
+            background: #e8f4fc;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid #3498db;
+        }
+        
+        .coordinate-system {
+            position: relative;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .coord-2d {
+            border: 2px solid #3498db;
+        }
+        
+        .coord-3d {
+            border: 2px solid #3498db;
+            perspective: 1000px;
+            cursor: grab;
+        }
+        
+        .coord-3d:active {
+            cursor: grabbing;
+        }
+        
+        .axis {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+        }
+        
+        .axis-x {
+            width: 80%;
+            height: 2px;
+            background-color: #3498db;
+            transform: translate(-50%, -50%);
+        }
+        
+        .axis-y {
+            width: 2px;
+            height: 80%;
+            background-color: #3498db;
+            transform: translate(-50%, -50%);
+        }
+        
+        .axis-z {
+            width: 2px;
+            height: 80%;
+            background-color: #3498db;
+            transform: translate(-50%, -50%) rotateX(90deg);
+        }
+        
+        /* 添加箭头 */
+        .axis::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        
+        .axis-x::after {
+            top: -4px;
+            right: -10px;
+            border-width: 5px 0 5px 10px;
+            border-color: transparent transparent transparent #3498db;
+        }
+        
+        .axis-y::after {
+            top: 235px;
+            left: -4px;
+            border-width: 10px 5px 0 5px;
+            border-color: #3498db transparent transparent transparent;
+        }
+        
+        .axis-z::after {
+            top: -10px;
+            left: -5px;
+            border-width: 10px 5px 0 5px;
+            border-color: #3498db transparent transparent transparent;
+        }
+        
+        .axis-label {
+            position: absolute;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .x-label {
+            color: #3498db;
+            right: 80px;
+            top: 58%;
+            transform: translateY(-50%);
+        }
+        
+        .y-label {
+            color: #3498db;
+            left: 47%;
+            top: 255px;
+        }
+        
+        .z-label {
+            color: #3498db;
+            left: 60%;
+            top: 20px;
+        }
+        
+        .transform-element {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.5s ease;
+            transform-origin: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        #transform-element-3d {
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            transform-style: preserve-3d;
+        }
+        
+        /* 原点标注点 */
+        .origin-point {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 0 2px white, 0 0 5px rgba(0, 0, 0, 0.5);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        
+        .coord-controls {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .control-group {
+            margin-bottom: 15px;
+        }
+        
+        .control-group h4 {
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: #2c3e50;
+        }
+        
+        .slider-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .slider-container span {
+            min-width: 40px;
+            text-align: right;
+            margin-left: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: rgba(52, 152, 219, 0.2);
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3498db;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background: #2980b9;
+        }
+        
+        .transform-origin-control {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .origin-btn, .origin-btn-3d {
+            padding: 8px 5px;
+            background: #e0e0e0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+        
+        .origin-btn:hover, .origin-btn-3d:hover {
+            background: #d0d0d0;
+        }
+        
+        .origin-btn.active, .origin-btn-3d.active {
+            background: #3498db;
+            color: white;
+        }
+        
+        .coord-button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .coord-btn {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .coord-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .coord-code-display {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-break: break-all;
+            min-height: 80px;
+            border-left: 4px solid #3498db;
+            font-size: 14px;
+            color: #2c3e50;
+        }
+        
+		
+		.property-table {
+		    width: 100%;
+		    border-collapse: collapse;
+		    margin: 20px 0;
+		}
+		
+		.property-table th, .property-table td {
+		    border: 1px solid #b2bec3;
+		    padding: 12px;
+		    text-align: left;
+		}
+		
+		.property-table th {
+		    background-color: #3498db;
+		    color: white;
+		}
+		
+		.property-table tr:nth-child(even) {
+		    background-color: #dfe6e9;
+		}
+		
+		.timing-table {
+		    width: 100%;
+		    border-collapse: collapse;
+		    margin: 20px 0;
+		}
+		
+		.timing-table th, .timing-table td {
+		    border: 1px solid #b2bec3;
+		    padding: 12px;
+		    text-align: left;
+		}
+		
+		.timing-table th {
+		    background-color: #3498db;
+		    color: white;
+		}
+		
+		.timing-table tr:nth-child(even) {
+		    background-color: #dfe6e9;
+		}
+		
+		/* 图片放大案例样式 */
+		.image-zoom-case {
+			background: #fff8e1;
+			border-radius: 12px;
+			padding: 25px;
+			margin: 40px 0;
+			border-left: 5px solid #ffc107;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+		}
+		
+		.image-zoom-case h3 {
+			color: #8c7851;
+			border-bottom: 2px solid #ffc107;
+			padding-bottom: 10px;
+		}
+		
+		.poem-card {
+			width: 300px;
+			background: white;
+			border-radius: 12px;
+			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+			overflow: hidden;
+			margin: 20px auto;
+			transition: transform 0.4s ease, box-shadow 0.4s ease;
+		}
+		
+		.poem-card:hover {
+			box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+			/* transform: translateY(-5px); */
+		}
+		
+		.poem-image {
+			height: 300px;
+			overflow: hidden;
+		}
+		
+		.poem-image img {
+			object-fit: cover;
+			transition: transform 0.6s ease;
+		}
+		
+		.poem-info {
+			padding: 20px;
+			text-align: center;
+			background: #f8f5eb;
+		}
+		
+		.poem-info h4 {
+			color: #8c7851;
+			margin: 0 0 10px 0;
+			font-size: 1.4rem;
+		}
+		
+		.poem-info p {
+			color: #7a6a52;
+			font-size: 1rem;
+			line-height: 1.6;
+		}
+		
+		.poem-image img:hover {
+			transform: scale(1.25);
+		}
+		
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+        }
+
+
+        
+        /* 新增样式：组合变换演示 */
+        .transform-order-demo {
+            background: #e8f4fc;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid #3498db;
+        }
+        
+        .transform-order-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .transform-order-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .transform-order-box {
+            width: 400px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 2px solid #3498db;
+        }
+        
+        .transform-order-title {
+            text-align: center;
+            padding: 15px;
+            background: rgba(52, 152, 219, 0.2);
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .transform-element-demo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff9a8b, #ff6b6b);
+            border-radius: 8px;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: all 0.8s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .transform-original-pos {
+            background: rgba(52, 152, 219, 0.9);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            z-index: 30;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .transform-coordinate-system {
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            width: 1px;
+            height: 1px;
+            transform-origin: center;
+            transition: transform 0.8s ease;
+            z-index: 10;
+        }
+        
+        .transform-axis {
+            position: absolute;
+            height: 2px;
+            background: rgba(52, 152, 219, 0.8);
+            transform-origin: left center;
+        }
+        
+        .transform-axis-x {
+            width: 80px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to right, #ef476f, rgba(239, 71, 111, 0.3));
+        }
+        
+        .transform-axis-y {
+            width: 80px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to bottom, #06d6a0, rgba(6, 214, 160, 0.3));
+            transform: rotate(90deg);
+        }
+        
+        .transform-axis-label {
+            position: absolute;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .transform-x-label {
+            top: -18px;
+            left: 85px;
+            color: #ef476f;
+        }
+        
+        .transform-y-label {
+            top: 85px;
+            left: -12px;
+            color: #06d6a0;
+        }
+        
+        .transform-order-code {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Fira Code', monospace;
+            font-size: 1rem;
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+        
+        .transform-function {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .transform-step-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .transform-step-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px
+        }
+        
+        .transform-step-btn {
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #3498db;
+            color: #2c3e50;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .transform-step-btn:hover {
+            background: rgba(52, 152, 219, 0.2);
+        }
+        
+        .transform-step-btn.active {
+            background: #3498db;
+            color: white;
+        }
+        
+        .transform-key-point {
+            background: rgba(239, 71, 111, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ef476f;
+        }
+
+        
+        .transform-path {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 20;
+            pointer-events: none;
+        }
+        
+        .transform-path-line {
+            stroke: rgba(52, 152, 219, 0.5);
+            stroke-width: 2;
+            stroke-dasharray: 5;
+            fill: none;
+        }
+        
+        .transform-path-point {
+            fill: #ffd166;
+            r: 4;
+        }
+
+        
+        .transform-path {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            pointer-events: none;
+        }
+        
+        .transform-path-line {
+            stroke: rgba(52, 152, 219, 0.3);
+            stroke-width: 2;
+            stroke-dasharray: 5;
+            fill: none;
+        }
+        
+        .transform-path-point {
+            fill: #ffd166;
+            r: 3;
+        }
+        
+        .transform-result-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            text-align: center;
+            border: 1px solid #3498db;
+        }
+        
+        .transform-result-element {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #4cc9f0, #4361ee);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin: 0 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .transform-highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .transform-warning {
+            color: #ef476f;
+            font-weight: bold;
+        }
+        
+
+
+
+
+
+
+
+
+
+        @media (max-width: 768px) {
+            .demo-container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .coord-controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .transform-origin-control {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS3变换教程</h1>
+            <p>掌握CSS3变换，为网页元素添加动态效果和三维体验</p>
+        </header>
+        
+        <section>
+            <h2>1. 什么是CSS3变换？</h2>
+            <div class="explanation">
+                <p><b>CSS3变换（Transform）</b>允许我们对元素进行移动、旋转、缩放和倾斜等操作，而不会影响文档的正常流。它可以创建2D和3D效果，为网页增添动态和交互性。</p>
+            </div>
+            
+			<div class="code">
+				/* 基本语法 */<br>
+				element {<br>
+					&nbsp;&nbsp;transform: none | &lt;transform-function&gt;;<br>
+				}
+			</div>
+			        
+			<p>其中 <span class="value">&lt;transform-function&gt;</span> 可以是以下一个或多个函数：</p>
+			<ul>
+				<li>2D变换函数：<span class="value">translate()</span>, <span class="value">rotate()</span>, <span class="value">scale()</span>, <span class="value">skew()</span></li>
+				<li>3D变换函数：<span class="value">translate3d()</span>, <span class="value">rotate3d()</span>, <span class="value">scale3d()</span></li>
+			</ul>
+			
+			<div class="note">
+				<p><strong>注意：</strong>多个变换函数可以同时应用，它们会按照从右到左的顺序执行。例如：<span class="property">transform: rotate(30deg) translate(100px);</span> 会先平移元素，然后再旋转。</p>
+			</div>
+        </section>
+        
+        <section>
+            <h2>2. 2D变换</h2>
+            <p>2D变换在二维平面上操作元素，包括平移、旋转、缩放和倾斜等效果。</p>
+            
+            <!-- 2D变换演示 -->
+            <div class="coordinate-demo">
+                <h3>2D变换交互演示</h3>
+                <p>使用下方的滑块控制2D变换属性，实时查看变换效果：</p>
+                
+                <div class="coordinate-system coord-2d">
+                    <div class="axis axis-x"></div>
+                    <div class="axis axis-y"></div>
+                    <span class="axis-label x-label">X</span>
+                    <span class="axis-label y-label">Y</span>
+                    <div class="transform-element" id="transform-element-2d">2D</div>
+                    <div class="origin-point" id="origin-point-2d"></div>
+                </div>
+                
+                <div class="coord-controls">
+                    <div class="control-group">
+                        <h4>平移X: <output id="translate-x-value">0px</output></h4>
+                        <div class="slider-container">
+                            <input type="range" id="translate-x" min="-100" max="100" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <h4>平移Y: <output id="translate-y-value">0px</output></h4>
+                        <div class="slider-container">
+                            <input type="range" id="translate-y" min="-100" max="100" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <h4>旋转: <output id="rotate-value">0deg</output></h4>
+                        <div class="slider-container">
+                            <input type="range" id="rotate" min="-180" max="180" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <h4>缩放: <output id="scale-value">1</output></h4>
+                        <div class="slider-container">
+                            <input type="range" id="scale" min="0" max="2" step="0.1" value="1">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <h4>倾斜X: <output id="skew-x-value">0deg</output></h4>
+                        <div class="slider-container">
+                            <input type="range" id="skew-x" min="-90" max="90" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <h4>倾斜Y: <output id="skew-y-value">0deg</output></h4>
+                        <div class="slider-container">
+                            <input type="range" id="skew-y" min="-90" max="90" value="0">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 变换原点控制 -->
+                <div class="control-group">
+                    <h4>变换原点 (transform-origin): <output id="transform-origin-value">50% 50%</output></h4>
+                    <div class="transform-origin-control">
+                        <button class="origin-btn" data-value="0% 0%">左上</button>
+                        <button class="origin-btn" data-value="50% 0%">中上</button>
+                        <button class="origin-btn" data-value="100% 0%">右上</button>
+                        <button class="origin-btn" data-value="0% 50%">左中</button>
+                        <button class="origin-btn active" data-value="50% 50%">中心</button>
+                        <button class="origin-btn" data-value="100% 50%">右中</button>
+                        <button class="origin-btn" data-value="0% 100%">左下</button>
+                        <button class="origin-btn" data-value="50% 100%">中下</button>
+                        <button class="origin-btn" data-value="100% 100%">右下</button>
+                    </div>
+                </div>
+                
+                <div class="coord-button-group">
+                    <button class="coord-btn" id="reset-2d">重置2D变换</button>
+                </div>
+                
+                <div class="coord-code-display" id="code-2d">
+                    /* CSS代码将在这里显示 */
+                    transform: none;
+                    transform-origin: 50% 50%;
+                </div>
+            </div>
+            
+            <h3>2.1 平移（Translate）</h3>
+            <p>平移变换将元素从其当前位置移动到新位置，不影响其他元素布局。</p>
+			
+            <ul>
+                <li>
+                    <strong>translateX(tx)</strong>
+                    <ul>
+                        <li>
+                            仅水平移动。
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>translateY(ty)</strong>
+                    <ul>
+                        <li>
+                            仅垂直移动。
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>translate(tx, ty)</strong>
+                    <ul>
+                        <li>tx: 水平方向的移动距离。正值向右，负值向左。</li>
+                        <li>ty: 垂直方向的移动距离。正值向下，负值向上。如果未提供，则默认为 0。</li>
+                        <li>单位：常用 px, em, % 等。</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS语法</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+				/* 示例 */<br>
+				.element {<br>
+					&nbsp;&nbsp;transform: translate(50px, 20px); /* 沿X轴移动50px，Y轴移动20px */<br>
+					&nbsp;&nbsp;transform: translate(50%); /* 沿X轴移动50% */<br>
+				}
+            </div>
+            
+			<div class="note">
+				<p><strong>注意：</strong></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;% 是相对于元素自身的宽度(translateX)或高度(translateY)的，而不是父容器。</p>
+			</div>
+            <h3>演示效果：</h3>
+            <div class="demo-container">
+                <div class="demo demo-translate1">
+                    <div class="demo-box">Hover me</div>
+                    <div class="origin-box"></div>
+                    <p>平移变换：向右50px，向下20px</p>
+                </div>
+				
+                <div class="demo demo-translate2">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>平移变换：向右50%(元素自身的50%)</p>
+                </div>
+            </div>
+            
+            <h3>2.2 倾斜（Skew）</h3>
+            <p>倾斜变换将元素沿着X轴和/或Y轴倾斜一定角度。</p>
+            <ul>
+                <li>
+                    <strong>skewX(ax)</strong>
+                    <ul>
+                        <li>
+                            仅沿X轴倾斜。
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>skewY(ay)</strong>
+                    <ul>
+                        <li>
+                            仅沿Y轴倾斜。
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>skew(ax, ay)</strong>
+                    <ul>
+                        <li>
+                            ax: 水平方向（X轴）的倾斜角度。
+                        </li>
+                        <li>
+                            ay: 垂直方向（Y轴）的倾斜角度。如果未提供，则默认为 0。
+                        </li>
+                        <li>
+                            单位：deg, rad 等。
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS语法</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+					/* 示例 */<br>
+					.element {<br>
+						&nbsp;&nbsp;transform: skew(20deg); /* 沿X轴倾斜20度 */<br>
+						&nbsp;&nbsp;transform: skew(20deg, 10deg); /* 同时沿X轴倾斜20度，Y轴倾斜10度 */
+					}
+            </div>
+			
+            
+            <h3>演示效果：</h3>
+            <div class="demo-container">
+                <div class="demo demo-skew1">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>倾斜变换：X轴20度</p>
+                </div>
+                <div class="demo demo-skew2">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>倾斜变换：Y轴10度</p>
+                </div>
+                <div class="demo demo-skew3">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>倾斜变换：X轴20度，Y轴10度</p>
+                </div>
+            </div>
+            
+            <h3>2.3 缩放（Scale）</h3>
+            <p>缩放变换改变元素的尺寸，可以等比例或非等比例缩放。scale()函数的参数是一个无单位的数值，表示缩放倍数。</p>
+            <ul>
+                <li>
+                    <strong>scaleX(sx)</strong>
+                    <ul>
+                        <li>
+                            仅水平缩放。
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>scaleY(sy)</strong>
+                    <ul>
+                        <li>
+                            仅垂直缩放。
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>scale(sx, sy)</strong>
+                    <ul>
+                        <li>
+                            sx: 水平方向的缩放倍数。
+                        </li>
+                        <li>
+                            sy: 垂直方向的缩放倍数。如果未提供，则默认与 sx 相同，即等比例缩放。
+                        </li>
+                        <li>
+                            值：无单位数字。1 表示原始大小，2 表示放大一倍，0.5 表示缩小一半，-1 表示翻转并缩放。
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS语法</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+				/* 示例 */<br>
+				.element {<br>
+					&nbsp;&nbsp;transform: scale(1.5); /* 放大到1.5倍 */<br>
+					&nbsp;&nbsp;transform: scale(1.5, 0.8); /* X轴放大1.5倍，Y轴缩小到0.8倍 */<br>
+				}
+            </div>
+            
+            <h3>演示效果：</h3>
+            <div class="demo-container">
+                <div class="demo demo-scale1">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>缩放变换：放大1.5倍</p>
+                </div>
+                <div class="demo demo-scale2">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>缩放变换：X轴放大1.5倍，Y轴缩小至0.8倍</p>
+                </div>
+            </div>
+            
+            <h3>2.4 旋转（Rotate）</h3>
+            <p>旋转变换将元素围绕变换原点旋转指定角度。</p>
+            <ul>
+                <li>
+                    <strong>rotate(angle)</strong>
+                    <ul>
+                        <li>
+                            angle: 旋转的角度。
+                        </li>
+                        <li>单位：常用 deg (度)，也可以是 rad (弧度)、grad (百分度)、turn (圈)。</li>
+                        <li>正值：顺时针旋转。负值：逆时针旋转。</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS语法</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+				/* 示例 */<br>
+				.element {<br>
+					transform: rotate(30deg); /* 顺时针旋转30度 */<br>
+					transform: rotate(-45deg); /* 逆时针旋转45度 */<br>
+				}
+            </div>
+            
+            <h3>演示效果：</h3>
+            <div class="demo-container">
+                <div class="demo demo-rotate1">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>旋转变换：顺时针旋转30度</p>
+                </div>
+                <div class="demo demo-rotate2">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>旋转变换：逆时针旋转45度</p>
+                </div>
+            </div>
+            
+            <h3>2.5 变换原点 (transform-origin)</h3>
+			<p><strong>transform-origin</strong> 属性用于更改元素变换的原点，即元素围绕哪个点进行变换。默认情况下，变换的原点位于元素的中心(50% 50%)。</p>
+            
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS语法</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+				/* 语法格式： */<br>
+				transform-origin: x-axis y-axis z-axis;<br>
+				<br>
+				/* 示例 */<br>
+				.element {<br>
+					&nbsp;&nbsp;transform-origin: center;          /* 中心点 */<br>
+					&nbsp;&nbsp;transform-origin: left top;        /* 左上角 */<br>
+					&nbsp;&nbsp;transform-origin: 50px 50px;       /* 具体坐标 */<br>
+					&nbsp;&nbsp;transform-origin: 0% 0%;           /* 百分比 */<br>
+					&nbsp;&nbsp;transform-origin: left top 50px;   /* 3D变换中的Z轴原点 */<br>
+				}
+            </div>
+            
+			<div class="note">
+				<p><strong>参数说明：</strong></p>
+				<ul>
+					<li><span class="value">x-axis</span>：定义X轴上的原点位置，可选值：<span class="value">left</span>, <span class="value">center</span>, <span class="value">right</span>, 长度值(<span class="unit">px</span>, <span class="unit">em</span>等), 百分比(<span class="unit">%</span>)</li>
+					<li><span class="value">y-axis</span>：定义Y轴上的原点位置，可选值：<span class="value">top</span>, <span class="value">center</span>, <span class="value">bottom</span>, 长度值, 百分比</li>
+					<li><span class="value">z-axis</span>：定义Z轴上的原点位置（仅用于3D变换），长度值</li>
+				</ul>
+			</div>
+			
+			<h3>关键字表示</h3>
+			<table class="property-table">
+				<tr>
+					<th>关键字</th>
+					<th>描述</th>
+				</tr>
+				<tr>
+					<td>left</td>
+					<td>原点为元素左边中间位置，同 left center</td>
+				</tr>
+				<tr>
+					<td>right</td>
+					<td>原点为元素右边中间位置，同 right center</td>
+				</tr>
+				<tr>
+					<td>top</td>
+					<td>原点为元素上边中间位置，同 top center</td>
+				</tr>
+				<tr>
+					<td>bottom</td>
+					<td>原点为元素下边中间位置，同 bottom center</td>
+				</tr>
+				<tr>
+					<td>center</td>
+					<td>原点为元素中间位置，同 center center</td>
+				</tr>
+				<tr>
+					<td>top left</td>
+					<td>原点为元素左上角，相当于坐标 (0 0)</td>
+				</tr>
+				<tr>
+					<td>top right</td>
+					<td>原点为元素右上角</td>
+				</tr>
+				<tr>
+					<td>left bottom</td>
+					<td>原点为元素左下角</td>
+				</tr>
+				<tr>
+					<td>right bottom</td>
+					<td>原点为元素右下角</td>
+				</tr>
+			</table>
+			
+			
+            <h3>2.6 组合变换</h3>
+            <p>可以同时应用多个变换函数，注意变换的顺序会影响最终结果。</p>
+            
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS语法</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+				/* 先平移再旋转 */<br>
+				transform: translate(100px) rotate(45deg);<br>
+
+				/* 先旋转再平移（结果不同） */<br>
+				transform: rotate(45deg) translate(100px);
+            </div>
+			
+			<h3>演示效果：</h3>
+			<div class="demo-container">
+			    <div class="demo demo-compound1">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>组合变换：先平移再旋转</p>
+				</div>
+				<div class="demo demo-compound2">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>组合变换：先旋转再平移</p>
+				</div>
+			</div>
+			
+            <!-- 插入组合变换异同内容 -->
+            <div class="transform-order-demo">
+                <h3>组合变换顺序演示</h3>
+                <p>尝试不同的变换顺序，观察变换结果的变化：</p>
+                
+                <div class="transform-order-container">
+                    <div class="transform-order-wrapper">
+                        <div class="transform-order-box" id="transform-order-box-1">
+                            <div class="transform-order-title">先平移后旋转</div>
+                            <div class="transform-element-demo" id="transform-element-1"></div>
+                            <div class="transform-original-pos"></div>
+                            <div class="transform-coordinate-system" id="coord-system-1">
+                                <div class="transform-axis transform-axis-x"></div>
+                                <div class="transform-axis transform-axis-y"></div>
+                                <span class="transform-axis-label transform-x-label">X</span>
+                                <span class="transform-axis-label transform-y-label">Y</span>
+                            </div>
+                            <!-- 添加路径 -->
+                            <svg class="transform-path" id="transform-path-1" viewBox="0 0 400 300"></svg>
+                        </div>
+                        
+                        <div class="transform-step-controls">
+                            <div class="transform-step-buttons">
+                                <button class="transform-step-btn active" data-step="0" data-target="1">初始位置</button>
+                                <button class="transform-step-btn" data-step="1" data-target="1">第一步：平移</button>
+                                <button class="transform-step-btn" data-step="2" data-target="1">第二步：旋转</button>
+                            </div>
+                        </div>
+                        
+                        <div class="transform-order-code" id="transform-code-1">
+                            transform: <span class="transform-function">translateX(100px)</span> <span class="transform-function">rotate(45deg)</span>;
+                        </div>
+                    </div>
+                    
+                    <div class="transform-order-wrapper">
+                        <div class="transform-order-box" id="transform-order-box-2">
+                            <div class="transform-order-title">先旋转后平移</div>
+                            <div class="transform-element-demo" id="transform-element-2"></div>
+                            <div class="transform-original-pos"></div>
+                            <div class="transform-coordinate-system" id="coord-system-2">
+                                <div class="transform-axis transform-axis-x"></div>
+                                <div class="transform-axis transform-axis-y"></div>
+                                <span class="transform-axis-label transform-x-label">X</span>
+                                <span class="transform-axis-label transform-y-label">Y</span>
+                            </div>
+                            <!-- 添加路径 -->
+                            <svg class="transform-path" id="transform-path-2" viewBox="0 0 400 300"></svg>
+                        </div>
+                        
+                        <div class="transform-step-controls">
+                            <div class="transform-step-buttons">
+                                <button class="transform-step-btn active" data-step="0" data-target="2">初始位置</button>
+                                <button class="transform-step-btn" data-step="1" data-target="2">第一步：旋转</button>
+                                <button class="transform-step-btn" data-step="2" data-target="2">第二步：平移</button>
+                            </div>
+                        </div>
+                        
+                        <div class="transform-order-code" id="transform-code-2">
+                            transform: <span class="transform-function">rotate(45deg)</span> <span class="transform-function">translateX(100px)</span>;
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="transform-key-point">
+                    <p><strong>关键点：</strong>变换顺序不同会导致完全不同的结果。在第一个例子中，元素先沿X轴平移，然后围绕原始坐标系的原点旋转。在第二个例子中，元素先旋转，然后沿着<strong class="transform-highlight">旋转后的坐标系</strong>的X轴平移。</p>
+                </div>
+            </div>
+
+			
+        </section>
+        
+        <section>
+            <h2>3. 3D变换</h2>
+            <p>3D变换在三维空间中操作元素，可以创建更丰富的视觉效果。</p>
+            
+            <!-- 3D变换演示 -->
+            <div class="coordinate-demo">
+                <h3>3D变换交互演示</h3>
+                <p>使用下方的滑块控制3D变换属性，实时查看变换效果。您还可以用鼠标拖拽3D区域从不同角度观察：</p>
+                
+                <div class="coordinate-system coord-3d" id="coord-system-3d">
+                    <div class="axis axis-x"></div>
+                    <div class="axis axis-y"></div>
+                    <div class="axis axis-z"></div>
+                    <span class="axis-label x-label">X</span>
+                    <span class="axis-label y-label">Y</span>
+                    <span class="axis-label z-label">Z</span>
+                    <div class="transform-element" id="transform-element-3d">3D</div>
+                    <div class="origin-point" id="origin-point-3d"></div>
+                </div>
+                
+                <div class="coord-controls">
+                    <div class="control-group">
+                        <h4>平移Z: <output id="translate-z-value">0px</output></h4>
+                        <div class="slider-container">
+                            <input type="range" id="translate-z" min="-200" max="200" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <h4>旋转X: <output id="rotate-x-value">0deg</output></h4>
+                        <div class="slider-container">
+                            <input type="range" id="rotate-x" min="-180" max="180" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <h4>旋转Y: <output id="rotate-y-value">0deg</output></h4>
+                        <div class="slider-container">
+                            <input type="range" id="rotate-y" min="-180" max="180" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <h4>旋转Z: <output id="rotate-z-value">0deg</output></h4>
+                        <div class="slider-container">
+                            <input type="range" id="rotate-z" min="-180" max="180" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <h4>透视: <output id="perspective-value">1000px</output></h4>
+                        <div class="slider-container">
+                            <input type="range" id="perspective" min="500" max="2000" value="1000">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 3D变换原点控制 -->
+                <div class="control-group">
+                    <h4>3D变换原点: <output id="transform-origin-3d-value">50% 50%</output></h4>
+                    <div class="transform-origin-control">
+                        <button class="origin-btn-3d" data-value="0% 0%">左上</button>
+                        <button class="origin-btn-3d" data-value="50% 0%">中上</button>
+                        <button class="origin-btn-3d" data-value="100% 0%">右上</button>
+                        <button class="origin-btn-3d" data-value="0% 50%">左中</button>
+                        <button class="origin-btn-3d active" data-value="50% 50%">中心</button>
+                        <button class="origin-btn-3d" data-value="100% 50%">右中</button>
+                        <button class="origin-btn-3d" data-value="0% 100%">左下</button>
+                        <button class="origin-btn-3d" data-value="50% 100%">中下</button>
+                        <button class="origin-btn-3d" data-value="100% 100%">右下</button>
+                    </div>
+                </div>
+                
+                <div class="coord-button-group">
+                    <button class="coord-btn" id="reset-3d">重置3D变换</button>
+                </div>
+                
+                <div class="coord-code-display" id="code-3d">
+                    /* CSS代码将在这里显示 */
+                    transform: none;
+                    transform-origin: 50% 50%;
+                </div>
+            </div>
+            
+            <h3>3.1 3D空间与景深（Perspective）</h3>
+            <p>要创建3D效果，首先需要建立一个具备透视（Perspective）的3D场景（舞台）。</p>
+            <ul>
+                <li><strong>perspective</strong> 属性定义了三维空间（3D space）的深度，更具体地说，它设定了观察者（用户的眼睛）与z=0平面（屏幕）之间的距离，它的核心作用是创建“近大远小”的透视效果。它的值是一个长度单位（如 px, em），表示这个距离。</li>
+                <li><strong>transform-style</strong> 属性决定了一个元素的孩子（子元素）是位于这个元素本身所定义的3D空间中，还是被扁平化（压扁）在这个元素的2D平面内。</li>
+            </ul>
+            <div class="note">
+
+            <h3>可以把整个结构想象成一个摄影棚：</h3>
+            <ul>
+                <li>父元素：是整个摄影棚。
+                    <ul>
+                        <li>perspective: 800px; 是决定摄影师（用户眼睛）使用什么镜头（透视强度）。</li>
+                        <li>transform-style: preserve-3d; 是决定这个摄影棚是一个真实的3D舞台，而不是一个2D的幕布。</li>
+                    </ul>
+                </li>
+                <li>子元素：是舞台上的演员。
+                    <ul>
+                        <li>transform: rotateY(45deg) translateZ(100px); 是演员在舞台上的位置和姿势。</li>
+                    </ul>
+                </li>
+            </ul>
+            </div>
+
+
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS语法</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+				.container {<br>
+				  &nbsp;&nbsp;perspective: 800px;  /* 在父元素上设置景深 */<br>
+				  &nbsp;&nbsp;transform-style: preserve-3d;  /* 将子元素置于父元素创建的 3D 空间内 */<br>
+				}<br>
+            </div>
+            
+            <h3>3.2 3D位移</h3>
+            <p>3D位移允许元素在Z轴上移动，创建远近效果。</p>
+            
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS语法</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+				/* 语法 */<br>
+                transform: translateX(x) - 仅沿X轴移动元素（横向位移，左右方向）<br>
+                transform: translateY(y) - 仅沿Y轴移动元素（纵向位移，上下方向）<br>
+                transform: translateZ(z) - 仅沿Z轴移动元素（纵深位移，前后方向）<br>
+                transform: translate3d(tx, ty, tz) - 同时指定X、Y、Z三个方向的位移<br>
+				<br>
+				/* 示例 */<br>
+				.element {<br>
+					&nbsp;&nbsp;transform: translateZ(200px);<br>
+                }<br>
+                <br>
+				.element {<br>
+					&nbsp;&nbsp;transform: translate3d(50px, -10px, 200px);<br>
+				}
+            </div>
+            
+
+            <h3>演示效果：</h3>
+            <div class="demo-container">
+                <div class="demo demo3d demo-translate-3d-1">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>3D位移变换：沿Z轴移动元素</p>
+                </div>
+                <div class="demo demo3d demo-translate-3d-2">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>3D位移变换：同时指定X、Y、Z三个方向的位移</p>
+                </div>
+            </div>
+
+
+            <h3>3.3 3D旋转</h3>
+            <p>3D旋转允许元素围绕X、Y或Z轴旋转。</p>
+            
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS语法</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+				/* 围绕X轴旋转 */<br>
+				transform: rotateX(45deg);<br>
+                <br>
+				/* 围绕Y轴旋转 */<br>
+				transform: rotateY(45deg);<br>
+                <br>
+				/* 围绕Z轴旋转（与2D旋转相同） */<br>
+				transform: rotateZ(45deg);<br>
+                <br>
+				/* 围绕自定义轴旋转 */<br>
+				transform: rotate3d(x, y, z, angle);<br>
+				<br>
+				/* 示例 */<br>
+				.element {<br>
+					&nbsp;&nbsp;transform: rotateZ(45deg);&nbsp;&nbsp;/* 围绕Z轴旋转45度 */<br>
+				}<br>
+                <br>
+				.element {<br>
+					&nbsp;&nbsp;transform: rotate3d(1, 1, 0, 45deg);&nbsp;&nbsp;/* x=1, y=1, z=0 定义了一个在xy平面上的对角线轴 */<br>
+				}
+            </div>
+			<div class="note">
+				<p><strong>rotate3d(x, y, z, angle)参数说明：</strong></p>
+				<ul>
+				    <li>作用：使元素围绕 自定义的三维轴 旋转，更灵活地控制旋转方向。</li>
+				    <li>x/y/z：数值（0~1 之间），表示旋转轴在对应坐标轴上的分量（0 表示不沿该轴，1 表示完全沿该轴）。</li>
+				    <li>angle：旋转角度（如 45deg）。</li>
+				</ul>
+			</div>
+
+            <h3>演示效果：</h3>
+            <div class="demo-container">
+                <div class="demo demo3d demo-rotate-3d-1">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>3D旋转变换：围绕Z轴旋转45度</p>
+                </div>
+                <div class="demo demo3d demo-rotate-3d-2">
+                    <div class="origin-box"></div>
+                    <div class="demo-box">Hover me</div>
+                    <p>3D变换：沿xy平面上的对角线轴旋转45度</p>
+                </div>
+            </div>
+            
+            <h3>3.4 3D变换原点</h3>
+            <p>3D变换中，transform-origin属性同样适用，但可以接受三个值，包括Z轴偏移。</p>
+            
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS语法</span>
+                    <button class="copy-btn">复制代码</button>
+                </div>
+				/* 默认值 */<br>
+				transform-origin: 50% 50% 0;<br>
+
+				/* 自定义3D变换原点 */<br>
+				transform-origin: 0% 0% 20px;<br>
+				transform-origin: 30% 60% 50px;
+            </div>
+            
+            <h3>3D变换演示案例：卡片翻转效果</h3>
+			<p>使用3D变换创建卡片翻转效果，需要设置透视(perspective)和3D变换样式。</p>
+            <div class="demo3d-container">
+                <div class="demo">
+                    <div class="demo-3d-container">
+                        <div class="demo-3d-box">
+                            <div class="demo-3d-front">正面</div>
+                            <!-- <div class="demo-3d-back">背面</div> -->
+                        </div>
+                    </div>
+                    <p>3D卡片翻转效果</p>
+                </div>
+            </div>
+			
+			<div class="code-block">
+			    <div class="code-header">
+			        <span>CSS语法</span>
+			        <button class="copy-btn">复制代码</button>
+			    </div>
+				&lt;style&gt;<br>
+				/* 步骤1: 设置景深与 3D 空间 */<br>
+				.container {<br>
+					&nbsp;&nbsp;perspective: 1000px;<br>
+					&nbsp;&nbsp;transform-style: preserve-3d;<br>
+				}<br>
+				/* 步骤2: 卡片的初始状态 */<br>
+				.card {<br>
+					&nbsp;&nbsp;width: 200px;<br>
+					&nbsp;&nbsp;height: 300px;<br>
+					&nbsp;&nbsp;padding: 10px;<br>
+					&nbsp;&nbsp;background-color: skyblue;<br>
+					&nbsp;&nbsp;border-radius: 8px;<br>
+					&nbsp;&nbsp;box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);<br>
+					&nbsp;&nbsp;cursor: pointer;<br>
+				}<br>
+				/* 步骤3: 卡片的结束状态-翻转180度 */<br>
+				.card:hover {<br>
+					&nbsp;&nbsp;transform: rotateY(180deg);<br>
+				}<br>
+				/* 步骤4: 配置过渡属性 */<br>
+				.card {<br>
+					&nbsp;&nbsp;transition: transform 1s;<br>
+				}<br>
+				&lt;/style&gt;<br>
+					&lt;body&gt;<br>
+						&nbsp;&nbsp;&lt;div class="container"><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="card">正面&lt;/div&gt;<br>
+					&nbsp;&nbsp;&lt;/div&gt;<br>
+				&lt;/body&gt;
+			</div>
+        </section>
+        
+		
+		
+		 <!-- 新增图片放大综合案例 -->
+		        <section>
+		            <h2>6. 综合案例：图片放大效果</h2>
+		            <p>下面是一个使用CSS3变换实现的图片放大效果，当鼠标悬停在图片上时，图片会平滑放大，同时卡片整体会有轻微的浮动效果。</p>
+		            
+		            <div class="poem-card">
+		                <div class="poem-image">
+		                    <img src="https://pic1.imgdb.cn/item/68bbc06258cb8da5c8827ac5.jpg" alt="春夜喜雨">
+		                </div>
+		                <div class="poem-info">
+		                    <h4>春夜喜雨</h4>
+		                    <p>好雨知时节，当春乃发生。</p>
+		                    <p>随风潜入夜，润物细无声。</p>
+		                </div>
+		            </div>
+		            
+		            <h3>参考代码：</h3>
+		            <div class="code-block">
+		                <div class="code-header">
+		                    <span>HTML代码</span>
+		                    <button class="copy-btn">复制代码</button>
+		                </div>
+		&lt;div class="poem-card"&gt;<br>
+		  &nbsp;&nbsp;&lt;div class="poem-image"&gt;<br>
+		    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="nature.jpg" alt="春夜喜雨"&gt;<br>
+		  &nbsp;&nbsp;&lt;/div&gt;<br>
+		  &nbsp;&nbsp;&lt;div class="poem-content"&gt;<br>
+		   &nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;春夜喜雨&lt;/h4&gt;<br>
+		    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;好雨知时节，当春乃发生。&lt;/p&gt;<br>
+		    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;随风潜入夜，润物细无声。&lt;/p&gt;<br>
+		  &nbsp;&nbsp;&lt;/div&gt;<br>
+		&lt;/div&gt;
+		            </div>
+		            
+		            <div class="code-block">
+		                <div class="code-header">
+		                    <span>CSS代码</span>
+		                    <button class="copy-btn">复制代码</button>
+		                </div>
+						/* 步骤1: 卡片的初始状态 */<br>
+		.poem-card {<br>
+		  &nbsp;&nbsp;width: 300px;<br>
+		  &nbsp;&nbsp;background: white;<br>
+		  &nbsp;&nbsp;border-radius: 12px;<br>
+		  &nbsp;&nbsp;box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);<br>
+		  &nbsp;&nbsp;overflow: hidden;<br>
+		  &nbsp;&nbsp;cursor: pointer;<br>
+		}<br>
+		<br>
+		.poem-image {<br>
+		  &nbsp;&nbsp;height: 300px;<br>
+		  &nbsp;&nbsp;overflow: hidden;<br>
+		}<br>
+		<br>
+		.poem-image img {<br>
+		  &nbsp;&nbsp;width: 100%;<br>
+		  &nbsp;&nbsp;height: 100%;<br>
+		  &nbsp;&nbsp;object-fit: cover;<br>
+		}<br>
+		<br>
+		.poem-content {<br>
+		  &nbsp;&nbsp;padding: 20px;<br>
+		  &nbsp;&nbsp;text-align: center;<br>
+		  &nbsp;&nbsp;background: #f8f5eb;<br>
+		}<br>
+		<br>
+		.poem-content h3 {<br>
+			&nbsp;&nbsp;color: #8c7851;<br>
+			&nbsp;&nbsp;margin: 0;<br>
+			&nbsp;&nbsp;font-size: 1.4rem;<br>
+		}<br>
+		<br>
+		.poem-content p {<br>
+			&nbsp;&nbsp;color: #7a6a52;<br>
+			&nbsp;&nbsp;font-size: 1rem;<br>
+			&nbsp;&nbsp;line-height: 1.6;<br>
+		}<br>
+		<br>
+		/* 步骤2：卡片的结束状态-图片放大效果 */<br>
+		.poem-card:hover {<br>
+		  &nbsp;&nbsp;box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);<br>
+		  &nbsp;&nbsp;transform: translateY(-5px);<br>
+		}<br>
+		<br>
+		.poem-image img:hover {<br>
+		  &nbsp;&nbsp;transform: scale(1.25);<br>
+		}<br>
+		<br>
+		/* 步骤3: 配置过渡属性 */<br>
+		.poem-card {<br>
+			&nbsp;&nbsp;transition: box-shadow 0.4s ease;<br>
+		}<br>
+		<br>
+		.poem-image img {<br>
+			&nbsp;&nbsp;transition: transform 0.6s ease;<br>
+		}
+		            </div>
+		            
+		            <h3>技术要点：</h3>
+		            <ul>
+		                <li>使用<code>transform: scale(1.25)</code>实现图片放大效果</li>
+		                <li>使用<code>transition</code>属性为变换添加平滑过渡</li>
+		                <li>使用<code>overflow: hidden</code>隐藏图片放大时超出容器的部分</li>
+		                <li>使用<code>object-fit: cover</code>确保图片比例正确</li>
+		            </ul>
+		        </section>
+		
+		
+		
+		
+		
+        <footer>
+            <p>澄观 · 隙载</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 复制代码功能
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const codeBlock = this.parentElement.nextElementSibling;
+                const textArea = document.createElement('textarea');
+                textArea.value = codeBlock.textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // 显示复制成功提示
+                const originalText = this.textContent;
+                this.textContent = '已复制!';
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 1500);
+            });
+        });
+        
+        // 2D变换控制
+        const translateX = document.getElementById('translate-x');
+        const translateY = document.getElementById('translate-y');
+        const rotate = document.getElementById('rotate');
+        const scale = document.getElementById('scale');
+        const skewX = document.getElementById('skew-x');
+        const skewY = document.getElementById('skew-y');
+        const reset2d = document.getElementById('reset-2d');
+        const element2d = document.getElementById('transform-element-2d');
+        const code2d = document.getElementById('code-2d');
+        const originPoint2d = document.getElementById('origin-point-2d');
+        
+        // 3D变换控制
+        const translateZ = document.getElementById('translate-z');
+        const rotateX = document.getElementById('rotate-x');
+        const rotateY = document.getElementById('rotate-y');
+        const rotateZ = document.getElementById('rotate-z');
+        const perspective = document.getElementById('perspective');
+        const reset3d = document.getElementById('reset-3d');
+        const element3d = document.getElementById('transform-element-3d');
+        const coordSystem3d = document.getElementById('coord-system-3d');
+        const code3d = document.getElementById('code-3d');
+        const originPoint3d = document.getElementById('origin-point-3d');
+        
+        // 变换原点控制
+        let transformOrigin2D = '50% 50%';
+        let transformOrigin3D = '50% 50%';
+        
+        // 3D鼠标拖拽控制变量
+        let isDragging = false;
+        let lastMouseX, lastMouseY;
+        let rotationX = 0;
+        let rotationY = 0;
+        
+        // 更新输出值
+        function updateOutputValue(outputId, value, unit = '') {
+            document.getElementById(outputId).textContent = value + unit;
+        }
+        
+        // 更新原点标注点位置
+		// ================================================
+		function updateOriginPointPosition(originPoint, transformOrigin, transformElement) {
+		    // 解析transformOrigin值
+		    const [x, y] = transformOrigin.split(' ');
+		    
+		    // 获取变换元素的父容器（坐标系）
+		    const parent = transformElement.parentElement;
+		    const parentRect = parent.getBoundingClientRect();
+		    
+		    // 获取变换元素的原始尺寸（不包含变换影响）
+		    const elementStyle = window.getComputedStyle(transformElement);
+		    const elementWidth = parseFloat(elementStyle.width);
+		    const elementHeight = parseFloat(elementStyle.height);
+		    
+		    // 计算变换原点相对元素左上角的偏移
+		    let originX, originY;
+		    if (x.includes('%')) {
+		        originX = (parseFloat(x) / 100) * elementWidth;
+		    } else {
+		        originX = parseFloat(x);
+		    }
+		    
+		    if (y.includes('%')) {
+		        originY = (parseFloat(y) / 100) * elementHeight;
+		    } else {
+		        originY = parseFloat(y);
+		    }
+		    
+		    // 获取元素在父容器中的位置（考虑margin和padding）
+		    const elementRect = transformElement.getBoundingClientRect();
+		    const elementLeftInParent = elementRect.left - parentRect.left;
+		    const elementTopInParent = elementRect.top - parentRect.top;
+		    
+		    // 计算原点在父容器中的绝对坐标（基于元素在父容器中的位置）
+		    let pointX = elementLeftInParent + originX;
+		    let pointY = elementTopInParent + originY;
+		    
+		    // 边界检查 - 确保原点在父容器范围内
+		    const originPointRect = originPoint.getBoundingClientRect();
+		    const originPointWidth = originPointRect.width || 10; // 默认10px如果获取不到
+		    const originPointHeight = originPointRect.height || 10;
+		    
+		    // 限制X坐标在父容器内
+		    if (pointX < 0) pointX = 0;
+		    if (pointX + originPointWidth > parentRect.width) {
+		        pointX = parentRect.width - originPointWidth;
+		    }
+		    
+		    // 限制Y坐标在父容器内
+		    if (pointY < 0) pointY = 0;
+		    if (pointY + originPointHeight > parentRect.height) {
+		        pointY = parentRect.height - originPointHeight;
+		    }
+		    
+		    // 设置原点位置（使用相对父元素的定位）
+		    originPoint.style.position = 'absolute'; // 确保使用绝对定位
+		    originPoint.style.left = `${pointX}px`;
+		    originPoint.style.top = `${pointY}px`;
+		    originPoint.style.zIndex = '10'; // 确保原点显示在元素上方
+		}
+		
+		// 添加原点按钮点击事件处理
+		document.querySelectorAll('.origin-btn').forEach(btn => {
+		    btn.addEventListener('click', function() {
+		        // 更新活跃状态
+		        document.querySelectorAll('.origin-btn').forEach(b => b.classList.remove('active'));
+		        this.classList.add('active');
+		        
+		        // 获取并应用变换原点
+		        transformOrigin2D = this.dataset.value;
+		        element2d.style.transformOrigin = transformOrigin2D;
+		        updateOutputValue('transform-origin-value', transformOrigin2D);
+		        
+		        // 更新原点位置（固定位置）
+		        updateOriginPointPosition(originPoint2d, transformOrigin2D, element2d);
+		        
+		        // 更新代码显示
+		        update2DTransform();
+		    });
+		});
+		
+		// 修改2D变换更新函数
+		function update2DTransform() {
+		    const tx = translateX.value;
+		    const ty = translateY.value;
+		    const r = rotate.value;
+		    const s = scale.value;
+		    const sx = skewX.value;
+		    const sy = skewY.value;
+		    
+		    // 更新输出显示
+		    updateOutputValue('translate-x-value', tx, 'px');
+		    updateOutputValue('translate-y-value', ty, 'px');
+		    updateOutputValue('rotate-value', r, 'deg');
+		    updateOutputValue('scale-value', s);
+		    updateOutputValue('skew-x-value', sx, 'deg');
+		    updateOutputValue('skew-y-value', sy, 'deg');
+		    
+		    // 应用变换
+		    const transform = `translate(${tx}px, ${ty}px) rotate(${r}deg) scale(${s}) skew(${sx}deg, ${sy}deg)`;
+		    element2d.style.transform = transform;
+		    
+		    // 更新代码显示
+		    code2d.textContent = `/* CSS代码 */
+		transform: ${transform};
+		transform-origin: ${transformOrigin2D};`;
+		}
+		
+		// 初始化原点位置
+		updateOriginPointPosition(originPoint2d, transformOrigin2D, element2d);
+		
+		// 为所有2D控制滑块添加事件监听
+		[translateX, translateY, rotate, scale, skewX, skewY].forEach(input => {
+		    input.addEventListener('input', update2DTransform);
+		});
+		
+		// 重置按钮事件
+		reset2d.addEventListener('click', function() {
+		    translateX.value = 0;
+		    translateY.value = 0;
+		    rotate.value = 0;
+		    scale.value = 1;
+		    skewX.value = 0;
+		    skewY.value = 0;
+		    
+		    // 重置变换原点为中心
+		    transformOrigin2D = '50% 50%';
+		    element2d.style.transformOrigin = transformOrigin2D;
+		    document.querySelectorAll('.origin-btn').forEach(b => b.classList.remove('active'));
+		    document.querySelector('.origin-btn[data-value="50% 50%"]').classList.add('active');
+		    updateOutputValue('transform-origin-value', transformOrigin2D);
+		    
+		    // 更新原点位置
+		    updateOriginPointPosition(originPoint2d, transformOrigin2D, element2d);
+		    
+		    update2DTransform();
+		});
+		
+		
+		// =================================================
+		
+        
+        // 应用2D变换
+        function apply2dTransforms() {
+            const tx = translateX.value + 'px';
+            const ty = translateY.value + 'px';
+            const r = rotate.value + 'deg';
+            const s = scale.value;
+            const skx = skewX.value + 'deg';
+            const sky = skewY.value + 'deg';
+            
+            const transform = `translate(${tx}, ${ty}) rotate(${r}) scale(${s}) skew(${skx}, ${sky})`;
+            element2d.style.transform = transform;
+            element2d.style.transformOrigin = transformOrigin2D;
+            
+            // 更新原点标注点位置
+            updateOriginPointPosition(originPoint2d, transformOrigin2D);
+            
+            // 更新代码显示
+            code2d.textContent = `/* 2D变换代码 */\ntransform: ${transform};\ntransform-origin: ${transformOrigin2D};`;
+            
+            // 更新输出值
+            updateOutputValue('translate-x-value', translateX.value, 'px');
+            updateOutputValue('translate-y-value', translateY.value, 'px');
+            updateOutputValue('rotate-value', rotate.value, 'deg');
+            updateOutputValue('scale-value', scale.value);
+            updateOutputValue('skew-x-value', skewX.value, 'deg');
+            updateOutputValue('skew-y-value', skewY.value, 'deg');
+            updateOutputValue('transform-origin-value', transformOrigin2D);
+        }
+        
+		//----------------------------------------------------------------
+		// 初始化更新3D变换代码显示
+		    update3DTransformCode();
+		    
+		    // 更新3D变换代码显示
+		    function update3DTransformCode() {
+		        // 获取所有3D变换值
+		        const tz = translateZ.value;
+		        const rx = rotateX.value;
+		        const ry = rotateY.value;
+		        const rz = rotateZ.value;
+		        const persp = perspective.value;
+		        
+		        // 构建变换函数数组
+		        const transforms = [];
+		        if (tz != 0) transforms.push(`translateZ(${tz}px)`);
+		        if (rx != 0) transforms.push(`rotateX(${rx}deg)`);
+		        if (ry != 0) transforms.push(`rotateY(${ry}deg)`);
+		        if (rz != 0) transforms.push(`rotateZ(${rz}deg)`);
+		        
+		        // 构建transform属性值
+		        const transformValue = transforms.length > 0 
+		            ? transforms.join(' ') 
+		            : 'none';
+		        
+		        // 更新元素样式
+		        element3d.style.transform = transformValue;
+		        element3d.style.transformOrigin = transformOrigin3D;
+		        coordSystem3d.style.perspective = `${persp}px`;
+		        
+		        // 更新代码显示区域
+		        code3d.textContent = `/* CSS代码实时显示 */
+		transform: ${transformValue};
+		transform-origin: ${transformOrigin3D};
+		perspective: ${persp}px;`;
+		    }
+		    
+		    // 为3D变换控件添加事件监听器
+		    translateZ.addEventListener('input', function() {
+		        updateOutputValue('translate-z-value', this.value, 'px');
+		        update3DTransformCode();
+		    });
+		    
+		    rotateX.addEventListener('input', function() {
+		        updateOutputValue('rotate-x-value', this.value, 'deg');
+		        update3DTransformCode();
+		    });
+		    
+		    rotateY.addEventListener('input', function() {
+		        updateOutputValue('rotate-y-value', this.value, 'deg');
+		        update3DTransformCode();
+		    });
+		    
+		    rotateZ.addEventListener('input', function() {
+		        updateOutputValue('rotate-z-value', this.value, 'deg');
+		        update3DTransformCode();
+		    });
+		    
+		    perspective.addEventListener('input', function() {
+		        updateOutputValue('perspective-value', this.value, 'px');
+		        update3DTransformCode();
+		    });
+		    
+		    // 3D变换原点按钮事件
+		    document.querySelectorAll('.origin-btn-3d').forEach(button => {
+		        button.addEventListener('click', function() {
+		            // 移除其他按钮的active类
+		            document.querySelectorAll('.origin-btn-3d').forEach(btn => {
+		                btn.classList.remove('active');
+		            });
+		            // 为当前按钮添加active类
+		            this.classList.add('active');
+		            // 更新变换原点
+		            transformOrigin3D = this.getAttribute('data-value');
+		            document.getElementById('transform-origin-3d-value').textContent = transformOrigin3D;
+		            // 更新代码显示
+		            update3DTransformCode();
+		            // 更新原点标注点位置（如果有此函数）
+		            // updateOriginPointPosition(originPoint3d, transformOrigin3D, true);
+		        });
+		    });
+		    
+		    // 重置3D变换
+		    reset3d.addEventListener('click', function() {
+		        translateZ.value = 0;
+		        rotateX.value = 0;
+		        rotateY.value = 0;
+		        rotateZ.value = 0;
+		        perspective.value = 1000;
+		        
+		        // 重置变换原点
+		        transformOrigin3D = '50% 50%';
+		        document.querySelectorAll('.origin-btn-3d').forEach(btn => {
+		            btn.classList.remove('active');
+		            if (btn.getAttribute('data-value') === '50% 50%') {
+		                btn.classList.add('active');
+		            }
+		        });
+		        
+		        // 重置输出值
+		        updateOutputValue('translate-z-value', 0, 'px');
+		        updateOutputValue('rotate-x-value', 0, 'deg');
+		        updateOutputValue('rotate-y-value', 0, 'deg');
+		        updateOutputValue('rotate-z-value', 0, 'deg');
+		        updateOutputValue('perspective-value', 1000, 'px');
+		        document.getElementById('transform-origin-3d-value').textContent = '50% 50%';
+		        
+		        // 重置旋转状态
+		        rotationX = 0;
+		        rotationY = 0;
+		        
+		        // 更新变换
+		        update3DTransformCode();
+		    });
+		    
+		    // 3D坐标系鼠标拖拽旋转
+		    coordSystem3d.addEventListener('mousedown', function(e) {
+		        isDragging = true;
+		        lastMouseX = e.clientX;
+		        lastMouseY = e.clientY;
+		    });
+		    
+		    document.addEventListener('mousemove', function(e) {
+		        if (!isDragging) return;
+		        
+		        const deltaX = e.clientX - lastMouseX;
+		        const deltaY = e.clientY - lastMouseY;
+		        
+		        rotationY += deltaX * 0.5;
+		        rotationX += deltaY * 0.5;
+		        
+		        // 应用旋转限制
+		        rotationX = Math.max(-90, Math.min(90, rotationX));
+		        
+		        // 更新旋转控件值
+		        rotateX.value = rotationX;
+		        rotateY.value = rotationY;
+		        
+		        // 更新显示值
+		        updateOutputValue('rotate-x-value', rotationX.toFixed(1), 'deg');
+		        updateOutputValue('rotate-y-value', rotationY.toFixed(1), 'deg');
+		        
+		        // 更新变换
+		        update3DTransformCode();
+		        
+		        lastMouseX = e.clientX;
+		        lastMouseY = e.clientY;
+		    });
+		    
+		    document.addEventListener('mouseup', function() {
+		        isDragging = false;
+		    });
+		    
+		    document.addEventListener('mouseleave', function() {
+		        isDragging = false;
+		    });
+		
+		
+		
+		
+		
+		
+		//----------------------------------------------------------------		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+        // 应用3D变换
+        function apply3dTransforms() {
+            const tz = translateZ.value + 'px';
+            const rx = (parseInt(rotateX.value) + rotationX) + 'deg';
+            const ry = (parseInt(rotateY.value) + rotationY) + 'deg';
+            const rz = rotateZ.value + 'deg';
+            const p = perspective.value + 'px';
+            
+            const transform = `translateZ(${tz}) rotateX(${rx}) rotateY(${ry}) rotateZ(${rz})`;
+            element3d.style.transform = transform;
+            element3d.style.transformOrigin = transformOrigin3D;
+            
+            // 更新原点标注点位置
+            updateOriginPointPosition(originPoint3d, transformOrigin3D, true);
+            
+            // 更新父容器的perspective
+            coordSystem3d.style.perspective = p;
+            
+            // 更新代码显示
+            code3d.textContent = `/* 3D变换代码 */\n.container {\n  perspective: ${p};\n}\n\nelement {\n  transform: ${transform};\n  transform-origin: ${transformOrigin3D};\n}`;
+            
+            // 更新输出值
+            updateOutputValue('translate-z-value', translateZ.value, 'px');
+            updateOutputValue('rotate-x-value', parseInt(rotateX.value) + rotationX, 'deg');
+            updateOutputValue('rotate-y-value', parseInt(rotateY.value) + rotationY, 'deg');
+            updateOutputValue('rotate-z-value', rotateZ.value, 'deg');
+            updateOutputValue('perspective-value', perspective.value, 'px');
+            updateOutputValue('transform-origin-3d-value', transformOrigin3D);
+        }
+        
+        // 重置2D变换
+        function reset2dTransforms() {
+            translateX.value = 0;
+            translateY.value = 0;
+            rotate.value = 0;
+            scale.value = 1;
+            skewX.value = 0;
+            skewY.value = 0;
+            
+            // 重置变换原点
+            document.querySelectorAll('.origin-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.origin-btn[data-value="50% 50%"]').classList.add('active');
+            transformOrigin2D = '50% 50%';
+            
+            apply2dTransforms();
+        }
+        
+        // 重置3D变换
+        function reset3dTransforms() {
+            translateZ.value = 0;
+            rotateX.value = 0;
+            rotateY.value = 0;
+            rotateZ.value = 0;
+            perspective.value = 1000;
+            rotationX = 0;
+            rotationY = 0;
+            
+            // 重置变换原点
+            document.querySelectorAll('.origin-btn-3d').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.origin-btn-3d[data-value="50% 50%"]').classList.add('active');
+            transformOrigin3D = '50% 50%';
+            
+            apply3dTransforms();
+        }
+        
+		
+		// 设置2D变换原点
+		function set2DTransformOrigin(value) {
+		    transformOrigin2D = value;
+		    apply2dTransforms();
+		}
+		
+		// 变换原点按钮事件
+		document.querySelectorAll('.origin-btn').forEach(btn => {
+		    btn.addEventListener('click', function() {
+		        document.querySelectorAll('.origin-btn').forEach(b => b.classList.remove('active'));
+		        this.classList.add('active');
+		        set2DTransformOrigin(this.dataset.value);
+		    });
+		});
+		
+		
+		
+        
+        // 设置3D变换原点
+        function set3DTransformOrigin(value) {
+            transformOrigin3D = value;
+            apply3dTransforms();
+        }
+        
+        // 3D鼠标拖拽事件处理
+        function init3DDrag() {
+            coordSystem3d.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                lastMouseX = e.clientX;
+                lastMouseY = e.clientY;
+                this.style.cursor = 'grabbing';
+            });
+            
+            document.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+                
+                const deltaX = e.clientX - lastMouseX;
+                const deltaY = e.clientY - lastMouseY;
+                
+                rotationY += deltaX * 0.5;
+                rotationX -= deltaY * 0.5;
+                
+                lastMouseX = e.clientX;
+                lastMouseY = e.clientY;
+                
+                apply3dTransforms();
+            });
+            
+            document.addEventListener('mouseup', function() {
+                isDragging = false;
+                coordSystem3d.style.cursor = 'grab';
+            });
+            
+            // 触摸设备支持
+            coordSystem3d.addEventListener('touchstart', function(e) {
+                isDragging = true;
+                lastMouseX = e.touches[0].clientX;
+                lastMouseY = e.touches[0].clientY;
+                e.preventDefault();
+            });
+            
+            document.addEventListener('touchmove', function(e) {
+                if (!isDragging) return;
+                
+                const deltaX = e.touches[0].clientX - lastMouseX;
+                const deltaY = e.touches[0].clientY - lastMouseY;
+                
+                rotationY += deltaX * 0.5;
+                rotationX -= deltaY * 0.5;
+                
+                lastMouseX = e.touches[0].clientX;
+                lastMouseY = e.touches[0].clientY;
+                
+                apply3dTransforms();
+                e.preventDefault();
+            });
+            
+            document.addEventListener('touchend', function() {
+                isDragging = false;
+            });
+        }
+        
+        // 添加事件监听器
+        translateX.addEventListener('input', apply2dTransforms);
+        translateY.addEventListener('input', apply2dTransforms);
+        rotate.addEventListener('input', apply2dTransforms);
+        scale.addEventListener('input', apply2dTransforms);
+        skewX.addEventListener('input', apply2dTransforms);
+        skewY.addEventListener('input', apply2dTransforms);
+        reset2d.addEventListener('click', reset2dTransforms);
+        
+        translateZ.addEventListener('input', apply3dTransforms);
+        rotateX.addEventListener('input', apply3dTransforms);
+        rotateY.addEventListener('input', apply3dTransforms);
+        rotateZ.addEventListener('input', apply3dTransforms);
+        perspective.addEventListener('input', apply3dTransforms);
+        reset3d.addEventListener('click', reset3dTransforms);
+        
+        // 变换原点按钮事件
+        document.querySelectorAll('.origin-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.origin-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                set2DTransformOrigin(this.dataset.value);
+            });
+        });
+        
+        document.querySelectorAll('.origin-btn-3d').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.origin-btn-3d').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                set3DTransformOrigin(this.dataset.value);
+            });
+        });
+        
+
+        // 组合变换顺序演示
+        const transformElements = [
+            document.getElementById('transform-element-1'),
+            document.getElementById('transform-element-2')
+        ];
+        
+        const coordSystems = [
+            document.getElementById('coord-system-1'),
+            document.getElementById('coord-system-2')
+        ];
+        
+        const stepButtons = document.querySelectorAll('.transform-step-btn');
+        
+        // 初始变换状态
+        const transformSteps = [
+            [ // 第一个例子：先平移后旋转
+                { transform: 'translateX(0px) rotate(0deg)', coord: 'rotate(0deg)' },
+                { transform: 'translateX(100px) rotate(0deg)', coord: 'rotate(0deg)' },
+                { transform: 'translateX(100px) rotate(45deg)', coord: 'rotate(45deg)' }
+            ],
+            [ // 第二个例子：先旋转后平移
+                { transform: 'rotate(0deg) translateX(0px)', coord: 'rotate(0deg)' },
+                { transform: 'rotate(45deg) translateX(0px)', coord: 'rotate(45deg)' },
+                { transform: 'rotate(45deg) translateX(100px)', coord: 'rotate(45deg)' }
+            ]
+        ];
+        
+        // 当前步骤
+        let currentSteps = [0, 0];
+        
+        // 更新变换演示
+        function updateTransformDemo(index, step) {
+            transformElements[index].style.transform = transformSteps[index][step].transform;
+            currentSteps[index] = step;
+            
+            // 更新坐标系统
+            coordSystems[index].style.transform = transformSteps[index][step].coord;
+            
+            // 更新路径显示
+            updateTransformPath(index, step);
+        }
+        
+        // 更新变换路径
+        function updateTransformPath(index, step) {
+            const pathSvg = document.getElementById(`transform-path-${index+1}`);
+            pathSvg.innerHTML = ''; // 清除现有路径
+            
+            // 路径点坐标（相对于SVG viewBox）
+            const points = [];
+            
+            // 初始位置（中心点）
+            const centerX = 188;
+            const centerY = 150;
+            points.push({x: centerX, y: centerY});
+            
+            // 根据变换步骤添加点
+            if (index === 0) { // 先平移后旋转
+                if (step >= 1) {
+                    points.push({x: centerX + 100, y: centerY});
+                }
+                if (step >= 2) {
+                    // 旋转后的位置需要计算
+                    const angle = 45 * Math.PI / 180;
+                    const rotatedX = centerX + 100;
+                    const rotatedY = centerY;
+                    points.push({x: rotatedX, y: rotatedY});
+                }
+            } else { // 先旋转后平移
+                if (step >= 1) {
+                    // 旋转但未平移，位置不变
+                    points.push({x: centerX, y: centerY});
+                }
+                if (step >= 2) {
+                    // 先旋转后平移的位置
+                    const angle = 45 * Math.PI / 180;
+                    const translatedX = centerX + 100 * Math.cos(angle);
+                    const translatedY = centerY + 100 * Math.sin(angle);
+                    points.push({x: translatedX, y: translatedY});
+                }
+            }
+            
+            // 绘制路径线
+            if (points.length > 1) {
+                let pathData = `M ${points[0].x} ${points[0].y}`;
+                for (let i = 1; i < points.length; i++) {
+                    pathData += ` L ${points[i].x} ${points[i].y}`;
+                }
+                
+                const pathLine = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                pathLine.setAttribute('d', pathData);
+                pathLine.setAttribute('class', 'transform-path-line');
+                pathSvg.appendChild(pathLine);
+            }
+            
+            // 绘制路径点
+            points.forEach((point, i) => {
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('cx', point.x);
+                circle.setAttribute('cy', point.y);
+                circle.setAttribute('class', 'transform-path-point');
+                if (i === points.length - 1 && i > 0) {
+                    circle.setAttribute('r', '5'); // 终点大一点
+                } else {
+                    circle.setAttribute('r', '4');
+                }
+                pathSvg.appendChild(circle);
+                
+                // 添加步骤编号
+                if (i > 0) {
+                    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    text.setAttribute('x', point.x + 8);
+                    text.setAttribute('y', point.y - 8);
+                    text.setAttribute('class', 'transform-path-point-text');
+                    text.setAttribute('font-size', '12');
+                    text.setAttribute('fill', '#3498db');
+                    text.setAttribute('font-weight', 'bold');
+                    text.textContent = i;
+                    pathSvg.appendChild(text);
+                }
+            });
+        }
+        
+        // 初始化变换演示
+        updateTransformDemo(0, 0);
+        updateTransformDemo(1, 0);
+        
+        // 步骤按钮事件
+        stepButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const step = parseInt(button.dataset.step);
+                const target = parseInt(button.dataset.target) - 1; // 转换为0-based索引
+                
+                // 更新当前步骤
+                updateTransformDemo(target, step);
+                
+                // 更新按钮状态
+                document.querySelectorAll(`.transform-step-btn[data-target="${target+1}"]`).forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+            });
+        });
+
+
+        // 初始化变换和3D拖拽
+        apply2dTransforms();
+        apply3dTransforms();
+        init3DDrag();
+    </script>
+</body>
+</html>
