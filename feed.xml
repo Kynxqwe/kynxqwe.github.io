@@ -3,7 +3,7 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-02T20:05:43+08:00</updated>
+    <updated>2025-10-02T20:31:07+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
@@ -83,19 +83,19 @@
         </author>
         <link href="https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass.html"/>
         <id>https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass.html</id>
-        <media:content url="https://kynx.qzz.io/media/posts/25/25.png" medium="image" />
+        <media:content url="https://kynx.qzz.io/media/posts/25/25-2.png" medium="image" />
             <category term="隙光微尘​"/>
 
         <updated>2025-09-21T12:53:21+08:00</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/25/25.png" alt="" />
+                        <img src="https://kynx.qzz.io/media/posts/25/25-2.png" alt="" />
                     这个题目其实从一开始Beta版开始的时候就已经起草，但是一直到现在又重新写一遍，其中有我想讲的很多事情。 一开始看到的最多的是ios26的系统的发布，手机作为日常不离手的通讯工具，这个肯定是最收关注的。但是这种东西对于我来说其实是很无感的，毕竟就像Windows7换成Windows10，我反而会更喜欢Windows10一点，有可能是觉得平面的性能更好的缘故吧，但是在经历过很多的IDE洗礼之后我反而是更关注性能与视觉上的清晰——也就是文字的观感。在很多IDE上面其中背景的颜色以及文字的高亮都是可以调整的，但是在我自己瞎鼓捣的时候就很容易出现文字颜色和背景颜色十分相近而看不清楚的情况。 所以在一开始ios26&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/25/25.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://kynx.qzz.io/media/posts/25/25-2.png" class="type:primaryImage" alt="" /></p>
                 <p>这个题目其实从一开始Beta版开始的时候就已经起草，但是一直到现在又重新写一遍，其中有我想讲的很多事情。</p><h2 id="为什么要用玻璃？">为什么要用玻璃？</h2>
 <p>一开始看到的最多的是ios26的系统的发布，手机作为日常不离手的通讯工具，这个肯定是最收关注的。但是这种东西对于我来说其实是很无感的，毕竟就像Windows7换成Windows10，我反而会更喜欢Windows10一点，有可能是觉得平面的性能更好的缘故吧，但是在经历过很多的IDE洗礼之后我反而是更关注性能与视觉上的清晰——也就是文字的观感。在很多IDE上面其中背景的颜色以及文字的高亮都是可以调整的，但是在我自己瞎鼓捣的时候就很容易出现文字颜色和背景颜色十分相近而看不清楚的情况。</p><p>所以在一开始ios26 Beta版本刚刚出来的时候我其实是十分不理解苹果的用意的，因为手机作为一个再平常不过的通讯工具，喜欢玩游戏的注意的是游戏内容，喜欢社交的更注意和朋友之间的关系，很多人对于系统升级其实是无感的，毕竟很多年轻人都是上手即用，都不存在学习成本的，但是中年人和老年人却觉得界面陌生，甚至有人还会觉得手机会被淘汰的更快。与我而言这其实是对于我的一种煎熬，虽然我不使用，但是对于安卓也是一种影响，后来升级之后性能降低，续航减弱，也让我对这个设计语言充满着排斥和敌意。</p><p>最近ios26的公测版和正式版陆续发布，我发现之前在Beta版中的问题都得到了解决，这也是我第一次对于质感有点感觉，毕竟之前一直是觉得Google的Material UI十分的好，甚至根本就不需要高斯模糊，有这观感留给性能和续航不好吗？但是苹果用玻璃确实是玩出了真真正正的层级的感觉，例如解锁的时候，上滑之后就像是一扇从下而上的打开，整个视觉逻辑更强了，使得交互动画的意义更强了。</p><h2 id="liquid-glass-和-windows-7-一个设计语言是不是过时了？">Liquid Glass 和 Windows 7 一个设计语言是不是过时了？</h2>
 <p>我觉得不会，毕竟在黑暗模式上面苹果已经证实了自己封闭的实力。不到一年时间，几乎全部的应用都已经吃上了黑暗模式，这个速度比安卓很多都要厂商用系统去强行将浅色模式应用改变成黑暗模式更彻底。毕竟是Swift，统一的标准执行起来确实速度是没话说的。</p><p>交互上面已经能够达到动画和外观的显示方式符合视觉逻辑，并且拥有自己的Swift语言，后面可能应用适配上面出现性能问题等，但是苹果应该是有能力去解决的。毕竟软件对于系统版本都卡的这么严，优化上比安卓这种要兼容各家系统的肯定是更快速，更轻松了。</p><h2 id="用续航和性能换得质感---关于我的看法">用续航和性能换得质感 - 关于我的看法</h2>
@@ -112,19 +112,19 @@
         </author>
         <link href="https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations.html"/>
         <id>https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations.html</id>
-        <media:content url="https://kynx.qzz.io/media/posts/24/24.png" medium="image" />
+        <media:content url="https://kynx.qzz.io/media/posts/24/24-2.png" medium="image" />
             <category term="HTML&amp;CSS指北"/>
 
         <updated>2025-09-20T09:11:29+08:00</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/24/24.png" alt="" />
+                        <img src="https://kynx.qzz.io/media/posts/24/24-2.png" alt="" />
                     之前使用transition属性可以让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性animation。 格式： @keyframes&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/24/24.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://kynx.qzz.io/media/posts/24/24-2.png" class="type:primaryImage" alt="" /></p>
                 <p>之前使用<code>transition</code>属性可以让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性<code>animation</code>。</p><h2 id="animation属性组成"><code>animation</code>属性组成</h2>
 <blockquote>
 <ol>
