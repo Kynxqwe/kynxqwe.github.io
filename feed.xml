@@ -3,7 +3,7 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-02T20:02:42+08:00</updated>
+    <updated>2025-10-02T20:05:43+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
@@ -119,13 +119,13 @@
             <summary>
                 <![CDATA[
                         <img src="https://kynx.qzz.io/media/posts/24/24.png" alt="" />
-                    之前使用transition属性确实是让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性animation。 格式： @keyframes&hellip;
+                    之前使用transition属性可以让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性animation。 格式： @keyframes&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <p><img src="https://kynx.qzz.io/media/posts/24/24.png" class="type:primaryImage" alt="" /></p>
-                <p>之前使用<code>transition</code>属性确实是让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性<code>animation</code>。</p><h2 id="animation属性组成"><code>animation</code>属性组成</h2>
+                <p>之前使用<code>transition</code>属性可以让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性<code>animation</code>。</p><h2 id="animation属性组成"><code>animation</code>属性组成</h2>
 <blockquote>
 <ol>
 <li><strong>定义</strong> - 移动时间中每一个部分需要变换的属性</li>
