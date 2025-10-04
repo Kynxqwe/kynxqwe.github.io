@@ -3,7 +3,7 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-04T15:42:57+08:00</updated>
+    <updated>2025-10-04T16:06:07+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
@@ -41,10 +41,10 @@
 <li><p><strong>动画</strong>：这是我觉得我最需要改正的地方，之前看到iOS 26系统动画中APP打开的动画加速，经常性出现掉帧和偶然的短暂卡顿，我的第一个想法就是iOS 26这次是学安卓学费了。但是真正上手iPhone之后我才发现，这个系统的掉帧几乎不存在，除非你去盯着这个动画一帧一帧去找跳帧，否则真的很难找到，包括这个加速打开动画，优雅在效率面前就是不值一提，我也将我手机的APP打开动画调整成了快速。</p></li>
 <li><p><strong>细节</strong>：在下拉通知中心的时候不知道有没有人注意过，之前的版本在最后松手的时候是没有图标从中间向外飞出的，所以解锁动画和解锁后通知栏从下往上划动画就是不一致的，但是苹果又是将锁屏设置为显示消息的地方，这个动画一改，交互逻辑的完整性就完全上来了，这个解锁后显示通知的地方就可以认定只有锁屏一个地方。</p></li>
 </ul>
-<p><strong>下面放一下详细的动画展示：</strong></p><p>这是正常模式下iPhone 17与iPhone 17 Pro在iOS 26下的表现：</p><video loading="lazy" src="./media/files/隙光微尘/写于参观Apple_Store之后/Normal Mode.mp4" autoplay="false" controls="controls" width="854" height="480">
+<p><strong>下面放一下详细的动画展示：</strong></p><p>这是正常模式下iPhone 17与iPhone 17 Pro在iOS 26下的表现：</p><video loading="lazy" src="./media/files/隙光微尘/写于参观Apple_Store之后/Normal Mode.mp4" controls="controls" width="854" height="480">
 </video>
 
-<p>这是低电量模式下iPhone 17与iPhone 17 Pro在iOS 26下的表现：</p><video loading="lazy" src="./media/files/隙光微尘/写于参观Apple_Store之后/Battery Save Mode.mp4" autoplay="false" controls="controls" width="854" height="480">
+<p>这是低电量模式下iPhone 17与iPhone 17 Pro在iOS 26下的表现：</p><video loading="lazy" src="./media/files/隙光微尘/写于参观Apple_Store之后/Battery Save Mode.mp4" controls="controls" width="854" height="480">
 </video>
 
 <h3 id="mac-os-26">Mac OS 26</h3>
