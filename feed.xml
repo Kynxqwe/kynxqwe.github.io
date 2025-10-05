@@ -3,7 +3,7 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-05T16:03:55+08:00</updated>
+    <updated>2025-10-05T16:09:14+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
@@ -37,7 +37,7 @@
 <p>之前听过别人说过人家学校配备了<code>Mac Studio</code>和<code>Studio Display</code>，但是对于当时的我来讲能够想象的只有两个字 — 高端，真的就是多的一个词语都不想去想，其实也是想不出来。毕竟对于我开说连Windows的工作站都没有见过，也就根本没有可能去体会<code>Mac Studio</code>+<code>Studio Display</code>的美观以及好用。触摸板加上104键的薄膜键盘没有让桌面感觉臃肿，反而更多的是简约。这种简约的感觉是从系统到硬件的，是<code>Windows</code>不管怎么搭配硬件都达不到的一种感觉，感觉就算把是<code>Windows 11</code>放在类似<code>Studio Display</code>这样的显示器上都感觉难以达到这样的简洁与简约。</p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/写于参观Apple_Store之后/Mac_Studio&Studio_Display.jpg" alt="Mac Studio &amp; Studio Display" data-is-external-image="true"></figure><h3 id="vision-pro">Vision Pro</h3>
 <p>这也是我去Apple Store一个最初原因，一个同学在Apple Store上预约了体验<code>Vision Pro</code>，但是因为规定，也只能对<code>Vision Pro</code>进行拍摄，没有办法展示在平板上看到的别人的真实视角。</p><p>其实最让我觉得不可思议的是，这个眼镜可以在人眼看到的时候使用拇指与食指捏合进行点击，也就是屏幕上这么多的点上他要精确定位你目光的位置，据说眼睛看的地方没有高亮是因为没有完全适配，也就是说不是苹果，真的假的我不可能，也不会知道了，毕竟这东西也不是我能玩的起的。</p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/写于参观Apple_Store之后/Vision_Pro.jpg" alt="Vision Pro" data-is-external-image="true"></figure><h2 id="软件">软件</h2>
 <h3 id="ios-26--ipad-os-26">iOS 26 &amp; iPad OS 26</h3>
-<p>之前对于苹果的Liquid Glass设计语言也<a href="https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass.html" target="_blank">写过一些看法</a>，但是今天去过Apple Store亲自上手了搭载这系统的设备之后，我觉得我的看法可能又要发生一些细微的改变：</p><ul>
+<p>之前对于苹果的Liquid Glass设计语言也<a href="https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass.html" target="_blank" style="font-weight:bold;">写过一些看法</a>，但是今天去过Apple Store亲自上手了搭载这系统的设备之后，我觉得我的看法可能又要发生一些细微的改变：</p><ul>
 <li><p><strong>动画</strong>：这是我觉得我最需要改正的地方，之前看到iOS 26系统动画中APP打开的动画加速，经常性出现掉帧和偶然的短暂卡顿，我的第一个想法就是iOS 26这次是学安卓学费了。但是真正上手iPhone之后我才发现，这个系统的掉帧几乎不存在，除非你去盯着这个动画一帧一帧去找跳帧，否则真的很难找到，包括这个加速打开动画，优雅在效率面前就是不值一提，我也将我手机的APP打开动画调整成了快速。</p></li>
 <li><p><strong>细节</strong>：在下拉通知中心的时候不知道有没有人注意过，之前的版本在最后松手的时候是没有图标从中间向外飞出的，所以解锁动画和解锁后通知栏从下往上划动画就是不一致的，但是苹果又是将锁屏设置为显示消息的地方，这个动画一改，交互逻辑的完整性就完全上来了，这个解锁后显示通知的地方就可以认定只有锁屏一个地方。</p></li>
 </ul>
