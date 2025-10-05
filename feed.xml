@@ -3,7 +3,7 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-05T16:09:14+08:00</updated>
+    <updated>2025-10-05T16:15:44+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
@@ -471,9 +471,9 @@ CREATE TABLE score(
                 <p>MySQL是一个管理系统，所以在安装的时候需要一个可以方便与其交互的软件，所以必须要有Navicat这样一个图形化界面的软件，更便于对数据库进行操作</p><h2 id="准备">准备</h2>
 <blockquote>
 <ul>
-<li><a href="https://dev.mysql.com/downloads/installer/">MySQL社区版安装包</a></li>
+<li><a href="https://dev.mysql.com/downloads/installer/" target="_blank">MySQL社区版安装包</a></li>
 <li><a href="https://aka.ms/vs/16/release/VC_redist.x64.exe">Microsoft Visual C++ 2019 Redistributable</a></li>
-<li><a href="https://www.123865.com/s/3Zhljv-R93Eh">Navicat 17</a></li>
+<li><a href="https://www.123865.com/s/3Zhljv-R93Eh" target="_blank">Navicat 17</a></li>
 </ul>
 </blockquote>
 <h2 id="安装">安装</h2>
