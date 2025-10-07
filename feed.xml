@@ -3,7 +3,7 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-07T18:16:00+08:00</updated>
+    <updated>2025-10-07T18:19:12+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
@@ -429,7 +429,7 @@ CREATE TABLE score(
 <ul>
 <li><a href="https://dev.mysql.com/downloads/installer/" target="_blank">MySQL社区版安装包</a></li>
 <li><a href="https://aka.ms/vs/16/release/VC_redist.x64.exe">Microsoft Visual C++ 2019 Redistributable</a></li>
-<li><a href="https://kynxbox/s/34178208a39f4513ab" target="_blank">Navicat 17</a></li>
+<li><a href="https://s.fnnas.net/s/34178208a39f4513ab" target="_blank">Navicat 17</a></li>
 </ul>
 </blockquote>
 <h2 id="安装">安装</h2>
