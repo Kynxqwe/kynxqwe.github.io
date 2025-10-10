@@ -5,14 +5,14 @@
     <link href="https://kynx.qzz.io" />
     <updated>2025-10-07T19:52:18+08:00</updated>
     <author>
-        <name>和光同尘</name>
+        <name>Kynx</name>
     </author>
     <id>https://kynx.qzz.io</id>
 
     <entry>
         <title>NAS搭建及使用</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/nas-setup-and-usage.html"/>
         <id>https://kynx.qzz.io/nas-setup-and-usage.html</id>
@@ -43,7 +43,7 @@
     <entry>
         <title>数据表修改操作</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/modification-of-data-tables.html"/>
         <id>https://kynx.qzz.io/modification-of-data-tables.html</id>
@@ -110,7 +110,7 @@
     <entry>
         <title>UI设计语言 — 观Liquid Glass发布感悟</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass.html"/>
         <id>https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass.html</id>
@@ -139,7 +139,7 @@
     <entry>
         <title>使用animation实现复杂形态过渡动画</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations.html"/>
         <id>https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations.html</id>
@@ -252,7 +252,7 @@
     <entry>
         <title>数据表操作</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/data-table-operations.html"/>
         <id>https://kynx.qzz.io/data-table-operations.html</id>
@@ -310,7 +310,7 @@ CREATE TABLE score(
     <entry>
         <title>transform属性使元素位移及形变</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/the-transform-property-enables-the-displacement-and-deformation-of-elements.html"/>
         <id>https://kynx.qzz.io/the-transform-property-enables-the-displacement-and-deformation-of-elements.html</id>
@@ -405,7 +405,7 @@ CREATE TABLE score(
     <entry>
         <title>数据库操作与Navicat 17使用</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/database-operations-and-the-use-of-navicat-17.html"/>
         <id>https://kynx.qzz.io/database-operations-and-the-use-of-navicat-17.html</id>
@@ -438,7 +438,7 @@ CREATE TABLE score(
     <entry>
         <title>MySQL组件安装过程</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/mysql-component-installation-process.html"/>
         <id>https://kynx.qzz.io/mysql-component-installation-process.html</id>
@@ -479,7 +479,7 @@ CREATE TABLE score(
     <entry>
         <title>Windows系统重装</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/reinstall-windows.html"/>
         <id>https://kynx.qzz.io/reinstall-windows.html</id>
@@ -517,7 +517,7 @@ CREATE TABLE score(
     <entry>
         <title>transition属性制作CSS交互动画</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/css-transition-property-for-interactive-animations.html"/>
         <id>https://kynx.qzz.io/css-transition-property-for-interactive-animations.html</id>
