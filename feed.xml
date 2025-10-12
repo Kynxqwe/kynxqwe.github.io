@@ -3,12 +3,47 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-07T19:52:18+08:00</updated>
+    <updated>2025-10-12T09:55:53+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
     <id>https://kynx.qzz.io</id>
 
+    <entry>
+        <title>Android Studio配置记录</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/android-studio-configuration-record.html"/>
+        <id>https://kynx.qzz.io/android-studio-configuration-record.html</id>
+        <media:content url="https://kynx.qzz.io/media/posts/29/Android-Studio.png" medium="image" />
+            <category term="Android软件开发笔记"/>
+
+        <updated>2025-10-12T09:49:10+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/29/Android-Studio.png" alt="" />
+                    Android Studio来自谷歌，安装和配置环境的时候还是免不了要下载文件，下载文件连接国外服务器会导致下载速度变慢，所以还需要配置额外的下载网址。&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/29/Android-Studio.png" class="type:primaryImage" alt="" /></p>
+                <p>Android Studio来自谷歌，安装和配置环境的时候还是免不了要下载文件，下载文件连接国外服务器会导致下载速度变慢，所以还需要配置额外的下载网址。</p><h2 id="安装">安装</h2>
+<p>安装的时候会出现这样的界面，需要<strong>将Android Virtual Device取消勾选</strong>，如果有模拟器则不需要这个，没有模拟器在后期配置时也可以直接下对应的SDK，避免多下载不必要的。</p><figure class="post__image"><img loading="lazy" src="./media/files/Android开发笔记/image-20251012091351371.png" alt="image-20251012091351371" data-is-external-image="true"></figure><p><code>注：安装的时候所有的路径必须全部都是英文，否则会出现ASCII码的报错提示</code></p><h2 id="新建项目">新建项目</h2>
+<figure class="post__image"><img loading="lazy" src="./media/files/Android开发笔记/image-20251012091846471.png" alt="image-20251012091846471" data-is-external-image="true"></figure><p>项目有很多种，常用的一般只有<code>Empty Activity</code>，这一种一般是使用<strong>Jetpack Compose</strong>，而<code>Empty Views Activity</code>则是传统的<strong>XML格式</strong>。官方是构建新应用选择<strong>Jetpack Compose</strong>。</p><h2 id="配置">配置</h2>
+<p>在进入新建项目的时候会自动开始构建，但是因为网络问题，构建必然是不成功的，所以需要进行配置。</p><h3 id="gradle">Gradle</h3>
+<p>需要打开目录<code>gradle/wrapper/gradle-wrapper.properties</code></p><figure class="post__image"><img loading="lazy" src="./media/files/Android开发笔记/image-20251012094203968.png" alt="image-20251012094203968" data-is-external-image="true"></figure><p>我这里已经改过了，下载的不是bin包，因为后面下载src包会很麻烦，所以直接使用腾讯云上面的all包就可以了</p><p><code>distributionUrl=https\://mirrors.cloud.tencent.com/gradle/gradle-8.13-all.zip</code></p><p>这里的<code>gradle-8.13</code>打开文件是什么版本，现在就改成什么版本。</p><h3 id="maven">maven</h3>
+<p>打开<code>settings.gradle.kts</code>文件，按照图片添加</p><pre><code class="language-kotlin">maven (&quot;https://maven.aliyun.com/repository/public&quot;)
+maven (&quot;https://maven.aliyun.com/repository/google&quot;)
+maven (&quot;https://maven.aliyun.com/repository/gradle-plugin&quot;)
+maven (&quot;https://maven.aliyun.com/repository/central&quot;)
+</code></pre>
+<figure class="post__image"><img loading="lazy" src="./media/files/Android开发笔记/image-20251012094623801.png" alt="image-20251012094623801" data-is-external-image="true"></figure><h2 id="重启软件，等待下载完成即可">重启软件，等待下载完成即可</h2>
+
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>NAS搭建及使用</title>
         <author>
@@ -511,118 +546,6 @@ CREATE TABLE score(
 <p><strong>将PE写进U盘</strong></p><p>打开WePE软件，点击红框中的选项：</p><figure class="post__image"><img src="./media/files/隙光微尘/Windows系统重装/image-20250906214520032.png" alt="image-20250906214520032" data-is-external-image="true"></figure><p>在待写入U盘的地方选择准备好的空U盘（<strong>或</strong>刚刚已经备份好数据的U盘），这个过程会将U盘的数据全部清除，注意<strong>备份</strong>：</p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/Windows系统重装/image-20250906214606058.png" alt="image-20250906214606058" data-is-external-image="true"></figure><p><strong>这个时候，资源管理器上会出现一个空的微PE工具箱，打开并将系统镜和电脑驱动程序放入PE：</strong></p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/Windows系统重装/image-20250906221636954.png" alt="image-20250906221636954" data-is-external-image="true"></figure><h2 id="进入pe，安装系统">进入PE，安装系统</h2>
 <p><strong>使用DiskGenius快速格式化系统硬盘（几个分区以及分区大小看个人喜好）：</strong></p><p>MBR：</p><figure class="post__image"><img src="./media/files/隙光微尘/Windows系统重装/image-20250906222030355.png" alt="image-20250906222030355" data-is-external-image="true"></figure><p>GPT（不管保留ESP分区显不显示，都按照这个方法）：</p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/Windows系统重装/image-20250906222155432.png" alt="image-20250906222155432" data-is-external-image="true"></figure><p><strong>使用WinNTSetup安装镜像（按照提示选择就可以）：</strong></p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/Windows系统重装/image-20250906222509009.png" alt="image-20250906222509009" data-is-external-image="true"></figure><h2 id="最后">最后</h2>
 <p>重启之后正常进入Windows系统，我使用的一直是LTSC版本，如果家庭版和专业版在安装网卡驱动的地方不能使用本地账户先进入再打驱动的话直接选择所有驱动所在的文件夹即可直接打上所有驱动，所以驱动也尽量放在PE盘中。</p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>transition属性制作CSS交互动画</title>
-        <author>
-            <name>和光同尘</name>
-        </author>
-        <link href="https://kynx.qzz.io/css-transition-property-for-interactive-animations.html"/>
-        <id>https://kynx.qzz.io/css-transition-property-for-interactive-animations.html</id>
-        <media:content url="https://kynx.qzz.io/media/posts/18/18.png" medium="image" />
-            <category term="HTML&amp;CSS指北"/>
-
-        <updated>2025-09-03T22:11:39+08:00</updated>
-            <summary>
-                <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/18/18.png" alt="" />
-                    动画在生活中很常见，手机的APP打开就是从本来规定的图标形状变化到屏幕全屏的形状，中间时间的所有变化都是动画。在手机上就成为过渡动画，这个动画的本质目的其实就是让人脑有一个来回过程的显示，更便于其理解。这种理解的本意就是知其何来，知其何去。虽然有不少的人会觉得这种动画在Windows，Linux系统上就是增加硬件的负担，降低硬件性能，但是也是因为有来有回，而且动画使用特定的曲线让苹果在桌面系统中获得一席之地。 这几个属性便可以分开去写（效果：鼠标放在图形上时，正方形在1秒之内使用ease的贝塞尔曲线值转变成圆形）：&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/18/18.png" class="type:primaryImage" alt="" /></p>
-                <p>动画在生活中很常见，手机的APP打开就是从本来规定的图标形状变化到屏幕全屏的形状，中间时间的所有变化都是动画。在手机上就成为过渡动画，这个动画的本质目的其实就是让人脑有一个来回过程的显示，更便于其理解。这种理解的本意就是知其何来，知其何去。虽然有不少的人会觉得这种动画在Windows，Linux系统上就是增加硬件的负担，降低硬件性能，但是也是因为有来有回，而且动画使用特定的曲线让苹果在桌面系统中获得一席之地。</p><h2 id="transition属性的属性值">transition属性的属性值</h2>
-<blockquote>
-<ul>
-<li><code>transition-property</code>：参与变换的属性（<strong>默认值：/</strong>）</li>
-<li><code>transition-duration</code>：变化的时间长度（<strong>默认值：0</strong>）</li>
-<li><code>transition-timing-function</code>：过渡动画的贝塞尔曲线设置（<strong>默认值：ease</strong>）</li>
-<li><code>transition-delay</code>：动画开始之前的等待时间（<strong>默认值：0</strong>）</li>
-</ul>
-</blockquote>
-<h2 id="效果展示">效果展示</h2>
-<p>这几个属性便可以分开去写（<strong>效果：鼠标放在图形上时，正方形在1秒之内使用ease的贝塞尔曲线值转变成圆形</strong>）：</p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-        &lt;style&gt;
-            .box {
-                width: 100px;
-                height: 100px;
-                background-color: tomato;
-                margin: 50px auto;
-
-                transition-property: border-radius;
-                transition-duration: 1s;
-                transition-timing-function: ease;
-                transition-delay: 0s;
-            }
-
-            .box:hover {
-                border-radius: 50%;
-            }
-        &lt;/style&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p><strong>将其整合成<code>transition</code>一个属性：</strong></p><p>格式：</p><p><code>transtion: 变化属性 变化时间 变化时使用的贝塞尔曲线 开始动画前的等待时间, 变化属性 变化时间 变化时使用的贝塞尔曲线 开始动画前的等待时间</code></p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-        &lt;style&gt;
-            .box {
-                width: 100px;
-                height: 100px;
-                background-color: tomato;
-                margin: 50px auto;
-                
-                transition: border-radius 1s ease;
-            }
-
-            .box:hover {
-                border-radius: 50%;
-            }
-        &lt;/style&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p><strong>同时操作两个属性一起变化</strong>（效果：鼠标放在图形上时，正方形在1秒之内使用ease的贝塞尔曲线值转变成圆形，<strong>同时宽度增加100px</strong>）：</p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-        &lt;style&gt;
-            .box {
-                width: 100px;
-                height: 100px;
-                background-color: tomato;
-                margin: 50px auto;
-
-                transition: all 1s ease;
-            }
-
-            .box:hover {
-                width: 200px;
-                border-radius: 50%;
-            }
-        &lt;/style&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h3 id="详细展示-"><a href="./transition%E8%BF%87%E6%B8%A1%E5%B1%9E%E6%80%A7/%E6%95%99%E7%A8%8B.html">详细展示 =&gt;</a></h3>
-<h3 id="自测题目-"><a href="./transition%E8%BF%87%E6%B8%A1%E5%B1%9E%E6%80%A7/%E8%AF%95%E9%A2%98.html">自测题目 =&gt;</a></h3>
-
             ]]>
         </content>
     </entry>
