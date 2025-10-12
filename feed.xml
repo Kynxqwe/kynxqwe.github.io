@@ -3,7 +3,7 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-12T11:29:29+08:00</updated>
+    <updated>2025-10-12T11:38:32+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
@@ -116,7 +116,7 @@
 <p>安装的时候会出现这样的界面，需要<strong>将Android Virtual Device取消勾选</strong>，如果有模拟器则不需要这个，没有模拟器在后期配置时也可以直接下对应的SDK，避免多下载不必要的。</p><figure class="post__image"><img loading="lazy" src="./media/files/Android开发笔记/image-20251012091351371.png" alt="image-20251012091351371" data-is-external-image="true"></figure><p><code>注：安装的时候所有的路径必须全部都是英文，否则会出现ASCII码的报错提示</code></p><h2 id="新建项目">新建项目</h2>
 <figure class="post__image"><img loading="lazy" src="./media/files/Android开发笔记/image-20251012091846471.png" alt="image-20251012091846471" data-is-external-image="true"></figure><p>项目有很多种，常用的一般只有<code>Empty Activity</code>，这一种一般是使用<strong>Jetpack Compose</strong>，而<code>Empty Views Activity</code>则是传统的<strong>XML格式</strong>。官方是构建新应用选择<strong>Jetpack Compose</strong>。</p><h2 id="配置">配置</h2>
 <p>在进入新建项目的时候会自动开始构建，但是因为网络问题，构建必然是不成功的，所以需要进行配置。</p><h3 id="gradle">Gradle</h3>
-<p>需要打开目录<code>gradle/wrapper/gradle-wrapper.properties</code></p><figure class="post__image"><img loading="lazy" src="./media/files/Android开发笔记/image-20251012094203968.png" alt="image-20251012094203968" data-is-external-image="true"></figure><p>我这里已经改过了，下载的不是bin包，因为后面下载src包会很麻烦，所以直接使用腾讯云上面的all包就可以了</p><p><code>distributionUrl=https\://mirrors.cloud.tencent.com/gradle/gradle-8.13-all.zip</code></p><p>这里的<code>gradle-8.13</code>打开文件是什么版本，现在就改成什么版本。</p><h3 id="maven">maven</h3>
+<p>需要打开目录<code>gradle/wrapper/gradle-wrapper.properties</code></p><figure class="post__image"><img loading="lazy" src="./media/files/Android开发笔记/image-20251012094203968.png" alt="image-20251012094203968" data-is-external-image="true"></figure><p>我这里已经改过了，下载的不是bin包，因为后面下载src包会很麻烦，所以直接使用腾讯云上面的all包就可以了</p><p><code>distributionUrl=https\://mirrors.cloud.tencent.com/gradle/gradle-8.13-all.zip</code></p><p>这里的<code>gradle-8.13</code>打开文件是什么版本，现在就改成什么版本。</p><h3 id="maven">Maven</h3>
 <p>打开<code>settings.gradle.kts</code>文件，按照图片添加</p><pre><code class="language-kotlin">maven (&quot;https://maven.aliyun.com/repository/public&quot;)
 maven (&quot;https://maven.aliyun.com/repository/google&quot;)
 maven (&quot;https://maven.aliyun.com/repository/gradle-plugin&quot;)
