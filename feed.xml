@@ -3,12 +3,95 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-12T09:55:53+08:00</updated>
+    <updated>2025-10-12T11:29:29+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
     <id>https://kynx.qzz.io</id>
 
+    <entry>
+        <title>相对定位</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/relative-positioning.html"/>
+        <id>https://kynx.qzz.io/relative-positioning.html</id>
+        <media:content url="https://kynx.qzz.io/media/posts/31/Relative-positioning.png" medium="image" />
+            <category term="HTML&amp;CSS指北"/>
+
+        <updated>2025-10-12T11:23:31+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/31/Relative-positioning.png" alt="" />
+                    之前调整元素的位置只能使用margin,padding这些属性对其进行调整，例如元素的位置和周围的元素看起来高度不协调，一定是使用类似margin-top: 2px这样的方法去调整高度。但是这样必定会出现一个问题&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/31/Relative-positioning.png" class="type:primaryImage" alt="" /></p>
+                <p>之前调整元素的位置只能使用<code>margin</code>,<code>padding</code>这些属性对其进行调整，例如元素的位置和周围的元素看起来高度不协调，一定是使用类似<code>margin-top: 2px</code>这样的方法去调整高度。但是这样必定会出现一个问题 — 如果存在父级元素，父级元素会受到这样移动的影响。如果想要达到移动的同时可以解决对父级元素的影响，相对定位一定是一个很好的解决方案。</p><h2 id="概念">概念</h2>
+<p>相对定位的相对是相对于元素自己本身的位置，所以其原本的元素会继续保持在原本文档流的位置不动，只是显示的图片，文字等信息会进行位置的移动。</p><h2 id="语法格式">语法格式</h2>
+<h3 id="属性">属性</h3>
+<blockquote>
+<ul>
+<li><code>position</code>：默认值是<code>static</code>，相对定位则是<code>relative</code></li>
+<li><code>top</code>：<strong>正值</strong>：相对于原有的上边框增加多少距离（向下移动）；<strong>负值</strong>：相对于原有的上边框减少多少距离（向上移动）；<strong>优先级高于<code>bottom</code></strong></li>
+<li><code>left</code>：<strong>正值</strong>：相对于原有的左边框增加多少距离（向右移动）；<strong>负值</strong>：相对于原有的左边框减少多少距离（向左移动）；<strong>优先级高于<code>right</code></strong></li>
+<li><code>bottom</code>：<strong>正值</strong>：相对于原有的下边框增加多少距离（向上移动）；<strong>负值</strong>：相对于原有的下边框减少多少距离（向下移动）</li>
+<li><code>right</code>：<strong>正值</strong>：相对于原有的右边框增加多少距离（向右左移动）；<strong>负值</strong>：相对于原有的右边框减少多少距离（向右移动）</li>
+<li><code>z-index</code>：层级顺序，<strong>层级顺序相同时，书写位置靠后的默认层级更高</strong></li>
+</ul>
+</blockquote>
+<h3 id="格式">格式</h3>
+<pre><code class="language-css">.elements {
+    position: relative;
+    top: 10px;
+    left: 20px;
+}
+</code></pre>
+<p><code>注：top和，left层级高，写法就以这两个属性来写，另外两种的属性皆可实现相同效果</code></p><h2 id="案例">案例</h2>
+<p>我觉得对话框这样的一个案例是其中可以写的东西最多的，于是只使用了这一个</p><p><strong>以下是源码：</strong></p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;对话框&lt;/title&gt;
+        &lt;style&gt;
+            * {
+                margin: 0;
+            }
+            .tip {
+                width: 150px;
+                height: 80px;
+                border: 4px solid red;
+                border-radius: 6px;
+                margin: 50px auto;
+            }
+            .triangle {
+                width: 10px;
+                height: 10px;
+                border: 4px solid red;
+                position: relative;
+                left: 50%;
+                top: -10px;
+                transform: translate(-50%) rotate(45deg);
+                border-bottom: none;
+                border-right: none;
+                background-color: #fff;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;tip&quot;&gt;
+            &lt;div class=&quot;triangle&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>效果预览：</strong></p><div class="tip"><div class="triangle"></div></div><style>.tip{width:150px;height:80px;border:4px solid red;border-radius:6px;margin:50px auto;}.triangle{width:10px;height:10px;border:4px solid red;position:relative;left:50%;top:-8px;transform:translate(-50%) rotate(45deg);border-bottom:none;border-right:none;background-color:#fff;}</style>
+
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Android Studio配置记录</title>
         <author>
@@ -242,7 +325,7 @@ maven (&quot;https://maven.aliyun.com/repository/central&quot;)
 </ul>
 </blockquote>
 <h2 id="animation进度条"><code>animation</code>进度条</h2>
-<pre><code class="language-css">&lt;!DOCTYPE html&gt;
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
         &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -279,6 +362,8 @@ maven (&quot;https://maven.aliyun.com/repository/central&quot;)
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
+<p><strong>效果预览：</strong></p><div class="progressContainer"><div class="progressBar"></div></div><style>.progressContainer{margin:20px auto;width:600px;height:20px;background-color:grey;border-radius:20px;}.progressBar{height:20px;background-color:green;border-radius:20px;animation:fill 3s ease-in-out infinite;}@keyframes fill{0%{width:0;}100%{width:600px;}}</style>
+
 <h3 id="详细教程-"><a href="./animation%E5%8A%A8%E7%94%BB%E5%B1%9E%E6%80%A7/%E6%95%99%E7%A8%8B.html">详细教程 =&gt;</a></h3>
 
             ]]>
@@ -402,6 +487,8 @@ CREATE TABLE score(
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
+<p><strong>效果预览：</strong></p><div class="box"></div><style>.box{width:100px;height:100px;background-color:tomato;transition:transform 1s;}.box:hover{transform:translate(50%);}</style>
+
 <h3 id="3d">3D</h3>
 <p>需要在父元素中创建3D效果展示区域，便于展示</p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -431,6 +518,8 @@ CREATE TABLE score(
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
+<p><strong>效果预览：</strong></p><div class="container"><div class="box"></div></div><style>.container{transform-style:preserve-3d;perspective:800px;}.box{width:100px;height:100px;background-color:tomato;transition:transform 1s;}.box:hover{transform:rotate3d(1,0,-1,30deg);}</style>
+
 <h3 id="详细展示-"><a href="./transform%E5%8F%98%E6%8D%A2%E5%B1%9E%E6%80%A7/%E6%95%99%E7%A8%8B.html">详细展示 =&gt;</a></h3>
 <h3 id="自测题目-"><a href="./transform%E5%8F%98%E6%8D%A2%E5%B1%9E%E6%80%A7/%E8%AF%95%E9%A2%98.html">自测题目 =&gt;</a></h3>
 
@@ -508,44 +597,6 @@ CREATE TABLE score(
 <figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909233243164.png" alt="image-20250909233243164" data-is-external-image="true"></figure></p><p>点击确定即可</p><p><strong>安装Navicat 17</strong></p><p>双击执行安装程序，无脑下一步即可</p><p>右键桌面上程序图标，选择打开文件所在位置，Windows11可以在显示更多选项中找到
 <figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909233528616.png" alt="image-20250909233528616" data-is-external-image="true"></figure></p><p>将winmm.dll应用程序扩展放入
 <figure class="post__image"><img loading="lazy" src="./media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909233656686.png" alt="image-20250909233656686" data-is-external-image="true"></figure></p><p>即可开始使用</p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Windows系统重装</title>
-        <author>
-            <name>和光同尘</name>
-        </author>
-        <link href="https://kynx.qzz.io/reinstall-windows.html"/>
-        <id>https://kynx.qzz.io/reinstall-windows.html</id>
-        <media:content url="https://kynx.qzz.io/media/posts/19/19.jpg" medium="image" />
-            <category term="隙光微尘​"/>
-
-        <updated>2025-09-06T22:33:47+08:00</updated>
-            <summary>
-                <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/19/19.jpg" alt="" />
-                    借着我朋友重装系统的机会，讲述一下我重装系统的过程。 准备好这些之后就可以主备开始安装系统了&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/19/19.jpg" class="type:primaryImage" alt="" /></p>
-                <p>借着我朋友重装系统的机会，讲述一下我重装系统的过程。</p><h2 id="准备">准备</h2>
-<blockquote>
-<ul>
-<li>1个16G的空U盘（<strong>或者</strong>是里面数据备份好的U盘）</li>
-<li>一个<a href="https://www.wepe.com.cn/download.html">WePE工具箱的软件程序</a></li>
-<li><a href="https://winnew.cn/">Windows原版系统镜像</a></li>
-<li><a href="https://www.neatdownloadmanager.com/file/NeatDM_setup.exe">下载工具（可选）</a></li>
-<li>电脑的驱动程序及其所需要的软件</li>
-<li>备份好电脑中所有需要的数据</li>
-</ul>
-</blockquote>
-<p>准备好这些之后就可以主备开始安装系统了</p><h2 id="启动盘">启动盘</h2>
-<p><strong>将PE写进U盘</strong></p><p>打开WePE软件，点击红框中的选项：</p><figure class="post__image"><img src="./media/files/隙光微尘/Windows系统重装/image-20250906214520032.png" alt="image-20250906214520032" data-is-external-image="true"></figure><p>在待写入U盘的地方选择准备好的空U盘（<strong>或</strong>刚刚已经备份好数据的U盘），这个过程会将U盘的数据全部清除，注意<strong>备份</strong>：</p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/Windows系统重装/image-20250906214606058.png" alt="image-20250906214606058" data-is-external-image="true"></figure><p><strong>这个时候，资源管理器上会出现一个空的微PE工具箱，打开并将系统镜和电脑驱动程序放入PE：</strong></p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/Windows系统重装/image-20250906221636954.png" alt="image-20250906221636954" data-is-external-image="true"></figure><h2 id="进入pe，安装系统">进入PE，安装系统</h2>
-<p><strong>使用DiskGenius快速格式化系统硬盘（几个分区以及分区大小看个人喜好）：</strong></p><p>MBR：</p><figure class="post__image"><img src="./media/files/隙光微尘/Windows系统重装/image-20250906222030355.png" alt="image-20250906222030355" data-is-external-image="true"></figure><p>GPT（不管保留ESP分区显不显示，都按照这个方法）：</p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/Windows系统重装/image-20250906222155432.png" alt="image-20250906222155432" data-is-external-image="true"></figure><p><strong>使用WinNTSetup安装镜像（按照提示选择就可以）：</strong></p><figure class="post__image"><img loading="lazy" src="./media/files/隙光微尘/Windows系统重装/image-20250906222509009.png" alt="image-20250906222509009" data-is-external-image="true"></figure><h2 id="最后">最后</h2>
-<p>重启之后正常进入Windows系统，我使用的一直是LTSC版本，如果家庭版和专业版在安装网卡驱动的地方不能使用本地账户先进入再打驱动的话直接选择所有驱动所在的文件夹即可直接打上所有驱动，所以驱动也尽量放在PE盘中。</p>
             ]]>
         </content>
     </entry>
