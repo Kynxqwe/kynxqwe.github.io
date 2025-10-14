@@ -3,12 +3,114 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-14T20:56:11+08:00</updated>
+    <updated>2025-10-14T23:18:18+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
     <id>https://kynx.qzz.io</id>
 
+    <entry>
+        <title>查询</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/mysql-query/"/>
+        <id>https://kynx.qzz.io/mysql-query/</id>
+        <media:content url="https://kynx.qzz.io/media/posts/32/Query.png" medium="image" />
+            <category term="MySQL学习笔记"/>
+
+        <updated>2025-10-14T23:18:18+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/32/Query.png" alt="" />
+                    之前梳理过最简单的查询查询命令，也就是SELECT *&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/32/Query.png" class="type:primaryImage" alt="" /></p>
+                <p>之前梳理过最简单的查询查询命令，也就是<code>SELECT * FROM 数据表</code>，现在相比之前无非就是多加上几个判断条件而已。</p><h2 id="单表查询">单表查询</h2>
+<h3 id="查询所有字段：">查询所有字段：</h3>
+<p><strong>格式：</strong></p><pre><code class="language-sql">SELECT * FROM 表格;
+</code></pre>
+<p><strong>例：</strong></p><pre><code class="language-sql">/* 查询department表所有字段：*/
+SELECT * FROM department;
+</code></pre>
+<h3 id="查询指定字段数据">查询指定字段数据</h3>
+<p><strong>格式：</strong></p><pre><code class="language-sql">SELECT 字段1, 字段2 FROM 表名;
+</code></pre>
+<p><strong>例：</strong></p><pre><code class="language-sql">/* 查询student表中的studemt_id和student_name字段 */
+SELECT studemt_id, student_name FROM student;
+</code></pre>
+<h3 id="为指定字段添加别名">为指定字段添加别名</h3>
+<p><strong>格式：</strong></p><pre><code class="language-sql">SELECT 字段1 AS 别名1, 字段2 AS 别名2 FROM 表名;
+</code></pre>
+<p><strong>例：</strong></p><pre><code class="language-sql">/* 将student表中studemt_id命名为学号，student_name命名为姓名 */
+SELECT studemt_id AS 学号, student_name AS 姓名 FROM student;
+</code></pre>
+<h3 id="去除重复值">去除重复值</h3>
+<p><strong>格式：</strong></p><pre><code class="language-sql">SELECT DISTINCT 字段 FROM 表名;
+</code></pre>
+<p><strong>例：</strong></p><pre><code class="language-sql">/* 去除学生表中重复的学生名字 */
+SELECT DISTINCT student_name FROM student;
+</code></pre>
+<h2 id="条件查询">条件查询</h2>
+<h3 id="where条件判断">WHERE条件判断</h3>
+<p><strong>格式：</strong></p><pre><code class="language-sql">SELECT *或字段名 FROM 表名 WHERE 判断条件;
+SELECT *或字段名 FROM 表名 WHERE (判断条件1) AND (判断条件2);
+SELECT *或字段名 FROM 表名 WHERE YEAR();
+SELECT *或字段名 FROM 表名 WHERE (字段 = &#39;值&#39; OR 字段 = &#39;值&#39;) AND 字段 = &#39;值&#39;;
+</code></pre>
+<p><strong>例：</strong></p><pre><code class="language-sql">/* 从学生表中筛选出学号为01的所有字段 */
+SELECT * FROM student WHERE student_id = &#39;01&#39;;
+
+/* 从学生表中筛选出学号01~07的 */
+SELECT * FROM student WHERE (student_id &lt;= &#39;01&#39;) AND (student_id &gt;= &#39;07&#39;);
+
+/* 从学生表中筛选出生日是2008年的 */
+SELECT * FROM student WHERE YEAR(birthday) = 2008;
+
+/* 从学生表中筛选出生学号是1或者是9的，并且性别为男。用括号将OR括起来是因为AND的优先级更高 */
+SELECT * FROM student WHERE(student_id = &#39;1&#39; OR student_id = &#39;9&#39;) AND gender = &#39;男&#39; ;
+</code></pre>
+<h3 id="in运算符">IN运算符</h3>
+<p><strong>格式：</strong></p><pre><code class="language-sql">SELECT *或字段名 FROM 表名 WHERE 字段 IN (值1, 值2);
+</code></pre>
+<p><strong>例：</strong></p><pre><code class="language-sql">/* 从学生表中筛选出学号是1，2，3的人的信息 */
+SELECT * FROM student WHERE student_id IN (1, 2, 3);
+</code></pre>
+<h3 id="between···and···运算符">BETWEEN···AND···运算符</h3>
+<p><strong>格式：</strong></p><pre><code class="language-sql">SELECT *或字段名 FROM 表名 WHERE 字段 BETWEEN 值 AND 值;
+</code></pre>
+<p><strong>例：</strong></p><pre><code class="language-sql">/* 从学生表中筛选出学号是1，2，3的人的信息 */
+SELECT * FROM student WHERE student_id IN BETWEEN 1 AND 3;
+</code></pre>
+<h3 id="like-运算符">LIKE 运算符</h3>
+<p><strong>格式：</strong></p><pre><code class="language-sql">SELECT *或字段名 FROM 表名 WHERE 字段 LIKE &#39;_值&#39;;
+SELECT *或字段名 FROM 表名 WHERE 字段 LIKE &#39;值%&#39;;
+SELECT *或字段名 FROM 表名 WHERE 字段 LIKE &#39;_值%&#39;;
+</code></pre>
+<p><strong>例：</strong></p><pre><code class="language-sql">/* 从学生表中筛选出两个字名字，且其中有光字 - 和光*/
+SELECT * FROM student WHERE student_name LIKE &#39;_光&#39;;
+/* 从学生表中筛选出姓和的 - 和光*/
+SELECT * FROM student WHERE student_name LIKE &#39;和%&#39;;
+/* 从学生表中筛选出光前面有一个字，且后面字数不限的 - 和光同尘*/
+SELECT * FROM student WHERE student_name LIKE &#39;_光%&#39;;
+</code></pre>
+<h3 id="is-null运算符">IS NULL运算符</h3>
+<p><strong>格式：</strong></p><pre><code class="language-sql">SELECT *或字段名 FROM 表名 WHERE 字段 IS NULL;
+SELECT *或字段名 FROM 表名 WHERE 字段 IS NOT NULL;
+</code></pre>
+<p><strong>例：</strong></p><pre><code class="language-sql">/* 从学生表中筛选出姓名是空值的 */
+SELECT * FROM student WHERE student_name IS NULL;
+
+/* 从学生表中筛选出姓名不是空值的 */
+SELECT * FROM student WHERE student_name IS NULL;
+</code></pre>
+
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>相对定位</title>
         <author>
@@ -556,47 +658,6 @@ CREATE TABLE score(
 </ul>
 </blockquote>
 <figure class="post__image"><img src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185319526.png" alt="image-20250910185319526" data-is-external-image="true"></figure><p><strong>使用Navicat 17连接管理MySQL</strong></p><p>在刚刚使用命令行对数据库进行操作的时候，不管是使用<code>create</code>还是<code>drop</code>对数据库进行更改的时候查看起来其实非常不方便，每次都要<code>show databases</code>，所以可以使用Navicat的图形界面更便于管理。</p><p>打开Navicat</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185349800.png" alt="image-20250910185349800" data-is-external-image="true"></figure><p>里面什么都没有，所以我们需要新建一个和本地数据库的连接。点击左上角的连接，会有一个弹出窗口</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185430696.png" alt="image-20250910185430696" data-is-external-image="true"></figure><p>选中MySQL之后点击下一步</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185455911.png" alt="image-20250910185455911" data-is-external-image="true"></figure><p>在这里按照提示填入信息（如上图），点击测试连接，查看是否可以正常连接</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185525688.png" alt="image-20250910185525688" data-is-external-image="true"></figure><p>提示可以正常连接之后点击确定即可。</p><p>在连接的右边有一个新建查询，点击后即可出现一下界面</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185542617.png" alt="image-20250910185542617" data-is-external-image="true"></figure><p>在出现的地方就可以使用命令操作数据库，以<code>create database new01</code>为例</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185603240.png" alt="image-20250910185603240" data-is-external-image="true"></figure><p>单击运行</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185625820.png" alt="image-20250910185625820" data-is-external-image="true"></figure><p>提示成功之后，左侧数据库列表并没有显示，所以需要右键刷新</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185650206.png" alt="image-20250910185650206" data-is-external-image="true"></figure><p>刷新后即可看到</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185708508.png" alt="image-20250911200137927" data-is-external-image="true"></figure><p>与<code>create</code>步骤一样，以下是<code>drop</code>执行完之后</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185727758.png" alt="image-20250910185727758" data-is-external-image="true"></figure>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>MySQL组件安装过程</title>
-        <author>
-            <name>和光同尘</name>
-        </author>
-        <link href="https://kynx.qzz.io/mysql-component-installation-process/"/>
-        <id>https://kynx.qzz.io/mysql-component-installation-process/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/20/20.png" medium="image" />
-            <category term="MySQL学习笔记"/>
-
-        <updated>2025-09-09T23:47:23+08:00</updated>
-            <summary>
-                <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/20/20.png" alt="" />
-                    MySQL是一个管理系统，所以在安装的时候需要一个可以方便与其交互的软件，所以必须要有Navicat这样一个图形化界面的软件，更便于对数据库进行操作 安装C++运行库，MySQL需要使用（安装完成后关闭即可）&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/20/20.png" class="type:primaryImage" alt="" /></p>
-                <p>MySQL是一个管理系统，所以在安装的时候需要一个可以方便与其交互的软件，所以必须要有Navicat这样一个图形化界面的软件，更便于对数据库进行操作</p><h2 id="准备">准备</h2>
-<blockquote>
-<ul>
-<li><a href="https://dev.mysql.com/downloads/installer/" target="_blank">MySQL社区版安装包</a></li>
-<li><a href="https://aka.ms/vs/16/release/VC_redist.x64.exe">Microsoft Visual C++ 2019 Redistributable</a></li>
-<li><a href="https://s.fnnas.net/s/34178208a39f4513ab" target="_blank">Navicat 17</a></li>
-</ul>
-</blockquote>
-<h2 id="安装">安装</h2>
-<p><strong>安装C++运行库，MySQL需要使用（安装完成后关闭即可）</strong></p><figure class="post__image"><img src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909224828699.png" alt="image-20250909224828699" data-is-external-image="true"></figure><p><strong>安装MySQL</strong></p><p>双击运行安装程序，直至出现这个界面：</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225031923.png" alt="image-20250909225031923" data-is-external-image="true"></figure><p>点击Next（<strong>如果对于英文界面熟悉，且需要更换数据存储目录可以选择Custom自定义安装</strong>）：</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225106145.png" alt="image-20250909225106145" data-is-external-image="true"></figure><p>点击Execute，等待出现如下界面：</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225144059.png" alt="image-20250909225144059" data-is-external-image="true"></figure><p>点击Next：</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225204005.png" alt="image-20250909225204005" data-is-external-image="true"></figure><p>继续点击Next：</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225231518.png" alt="image-20250909225231518" data-is-external-image="true"></figure><p>继续点击Next：</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225251002.png" alt="image-20250909225251002" data-is-external-image="true"></figure><p>继续点击Next：</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225313793.png" alt="image-20250909225313793" data-is-external-image="true"></figure><p>出现这个界面之后就需要输入管理员账户密码，也就是Root密码，输入完成之后点击Next：</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909225425419.png" alt="image-20250909225425419" data-is-external-image="true"></figure><p>点击Next：</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909230043730.png" alt="image-20250909230043730" data-is-external-image="true"></figure><p>点击Next（<strong>这里调整了数据存储位置，与图片不一样不用在意</strong>）：</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909230236778.png" alt="image-20250909230236778" data-is-external-image="true"></figure><p>点击Execute，出现这个界面就是已经安装完成，点击Finnish即可：</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909231859102.png" alt="image-20250909231859102" data-is-external-image="true"></figure><p>添加环境变量：</p><p>找到安装文件目录，一般在<code>C:\Program Files\MySQL\MySQL Server 8.0\bin</code>，自定义的除外，复制其安装路径</p><p>打开环境变量编辑页面
-右键此电脑，选择属性
-<figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909232741321.png" alt="image-20250909232741321" data-is-external-image="true"></figure></p><p>找到<code>高级系统设置</code>
-<figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909232847556.png" alt="image-20250909232847556" data-is-external-image="true"></figure></p><p>选择环境变量
-<figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909232913654.png" alt="image-20250909232913654" data-is-external-image="true"></figure></p><p>上方的用户变量和下方的系统变量都可以，在其中找到Path双击即可
-<figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909233039443.png" alt="image-20250909233039443" data-is-external-image="true"></figure></p><p>点击新建并将刚刚复制的路径粘贴进去
-<figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909233243164.png" alt="image-20250909233243164" data-is-external-image="true"></figure></p><p>点击确定即可</p><p><strong>安装Navicat 17</strong></p><p>双击执行安装程序，无脑下一步即可</p><p>右键桌面上程序图标，选择打开文件所在位置，Windows11可以在显示更多选项中找到
-<figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909233528616.png" alt="image-20250909233528616" data-is-external-image="true"></figure></p><p>将winmm.dll应用程序扩展放入
-<figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/MySQL组件安装过程/image-20250909233656686.png" alt="image-20250909233656686" data-is-external-image="true"></figure></p><p>即可开始使用</p>
             ]]>
         </content>
     </entry>
