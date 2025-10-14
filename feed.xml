@@ -3,7 +3,7 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-14T23:25:08+08:00</updated>
+    <updated>2025-10-14T23:34:56+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
@@ -23,13 +23,13 @@
             <summary>
                 <![CDATA[
                         <img src="https://kynx.qzz.io/media/posts/32/Query.png" alt="" />
-                    之前已经梳理过最简单的数据查询命令，也就是SELECT *&hellip;
+                    之前梳理过最简单的查询查询命令，也就是查询所有字段的命令，现在相比之前查询所有字段的命令无非就是多加上几个判断，筛选的条件，却可以使查询的内容更精准，提升查询的效率。 格式：&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <p><img src="https://kynx.qzz.io/media/posts/32/Query.png" class="type:primaryImage" alt="" /></p>
-                <p>之前已经梳理过最简单的数据查询命令，也就是<code>SELECT * FROM</code> 数据表，它能够帮助我们一次性获取表中所有记录的全部字段。而当前所要介绍的查询方法，本质上并没有跳出这个基础框架，核心结构仍是 SELECT-FROM 的组合。不同之处在于，现在我们会在语句中额外加入<code>WHERE</code>子句，通过设置一个或多个筛选条件，对查询结果进行更精确的限定。例如，可以按时间范围、状态类型、数值区间等条件进行过滤，甚至结合<code>AND</code>、<code>OR</code>等逻辑运算符组合多个条件。这样一来，就能从海量数据中快速定位到真正需要的记录，显著提升查询的针对性和效率。这正是SQL条件查询的实际价值所在——在基础语法之上稍作扩展，就能满足更复杂的数据检索需求。</p><h2 id="单表查询">单表查询</h2>
+                <p>之前梳理过最简单的查询查询命令，也就是查询所有字段的命令，现在相比之前查询所有字段的命令无非就是多加上几个判断，筛选的条件，却可以使查询的内容更精准，提升查询的效率。</p><h2 id="单表查询">单表查询</h2>
 <h3 id="查询所有字段：">查询所有字段：</h3>
 <p><strong>格式：</strong></p><pre><code class="language-sql">SELECT * FROM 表格;
 </code></pre>
