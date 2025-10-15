@@ -3,7 +3,7 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-15T20:49:21+08:00</updated>
+    <updated>2025-10-15T20:50:38+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
@@ -66,7 +66,7 @@
 }
 </code></pre>
 <h2 id="案例">案例</h2>
-<p>我认为最实用的还是下拉菜单这样的功能，于是选取这一个。不用注意是不是导航栏，主要是下拉这个动作。</p><p><strong>以下是源码：</strong></p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>我认为最实用的还是下拉菜单这样的功能，于是选取这一个。</p><p><strong>以下是源码：</strong></p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;style&gt;
