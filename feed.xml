@@ -3,12 +3,139 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-14T23:34:56+08:00</updated>
+    <updated>2025-10-15T20:45:32+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
     <id>https://kynx.qzz.io</id>
 
+    <entry>
+        <title>绝对定位</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/absolute-positioning/"/>
+        <id>https://kynx.qzz.io/absolute-positioning/</id>
+        <media:content url="https://kynx.qzz.io/media/posts/33/absolute.png" medium="image" />
+            <category term="HTML&amp;CSS指北"/>
+
+        <updated>2025-10-15T20:40:15+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/33/absolute.png" alt="" />
+                    在使用相对定位对元素进行微调之后，在相对定位的元素内就可以对内部的组件进行很轻易的左右对齐和上下移动等等操作。但是相较于相对定位，在很多概念上面其实并不是非常一致，例如普通文档流中和定位上下文（包含块）等。 .elements-container&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/33/absolute.png" class="type:primaryImage" alt="" /></p>
+                <p>在使用相对定位对元素进行微调之后，在相对定位的元素内就可以对内部的组件进行很轻易的左右对齐和上下移动等等操作。但是相较于相对定位，在很多概念上面其实并不是非常一致，例如普通文档流中和定位上下文（包含块）等。</p><h2 id="概念">概念</h2>
+<table>
+<thead>
+<tr>
+<th align="left">相对定位</th>
+<th align="left">绝对定位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">相对于元素自己本身的位置<br>原本的元素会继续保持在原本文档流的位置不动</td>
+<td align="left">相对于非<code>static</code>（静态）的父元素进行移动，若没有父元素或所有父元素均为<code>static</code>（静态），则默认相对于浏览器窗口进行移动。<br>原内容会脱离正常的文档流，会对后面的元素产生一定的影响。</td>
+</tr>
+</tbody></table>
+<h2 id="语法格式">语法格式</h2>
+<h3 id="属性">属性</h3>
+<blockquote>
+<ul>
+<li><code>position</code>：默认值是<code>static</code>，绝对定位则是<code>absolute</code></li>
+<li><code>top</code>：<strong>正值</strong>：相对于父元素的上边框增加多少距离（向下移动）；<strong>负值</strong>：相对于父元素的上边框减少多少距离（向上移动）；<strong>优先级高于<code>bottom</code></strong></li>
+<li><code>left</code>：<strong>正值</strong>：相对于父元素的左边框增加多少距离（向右移动）；<strong>负值</strong>：相对于父元素的左边框减少多少距离（向左移动）；<strong>优先级高于<code>right</code></strong></li>
+<li><code>bottom</code>：<strong>正值</strong>：相对于父元素的下边框增加多少距离（向上移动）；<strong>负值</strong>：相对于父元素的下边框减少多少距离（向下移动）</li>
+<li><code>right</code>：<strong>正值</strong>：相对于父元素的右边框增加多少距离（向左移动）；<strong>负值</strong>：相对于父元素的右边框减少多少距离（向右移动）</li>
+<li><code>z-index</code>：层级顺序，<strong>绝对定位元素高于普通文档流中元素</strong></li>
+<li><strong>当元素宽<code>width</code>和高<code>height</code>未定义的时候两个元素同时生效，无优先级之分</strong></li>
+</ul>
+</blockquote>
+<h3 id="格式">格式</h3>
+<pre><code class="language-css">.elements-container {
+    position: relative;
+}
+.elements {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+</code></pre>
+<h2 id="案例">案例</h2>
+<p>我认为最实用的还是下拉菜单这样的功能，于是选取这一个</p><p><strong>以下是源码：</strong></p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin: 20px;
+        }
+        
+        .dropbtn {
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 160px;
+            background: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translate(0, -20px);
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            transform: translate(0, 0);
+            visibility: visible;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;dropdown&quot;&gt;
+        &lt;button class=&quot;dropbtn&quot;&gt;下拉菜单&lt;/button&gt;
+        &lt;div class=&quot;dropdown-content&quot;&gt;
+            &lt;a href=&quot;#&quot;&gt;菜单项 1&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;菜单项 2&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;菜单项 3&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;菜单项 4&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>效果预览：</strong>
+<!DOCTYPE html><html><head><style>.dropdown{position:relative;display:inline-block;margin:20px;}.dropbtn{background:#3498db;color:white;padding:12px 24px;border:none;border-radius:4px;cursor:pointer;font-size:16px;}.dropdown-content{position:absolute;top:100%;left:0;min-width:160px;background:white;box-shadow:0 8px 16px rgba(0,0,0,0.2);opacity:0;transform:translate(0,-20px);visibility:hidden;transition:all 0.3s ease;}.dropdown-content a{display:block;padding:12px 16px;text-decoration:none;color:#333;border-bottom:1px solid #eee;}.dropdown-content a:hover{background:#f5f5f5;}.dropdown:hover .dropdown-content{opacity:1;transform:translate(0,0);visibility:visible;}</style></head><body><div class="dropdown"><button class="dropbtn">下拉菜单</button><div class="dropdown-content"><a href="#">菜单项 1</a><a href="#">菜单项 2</a><a href="#">菜单项 3</a><a href="#">菜单项 4</a></div></div></body></html></p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>查询</title>
         <author>
@@ -140,7 +267,7 @@ SELECT * FROM student WHERE student_name IS NULL;
 <li><code>top</code>：<strong>正值</strong>：相对于原有的上边框增加多少距离（向下移动）；<strong>负值</strong>：相对于原有的上边框减少多少距离（向上移动）；<strong>优先级高于<code>bottom</code></strong></li>
 <li><code>left</code>：<strong>正值</strong>：相对于原有的左边框增加多少距离（向右移动）；<strong>负值</strong>：相对于原有的左边框减少多少距离（向左移动）；<strong>优先级高于<code>right</code></strong></li>
 <li><code>bottom</code>：<strong>正值</strong>：相对于原有的下边框增加多少距离（向上移动）；<strong>负值</strong>：相对于原有的下边框减少多少距离（向下移动）</li>
-<li><code>right</code>：<strong>正值</strong>：相对于原有的右边框增加多少距离（向右左移动）；<strong>负值</strong>：相对于原有的右边框减少多少距离（向右移动）</li>
+<li><code>right</code>：<strong>正值</strong>：相对于原有的右边框增加多少距离（向左移动）；<strong>负值</strong>：相对于原有的右边框减少多少距离（向右移动）</li>
 <li><code>z-index</code>：层级顺序，<strong>层级顺序相同时，书写位置靠后的默认层级更高</strong></li>
 </ul>
 </blockquote>
@@ -625,39 +752,6 @@ CREATE TABLE score(
 <h3 id="详细展示-"><a href="../transform/tutorial.html">详细展示 =&gt;</a></h3>
 <h3 id="自测题目-"><a href="../transform/test.html">自测题目 =&gt;</a></h3>
 
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>数据库操作与Navicat 17使用</title>
-        <author>
-            <name>和光同尘</name>
-        </author>
-        <link href="https://kynx.qzz.io/database-operations-and-the-use-of-navicat-17/"/>
-        <id>https://kynx.qzz.io/database-operations-and-the-use-of-navicat-17/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/21/21.png" medium="image" />
-            <category term="MySQL学习笔记"/>
-
-        <updated>2025-09-10T19:12:14+08:00</updated>
-            <summary>
-                <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/21/21.png" alt="" />
-                    使用命令操作数据库 管理系统更像是没有桌面的Linux操作系统，需要使用命令对其进行控制与操作。&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/21/21.png" class="type:primaryImage" alt="" /></p>
-                <h2 id="使用命令操作数据库">使用命令操作数据库</h2>
-<p>管理系统更像是没有桌面的Linux操作系统，需要使用命令对其进行控制与操作。</p><p><strong>使用cmd连接MySQL数据库并进行操作</strong></p><p>使用Windows徽标键+R</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185956113.png" alt="image-20250910185956113" data-is-external-image="true"></figure><p>输入cmd并回车，会打开一个新的窗口</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185147308.png" alt="image-20250910185147308" data-is-external-image="true"></figure><p>以</p><p><strong><code>mysql -hIP地址(如127.0.0.1) -P端口号(如3306) -u用户名(如root) -p密码(如root)</code></strong></p><p>这样的格式键入，即可连接本地数据库</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185246593.png" alt="image-20250910185246593" data-is-external-image="true"></figure><p>进入之后就可以对数据库进行增删改查的操作</p><blockquote>
-<ul>
-<li><strong>增加新的数据库</strong>：<code>create database 新建数据库的名字;</code></li>
-<li><strong>删除已经存在的数据库</strong>：<code>drop database 已经存在数据库的名字;</code></li>
-<li><strong>更改已有数据库核心属性</strong>：<code>alter database 数据库名 需要修改的东西;</code></li>
-<li><strong>查询数据库内容</strong>：<code>show 需要查看的东西（例如：databases, tables）;</code></li>
-</ul>
-</blockquote>
-<figure class="post__image"><img src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185319526.png" alt="image-20250910185319526" data-is-external-image="true"></figure><p><strong>使用Navicat 17连接管理MySQL</strong></p><p>在刚刚使用命令行对数据库进行操作的时候，不管是使用<code>create</code>还是<code>drop</code>对数据库进行更改的时候查看起来其实非常不方便，每次都要<code>show databases</code>，所以可以使用Navicat的图形界面更便于管理。</p><p>打开Navicat</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185349800.png" alt="image-20250910185349800" data-is-external-image="true"></figure><p>里面什么都没有，所以我们需要新建一个和本地数据库的连接。点击左上角的连接，会有一个弹出窗口</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185430696.png" alt="image-20250910185430696" data-is-external-image="true"></figure><p>选中MySQL之后点击下一步</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185455911.png" alt="image-20250910185455911" data-is-external-image="true"></figure><p>在这里按照提示填入信息（如上图），点击测试连接，查看是否可以正常连接</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185525688.png" alt="image-20250910185525688" data-is-external-image="true"></figure><p>提示可以正常连接之后点击确定即可。</p><p>在连接的右边有一个新建查询，点击后即可出现一下界面</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185542617.png" alt="image-20250910185542617" data-is-external-image="true"></figure><p>在出现的地方就可以使用命令操作数据库，以<code>create database new01</code>为例</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185603240.png" alt="image-20250910185603240" data-is-external-image="true"></figure><p>单击运行</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185625820.png" alt="image-20250910185625820" data-is-external-image="true"></figure><p>提示成功之后，左侧数据库列表并没有显示，所以需要右键刷新</p><figure class="post__image"><img src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185650206.png" alt="image-20250910185650206" data-is-external-image="true"></figure><p>刷新后即可看到</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185708508.png" alt="image-20250911200137927" data-is-external-image="true"></figure><p>与<code>create</code>步骤一样，以下是<code>drop</code>执行完之后</p><figure class="post__image"><img loading="lazy" src="../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185727758.png" alt="image-20250910185727758" data-is-external-image="true"></figure>
             ]]>
         </content>
     </entry>
