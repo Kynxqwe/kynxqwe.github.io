@@ -10,6 +10,38 @@
     },
     "items": [
         {
+            "id": "https://kynx.qzz.io/absolute-positioning-relative-positioning-carousel-framework/",
+            "url": "https://kynx.qzz.io/absolute-positioning-relative-positioning-carousel-framework/",
+            "title": "绝对定位+相对定位 — 轮播图框架",
+            "summary": "源码 &lt;!DOCTYPE&hellip;",
+            "content_html": "<h2 id=\"源码\">源码</h2>\n<pre><code class=\"language-html\">&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n    &lt;head&gt;\n        &lt;meta charset=&quot;utf-8&quot;&gt;\n        &lt;title&gt;轮播图&lt;/title&gt;\n        &lt;style&gt;\n            * {\n                margin: 0;\n                padding: 0;\n            }\n            .carousel {\n                width: 600px;\n                height: 300px;\n                background-color: lightskyblue;\n                margin: 50px auto;\n                border-radius: 10px;\n                position: relative;\n            }\n            a {\n                text-decoration: none;\n                color: #fff;\n            }\n            .left, .right {\n                width: 20px;\n                height: 40px;\n                border-radius: 3px;\n                line-height: 40px;\n                text-align: center;\n                background-color: rgba(0, 0, 0, 0.2);\n            }\n            .left {\n                position: absolute;\n                bottom: 20px;\n                right: 40px;\n            }\n            .right {\n                position: absolute;\n                bottom: 20px;\n                right: 10px;\n            }\n            ul {\n                list-style-type: none;\n                position: absolute;\n                bottom: 20px;\n                left: 20px;\n                /* transform: translate(-50%); */\n            }\n            ul li {\n                width: 10px;\n                height: 10px;\n                border: 2px solid white;\n                border-radius: 50%;\n                float: left;\n                margin: 0 5px;\n            }\n        &lt;/style&gt;\n    &lt;/head&gt;\n    &lt;body&gt;\n        &lt;div class=&quot;carousel&quot;&gt;\n            &lt;!-- 导航按键 --&gt;\n            &lt;a href=&quot;&quot; class=&quot;left&quot;&gt;&lt;&lt;/a&gt;\n            &lt;a href=&quot;&quot; class=&quot;right&quot;&gt;&gt;&lt;/a&gt;\n            \n            &lt;!-- 圆点指示器\t --&gt;\n            &lt;ul&gt;\n                &lt;li&gt;&lt;/li&gt;\n                &lt;li&gt;&lt;/li&gt;\n                &lt;li&gt;&lt;/li&gt;\n                &lt;li&gt;&lt;/li&gt;\n                &lt;li&gt;&lt;/li&gt;\n            &lt;/ul&gt;\n        &lt;/div&gt;\n    &lt;/body&gt;\n&lt;/html&gt;\n</code></pre>\n<h2 id=\"效果预览\">效果预览</h2>\n<div class=\"carousel\"><a href=\"\" class=\"left\"><</a><a href=\"\" class=\"right\">></a><ul><li></li><li></li><li></li><li></li><li></li></ul></div><style>*{margin:0;padding:0}.carousel{width:600px;height:300px;background-color:lightskyblue;margin:50px auto;border-radius:10px;position:relative}a{text-decoration:none;color:#fff}.left,.right{width:20px;height:40px;border-radius:3px;line-height:40px;text-align:center;background-color:rgba(0,0,0,.2)}.left{position:absolute;bottom:20px;right:40px}.right{position:absolute;bottom:20px;right:10px}ul{list-style-type:none;position:absolute;bottom:20px;left:20px}ul li{width:10px;height:10px;border:2px solid #fff;border-radius:50%;float:left;margin:0 5px}</style>",
+            "image": "https://kynx.qzz.io/media/posts/36/Carousel-Framework.png",
+            "author": {
+                "name": "和光同尘"
+            },
+            "tags": [
+                   "HTML&amp;CSS指北"
+            ],
+            "date_published": "2025-10-22T21:47:03+08:00",
+            "date_modified": "2025-10-22T21:47:03+08:00"
+        },
+        {
+            "id": "https://kynx.qzz.io/fixed-positioning/",
+            "url": "https://kynx.qzz.io/fixed-positioning/",
+            "title": "固定定位",
+            "summary": "固定定位可以使用于很多网站上，就比如正常滚动网页的时候，正常的网页上一般都会有一个上方，左侧等等位置会有一个导航栏等东西。但是随着页面滚动之后如果是页面元素会正常向上滚动，所以为了让这个元素正常固定，就需要使用到固定定位。 .elements&hellip;",
+            "content_html": "<p>固定定位可以使用于很多网站上，就比如正常滚动网页的时候，正常的网页上一般都会有一个上方，左侧等等位置会有一个导航栏等东西。但是随着页面滚动之后如果是页面元素会正常向上滚动，所以为了让这个元素正常固定，就需要使用到固定定位。</p><h2 id=\"概念\">概念</h2>\n<table>\n<thead>\n<tr>\n<th align=\"center\">相对定位</th>\n<th align=\"center\">绝对定位</th>\n<th align=\"center\">固定定位</th>\n</tr>\n</thead>\n<tbody><tr>\n<td align=\"center\">相对于元素自己本身的位置。</td>\n<td align=\"center\">相对于非<code>static</code>（静态）的父元素进行移动，若没有父元素或所有父元素均为<code>static</code>（静态），则默认相对于浏览器窗口进行移动。</td>\n<td align=\"center\">相对于浏览器窗口，且不会因为任何父元素的<code>position</code>改变而变化。</td>\n</tr>\n<tr>\n<td align=\"center\">原本的元素会继续保持在原本文档流的位置不动。</td>\n<td align=\"center\">原内容会脱离正常的文档流，会对后面的元素产生一定的影响。</td>\n<td align=\"center\">原内容会脱离正常的文档流，会对后面的元素产生一定的影响。</td>\n</tr>\n</tbody></table>\n<h2 id=\"语法格式\">语法格式</h2>\n<h3 id=\"属性\">属性</h3>\n<blockquote>\n<ul>\n<li><code>position</code>：默认值是<code>static</code>，固定定位则是<code>fixed</code></li>\n<li><code>top</code>：<strong>正值</strong>：相对于父元素的上边框增加多少距离（向下移动）；<strong>负值</strong>：相对于父元素的上边框减少多少距离（向上移动）；<strong>优先级高于<code>bottom</code></strong></li>\n<li><code>left</code>：<strong>正值</strong>：相对于父元素的左边框增加多少距离（向右移动）；<strong>负值</strong>：相对于父元素的左边框减少多少距离（向左移动）；<strong>优先级高于<code>right</code></strong></li>\n<li><code>bottom</code>：<strong>正值</strong>：相对于父元素的下边框增加多少距离（向上移动）；<strong>负值</strong>：相对于父元素的下边框减少多少距离（向下移动）</li>\n<li><code>right</code>：<strong>正值</strong>：相对于父元素的右边框增加多少距离（向左移动）；<strong>负值</strong>：相对于父元素的右边框减少多少距离（向右移动）</li>\n<li><code>z-index</code>：层级顺序，<strong>固定定位元素高于普通文档流中元素</strong></li>\n</ul>\n</blockquote>\n<h3 id=\"格式\">格式</h3>\n<pre><code class=\"language-css\">.elements {\n    position: fixed;\n    top: 10px;\n    left: 20px;\n}\n</code></pre>\n",
+            "image": "https://kynx.qzz.io/media/posts/35/Fixed-Positioning.png",
+            "author": {
+                "name": "和光同尘"
+            },
+            "tags": [
+                   "HTML&amp;CSS指北"
+            ],
+            "date_published": "2025-10-22T21:39:57+08:00",
+            "date_modified": "2025-10-22T21:39:57+08:00"
+        },
+        {
             "id": "https://kynx.qzz.io/absolute-positioning/",
             "url": "https://kynx.qzz.io/absolute-positioning/",
             "title": "绝对定位",
@@ -136,38 +168,6 @@
             ],
             "date_published": "2025-09-16T22:27:06+08:00",
             "date_modified": "2025-10-12T11:56:02+08:00"
-        },
-        {
-            "id": "https://kynx.qzz.io/the-transform-property-enables-the-displacement-and-deformation-of-elements/",
-            "url": "https://kynx.qzz.io/the-transform-property-enables-the-displacement-and-deformation-of-elements/",
-            "title": "transform属性使元素位移及形变",
-            "summary": "使用transition制作元素外观之间的简单变换动画，但是类似于图形的移动，形变等并不太方便通过原本属性进行变换的则可以使用transform属性进行变换。 函数功能&hellip;",
-            "content_html": "<p>使用transition制作元素外观之间的简单变换动画，但是类似于图形的移动，形变等并不太方便通过原本属性进行变换的则可以使用transform属性进行变换。</p><h2 id=\"transform格式\">transform格式</h2>\n<p><strong>函数功能</strong></p><blockquote>\n<ul>\n<li><code>translate</code>：<strong>控制元素平移</strong></li>\n<li><code>scale</code>：<strong>控制元素缩放大小</strong></li>\n<li><code>rotate</code>：<strong>控制元素旋转，在2D下默认是Z轴</strong></li>\n<li><code>skew</code>：<strong>控制元素倾斜角度</strong></li>\n<li><code>translate3d</code>：<strong>控制元素平移</strong></li>\n<li><code>scale3d</code>：<strong>控制元素缩放大小</strong></li>\n<li><code>rotate3d</code>：<strong>控制元素旋转</strong></li>\n<li><code>skew3d</code>：<strong>控制元素倾斜角度</strong></li>\n</ul>\n</blockquote>\n<p><strong>函数用法</strong></p><pre><code class=\"language-css\">.element {\n    transform: translate(X轴移动位置, Y轴移动位置) scale(缩放比例，1为基础) rotate(角度) skew(相对于X轴的倾斜角度, 相对于Y轴的倾斜角度);\n}\n</code></pre>\n<p><strong>3d会比普通的的多一个Y值，最后一项是旋转角度，前面的X,Y,Z则是方向</strong></p><p>其中形变可以使用3D的一些效果，就分为2D和3D两个部分</p><h3 id=\"2d\">2D</h3>\n<p><strong>实现（translate为例，其他根据用法带入即可）</strong></p><pre><code class=\"language-html\">&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n    &lt;head&gt;\n        &lt;meta charset=&quot;utf-8&quot;&gt;\n        &lt;title&gt;transform属性&lt;/title&gt;\n        &lt;style&gt;\n            .box {\n                width: 100px;\n                height: 100px;\n                background-color: tomato;\n                transition: transform 1s;\n            }\n            .box:hover {\n                transform: translate(50%);\n            }\n        &lt;/style&gt;\n    &lt;/head&gt;\n    &lt;body&gt;\n        &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;\n    &lt;/body&gt;\n&lt;/html&gt;\n</code></pre>\n<p><strong>效果预览：</strong></p><div class=\"box\"></div><style>.box{width:100px;height:100px;background-color:tomato;transition:transform 1s;}.box:hover{transform:translate(50%);}</style>\n\n<h3 id=\"3d\">3D</h3>\n<p>需要在父元素中创建3D效果展示区域，便于展示</p><pre><code class=\"language-html\">&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n    &lt;head&gt;\n        &lt;meta charset=&quot;utf-8&quot;&gt;\n        &lt;title&gt;transform3D属性&lt;/title&gt;\n        &lt;style&gt;\n            .container {\n                transform-style: preserve-3d;\n                perspective: 800px;\n            }\n            .box {\n                width: 100px;\n                height: 100px;\n                background-color: tomato;\n                transition: transform 1s;\n            }\n            .box:hover {\n                transform: rotate3d(1, 0, -1, 30deg); /* 或者是transform: rotateX(30deg) rotateZ(-30deg) */\n            }\n        &lt;/style&gt;\n    &lt;/head&gt;\n    &lt;body&gt;\n        &lt;div class=&quot;container&quot;&gt;\n            &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;\n        &lt;/div&gt;\n    &lt;/body&gt;\n&lt;/html&gt;\n</code></pre>\n<p><strong>效果预览：</strong></p><div class=\"container\"><div class=\"box\"></div></div><style>.container{transform-style:preserve-3d;perspective:800px;}.box{width:100px;height:100px;background-color:tomato;transition:transform 1s;}.box:hover{transform:rotate3d(1,0,-1,30deg);}</style>\n\n<h3 id=\"详细展示-\"><a href=\"../transform/tutorial.html\">详细展示 =&gt;</a></h3>\n<h3 id=\"自测题目-\"><a href=\"../transform/test.html\">自测题目 =&gt;</a></h3>\n",
-            "image": "https://kynx.qzz.io/media/posts/22/22.png",
-            "author": {
-                "name": "和光同尘"
-            },
-            "tags": [
-                   "HTML&amp;CSS指北"
-            ],
-            "date_published": "2025-09-10T22:51:23+08:00",
-            "date_modified": "2025-10-14T20:56:04+08:00"
-        },
-        {
-            "id": "https://kynx.qzz.io/database-operations-and-the-use-of-navicat-17/",
-            "url": "https://kynx.qzz.io/database-operations-and-the-use-of-navicat-17/",
-            "title": "数据库操作与Navicat 17使用",
-            "summary": "使用命令操作数据库 管理系统更像是没有桌面的Linux操作系统，需要使用命令对其进行控制与操作。&hellip;",
-            "content_html": "<h2 id=\"使用命令操作数据库\">使用命令操作数据库</h2>\n<p>管理系统更像是没有桌面的Linux操作系统，需要使用命令对其进行控制与操作。</p><p><strong>使用cmd连接MySQL数据库并进行操作</strong></p><p>使用Windows徽标键+R</p><figure class=\"post__image\"><img src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185956113.png\" alt=\"image-20250910185956113\" data-is-external-image=\"true\"></figure><p>输入cmd并回车，会打开一个新的窗口</p><figure class=\"post__image\"><img loading=\"lazy\" src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185147308.png\" alt=\"image-20250910185147308\" data-is-external-image=\"true\"></figure><p>以</p><p><strong><code>mysql -hIP地址(如127.0.0.1) -P端口号(如3306) -u用户名(如root) -p密码(如root)</code></strong></p><p>这样的格式键入，即可连接本地数据库</p><figure class=\"post__image\"><img loading=\"lazy\" src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185246593.png\" alt=\"image-20250910185246593\" data-is-external-image=\"true\"></figure><p>进入之后就可以对数据库进行增删改查的操作</p><blockquote>\n<ul>\n<li><strong>增加新的数据库</strong>：<code>create database 新建数据库的名字;</code></li>\n<li><strong>删除已经存在的数据库</strong>：<code>drop database 已经存在数据库的名字;</code></li>\n<li><strong>更改已有数据库核心属性</strong>：<code>alter database 数据库名 需要修改的东西;</code></li>\n<li><strong>查询数据库内容</strong>：<code>show 需要查看的东西（例如：databases, tables）;</code></li>\n</ul>\n</blockquote>\n<figure class=\"post__image\"><img src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185319526.png\" alt=\"image-20250910185319526\" data-is-external-image=\"true\"></figure><p><strong>使用Navicat 17连接管理MySQL</strong></p><p>在刚刚使用命令行对数据库进行操作的时候，不管是使用<code>create</code>还是<code>drop</code>对数据库进行更改的时候查看起来其实非常不方便，每次都要<code>show databases</code>，所以可以使用Navicat的图形界面更便于管理。</p><p>打开Navicat</p><figure class=\"post__image\"><img loading=\"lazy\" src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185349800.png\" alt=\"image-20250910185349800\" data-is-external-image=\"true\"></figure><p>里面什么都没有，所以我们需要新建一个和本地数据库的连接。点击左上角的连接，会有一个弹出窗口</p><figure class=\"post__image\"><img src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185430696.png\" alt=\"image-20250910185430696\" data-is-external-image=\"true\"></figure><p>选中MySQL之后点击下一步</p><figure class=\"post__image\"><img loading=\"lazy\" src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185455911.png\" alt=\"image-20250910185455911\" data-is-external-image=\"true\"></figure><p>在这里按照提示填入信息（如上图），点击测试连接，查看是否可以正常连接</p><figure class=\"post__image\"><img src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185525688.png\" alt=\"image-20250910185525688\" data-is-external-image=\"true\"></figure><p>提示可以正常连接之后点击确定即可。</p><p>在连接的右边有一个新建查询，点击后即可出现一下界面</p><figure class=\"post__image\"><img loading=\"lazy\" src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185542617.png\" alt=\"image-20250910185542617\" data-is-external-image=\"true\"></figure><p>在出现的地方就可以使用命令操作数据库，以<code>create database new01</code>为例</p><figure class=\"post__image\"><img src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185603240.png\" alt=\"image-20250910185603240\" data-is-external-image=\"true\"></figure><p>单击运行</p><figure class=\"post__image\"><img loading=\"lazy\" src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185625820.png\" alt=\"image-20250910185625820\" data-is-external-image=\"true\"></figure><p>提示成功之后，左侧数据库列表并没有显示，所以需要右键刷新</p><figure class=\"post__image\"><img src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185650206.png\" alt=\"image-20250910185650206\" data-is-external-image=\"true\"></figure><p>刷新后即可看到</p><figure class=\"post__image\"><img loading=\"lazy\" src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185708508.png\" alt=\"image-20250911200137927\" data-is-external-image=\"true\"></figure><p>与<code>create</code>步骤一样，以下是<code>drop</code>执行完之后</p><figure class=\"post__image\"><img loading=\"lazy\" src=\"../media/files/MySQL学习笔记/数据库操作与Navicat17使用/image-20250910185727758.png\" alt=\"image-20250910185727758\" data-is-external-image=\"true\"></figure>",
-            "image": "https://kynx.qzz.io/media/posts/21/21.png",
-            "author": {
-                "name": "和光同尘"
-            },
-            "tags": [
-                   "MySQL学习笔记"
-            ],
-            "date_published": "2025-09-10T19:12:14+08:00",
-            "date_modified": "2025-10-12T11:49:25+08:00"
         }
     ]
 }
