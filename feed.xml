@@ -3,362 +3,12 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-23T21:37:33+08:00</updated>
+    <updated>2025-10-23T22:45:35+08:00</updated>
     <author>
         <name>和光同尘</name>
     </author>
     <id>https://kynx.qzz.io</id>
 
-    <entry>
-        <title>MySQL 常用系统函数表</title>
-        <author>
-            <name>和光同尘</name>
-        </author>
-        <link href="https://kynx.qzz.io/commonly-used-mysql-system-functions-table/"/>
-        <id>https://kynx.qzz.io/commonly-used-mysql-system-functions-table/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/38/Commonly-Used-MySQL-System-Functions-Table.png" medium="image" />
-            <category term="速查大全"/>
-            <category term="MySQL学习笔记"/>
-
-        <updated>2025-10-23T21:37:33+08:00</updated>
-            <summary>
-                <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/38/Commonly-Used-MySQL-System-Functions-Table.png" alt="" />
-                    字符串函数 函数&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/38/Commonly-Used-MySQL-System-Functions-Table.png" class="type:primaryImage" alt="" /></p>
-                <h2 id="字符串函数">字符串函数</h2>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>CONCAT(str1, str2, ...)</code></td>
-<td>连接字符串</td>
-<td><code>SELECT CONCAT(&#39;Hello&#39;, &#39; &#39;, &#39;World&#39;);</code>→ ‘Hello World’</td>
-</tr>
-<tr>
-<td><code>SUBSTRING(str, pos, len)</code></td>
-<td>提取子字符串</td>
-<td><code>SELECT SUBSTRING(&#39;MySQL&#39;, 3, 3);</code>→ ‘SQL’</td>
-</tr>
-<tr>
-<td><code>LENGTH(str)</code></td>
-<td>返回字符串字节长度</td>
-<td><code>SELECT LENGTH(&#39;数据库&#39;);</code>→ 6 (UTF-8)</td>
-</tr>
-<tr>
-<td><code>CHAR_LENGTH(str)</code></td>
-<td>返回字符数量</td>
-<td><code>SELECT CHAR_LENGTH(&#39;数据库&#39;);</code>→ 3</td>
-</tr>
-<tr>
-<td><code>UPPER(str)</code></td>
-<td>转换为大写</td>
-<td><code>SELECT UPPER(&#39;mysql&#39;);</code>→ ‘MYSQL’</td>
-</tr>
-<tr>
-<td><code>LOWER(str)</code></td>
-<td>转换为小写</td>
-<td><code>SELECT LOWER(&#39;MySQL&#39;);</code>→ ‘mysql’</td>
-</tr>
-<tr>
-<td><code>TRIM([remstr FROM] str)</code></td>
-<td>去除首尾空格/指定字符</td>
-<td><code>SELECT TRIM(&#39;  MySQL  &#39;);</code>→ ‘MySQL’</td>
-</tr>
-<tr>
-<td><code>REPLACE(str, from_str, to_str)</code></td>
-<td>替换字符串</td>
-<td><code>SELECT REPLACE(&#39;abc&#39;, &#39;b&#39;, &#39;x&#39;);</code>→ ‘axc’</td>
-</tr>
-<tr>
-<td><code>REVERSE(str)</code></td>
-<td>反转字符串</td>
-<td><code>SELECT REVERSE(&#39;123&#39;);</code>→ ‘321’</td>
-</tr>
-<tr>
-<td><code>LPAD(str, len, padstr)</code></td>
-<td>左侧填充字符串</td>
-<td><code>SELECT LPAD(&#39;5&#39;, 3, &#39;0&#39;);</code>→ ‘005’</td>
-</tr>
-</tbody></table>
-<h2 id="数值函数">数值函数</h2>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>ABS(x)</code></td>
-<td>绝对值</td>
-<td><code>SELECT ABS(-10);</code>→ 10</td>
-</tr>
-<tr>
-<td><code>ROUND(x, d)</code></td>
-<td>四舍五入</td>
-<td><code>SELECT ROUND(3.14159, 2);</code>→ 3.14</td>
-</tr>
-<tr>
-<td><code>CEIL(x)</code></td>
-<td>向上取整</td>
-<td><code>SELECT CEIL(3.14);</code>→ 4</td>
-</tr>
-<tr>
-<td><code>FLOOR(x)</code></td>
-<td>向下取整</td>
-<td><code>SELECT FLOOR(3.99);</code>→ 3</td>
-</tr>
-<tr>
-<td><code>MOD(x, y)</code></td>
-<td>取模运算</td>
-<td><code>SELECT MOD(10, 3);</code>→ 1</td>
-</tr>
-<tr>
-<td><code>POW(x, y)</code></td>
-<td>幂运算</td>
-<td><code>SELECT POW(2, 3);</code>→ 8</td>
-</tr>
-<tr>
-<td><code>SQRT(x)</code></td>
-<td>平方根</td>
-<td><code>SELECT SQRT(9);</code>→ 3</td>
-</tr>
-<tr>
-<td><code>RAND()</code></td>
-<td>随机数(0-1)</td>
-<td><code>SELECT RAND();</code>→ 0.123456</td>
-</tr>
-<tr>
-<td><code>SIGN(x)</code></td>
-<td>符号函数</td>
-<td><code>SELECT SIGN(-5);</code>→ -1</td>
-</tr>
-</tbody></table>
-<h2 id="日期时间函数">日期时间函数</h2>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>NOW()</code></td>
-<td>当前日期时间</td>
-<td><code>SELECT NOW();</code>→ 2025-10-23 21:31:02</td>
-</tr>
-<tr>
-<td><code>CURDATE()</code></td>
-<td>当前日期</td>
-<td><code>SELECT CURDATE();</code>→ 2025-10-23</td>
-</tr>
-<tr>
-<td><code>CURTIME()</code></td>
-<td>当前时间</td>
-<td><code>SELECT CURTIME();</code>→ 21:31:02</td>
-</tr>
-<tr>
-<td><code>DATE(date)</code></td>
-<td>提取日期部分</td>
-<td><code>SELECT DATE(NOW());</code>→ 2025-10-23</td>
-</tr>
-<tr>
-<td><code>TIME(date)</code></td>
-<td>提取时间部分</td>
-<td><code>SELECT TIME(NOW());</code>→ 21:31:02</td>
-</tr>
-<tr>
-<td><code>YEAR(date)</code></td>
-<td>提取年份</td>
-<td><code>SELECT YEAR(NOW());</code>→ 2025</td>
-</tr>
-<tr>
-<td><code>MONTH(date)</code></td>
-<td>提取月份</td>
-<td><code>SELECT MONTH(NOW());</code>→ 10</td>
-</tr>
-<tr>
-<td><code>DAY(date)</code></td>
-<td>提取日</td>
-<td><code>SELECT DAY(NOW());</code>→ 23</td>
-</tr>
-<tr>
-<td><code>HOUR(time)</code></td>
-<td>提取小时</td>
-<td><code>SELECT HOUR(NOW());</code>→ 21</td>
-</tr>
-<tr>
-<td><code>MINUTE(time)</code></td>
-<td>提取分钟</td>
-<td><code>SELECT MINUTE(NOW());</code>→ 31</td>
-</tr>
-<tr>
-<td><code>SECOND(time)</code></td>
-<td>提取秒</td>
-<td><code>SELECT SECOND(NOW());</code>→ 02</td>
-</tr>
-<tr>
-<td><code>DATE_FORMAT(date, format)</code></td>
-<td>格式化日期</td>
-<td><code>SELECT DATE_FORMAT(NOW(), &#39;%Y/%m/%d&#39;);</code>→ ‘2025/10/23’</td>
-</tr>
-<tr>
-<td><code>DATEDIFF(date1, date2)</code></td>
-<td>日期差值(天)</td>
-<td><code>SELECT DATEDIFF(&#39;2025-12-31&#39;, NOW());</code>→ 69</td>
-</tr>
-</tbody></table>
-<h2 id="聚合函数">聚合函数</h2>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>COUNT(expr)</code></td>
-<td>行数统计</td>
-<td><code>SELECT COUNT(*) FROM users;</code></td>
-</tr>
-<tr>
-<td><code>SUM(expr)</code></td>
-<td>求和</td>
-<td><code>SELECT SUM(salary) FROM employees;</code></td>
-</tr>
-<tr>
-<td><code>AVG(expr)</code></td>
-<td>平均值</td>
-<td><code>SELECT AVG(score) FROM exams;</code></td>
-</tr>
-<tr>
-<td><code>MAX(expr)</code></td>
-<td>最大值</td>
-<td><code>SELECT MAX(price) FROM products;</code></td>
-</tr>
-<tr>
-<td><code>MIN(expr)</code></td>
-<td>最小值</td>
-<td><code>SELECT MIN(temperature) FROM records;</code></td>
-</tr>
-<tr>
-<td><code>GROUP_CONCAT(expr)</code></td>
-<td>连接组内值</td>
-<td><code>SELECT GROUP_CONCAT(name) FROM users GROUP BY department;</code></td>
-</tr>
-</tbody></table>
-<h2 id="控制流函数">控制流函数</h2>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>IF(expr, v1, v2)</code></td>
-<td>条件判断</td>
-<td><code>SELECT IF(score &gt;= 60, &#39;及格&#39;, &#39;不及格&#39;) FROM scores;</code></td>
-</tr>
-<tr>
-<td><code>IFNULL(v1, v2)</code></td>
-<td>NULL值处理</td>
-<td><code>SELECT IFNULL(email, &#39;未设置&#39;) FROM users;</code></td>
-</tr>
-<tr>
-<td><code>CASE</code></td>
-<td>多条件分支</td>
-<td><code>SELECT CASE WHEN score &gt;= 90 THEN &#39;A&#39; WHEN score &gt;= 80 THEN &#39;B&#39; ELSE &#39;C&#39; END FROM scores;</code></td>
-</tr>
-<tr>
-<td><code>COALESCE(expr1, expr2, ...)</code></td>
-<td>返回第一个非NULL值</td>
-<td><code>SELECT COALESCE(middle_name, first_name, &#39;N/A&#39;) FROM persons;</code></td>
-</tr>
-</tbody></table>
-<h2 id="系统信息函数">系统信息函数</h2>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>VERSION()</code></td>
-<td>MySQL版本</td>
-<td><code>SELECT VERSION();</code>→ ‘8.0.xx’</td>
-</tr>
-<tr>
-<td><code>USER()</code></td>
-<td>当前用户</td>
-<td><code>SELECT USER();</code>→ ‘root@localhost’</td>
-</tr>
-<tr>
-<td><code>DATABASE()</code></td>
-<td>当前数据库</td>
-<td><code>SELECT DATABASE();</code>→ ‘mydb’</td>
-</tr>
-<tr>
-<td><code>CONNECTION_ID()</code></td>
-<td>连接ID</td>
-<td><code>SELECT CONNECTION_ID();</code>→ 12345</td>
-</tr>
-<tr>
-<td><code>LAST_INSERT_ID()</code></td>
-<td>最后插入的ID</td>
-<td><code>SELECT LAST_INSERT_ID();</code>→ 1001</td>
-</tr>
-</tbody></table>
-<h2 id="json函数">JSON函数</h2>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>JSON_EXTRACT(json_doc, path)</code></td>
-<td>提取JSON值</td>
-<td><code>SELECT JSON_EXTRACT(&#39;{&quot;name&quot;:&quot;John&quot;}&#39;, &#39;$.name&#39;);</code>→ “John”</td>
-</tr>
-<tr>
-<td><code>JSON_SET(json_doc, path, val)</code></td>
-<td>设置JSON值</td>
-<td><code>SELECT JSON_SET(&#39;{}&#39;, &#39;$.id&#39;, 100);</code>→ {“id”: 100}</td>
-</tr>
-<tr>
-<td><code>JSON_TYPE(json_val)</code></td>
-<td>返回JSON类型</td>
-<td><code>SELECT JSON_TYPE(&#39;[1,2]&#39;);</code>→ ‘ARRAY’</td>
-</tr>
-<tr>
-<td><code>JSON_ARRAYAGG(col)</code></td>
-<td>聚合为JSON数组</td>
-<td><code>SELECT JSON_ARRAYAGG(name) FROM users;</code></td>
-</tr>
-</tbody></table>
-
-            ]]>
-        </content>
-    </entry>
     <entry>
         <title>连接查询</title>
         <author>
@@ -502,7 +152,9 @@
 &lt;/html&gt;
 </code></pre>
 <h2 id="效果预览">效果预览</h2>
-<div class="carousel"><a href="" class="left"><</a><a href="" class="right">></a><ul><li></li><li></li><li></li><li></li><li></li></ul></div><style>*{margin:0;padding:0}.carousel{width:600px;height:300px;background-color:lightskyblue;margin:50px auto;border-radius:10px;position:relative}a{text-decoration:none;color:#fff}.left,.right{width:20px;height:40px;border-radius:3px;line-height:40px;text-align:center;background-color:rgba(0,0,0,.2)}.left{position:absolute;bottom:20px;right:40px}.right{position:absolute;bottom:20px;right:10px}ul{list-style-type:none;position:absolute;bottom:20px;left:20px}ul li{width:10px;height:10px;border:2px solid #fff;border-radius:50%;float:left;margin:0 5px}</style>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>.carousel{width:600px;height:300px;background-color:lightskyblue;margin:50px auto;border-radius:10px;position:relative}a{text-decoration:none;color:#fff}.left,.right{width:20px;height:40px;border-radius:3px;line-height:40px;text-align:center;background-color:rgba(0,0,0,.2)}.left{position:absolute;bottom:20px;right:40px}.right{position:absolute;bottom:20px;right:10px}.carousel-indicators{list-style-type:none;position:absolute;bottom:20px;left:20px;padding:0;margin:0}.carousel-indicator{width:10px;height:10px;border:2px solid #fff;border-radius:50%;float:left;margin:0 5px}</style></head><body><div class="carousel"><a href="" class="left">&lt;</a><a href="" class="right">&gt;</a><ul class="carousel-indicators"><li class="carousel-indicator"></li><li class="carousel-indicator"></li><li class="carousel-indicator"></li><li class="carousel-indicator"></li><li class="carousel-indicator"></li></ul></div></body></html>
+    
+
             ]]>
         </content>
     </entry>
@@ -1008,6 +660,121 @@ SELECT * FROM student WHERE student_name IS NULL;
 <p>我觉得不会，毕竟在黑暗模式上面苹果已经证实了自己封闭的实力。不到一年时间，几乎全部的应用都已经吃上了黑暗模式，这个速度比安卓很多都要厂商用系统去强行将浅色模式应用改变成黑暗模式更彻底。毕竟是Swift，统一的标准执行起来确实速度是没话说的。</p><p>交互上面已经能够达到动画和外观的显示方式符合视觉逻辑，并且拥有自己的Swift语言，后面可能应用适配上面出现性能问题等，但是苹果应该是有能力去解决的。毕竟软件对于系统版本都卡的这么严，优化上比安卓这种要兼容各家系统的肯定是更快速，更轻松了。</p><h2 id="用续航和性能换得质感---关于我的看法">用续航和性能换得质感 - 关于我的看法</h2>
 <p>我知道，这是所有手机用户纠结的一个问题，而且至今，甚至是未来都不会有定论的一个问题，或者说是阴谋论。如果说抛开负优化等厂商能主观决定的事情，只是将这个系统完美的适配到你手机上，和原系统相比，一定是不如原系统的，但是如果没有这个参照的话，其实你也感觉不出来很明显的差距了。但是升级的权力在用户手上，而且升与不升也不是考试的是非对错。</p><p>不过在于我这样一个喜欢Windows只用LTSC版本，安卓拿到手第一件事情关闭甚至卸载系统更新软件的人看来，这个答案已经不言而喻了。虽然我一个从ios15开始就换到红米的人来说，对于苹果的系统的确是没有什么发言权了，而且系统质量上面，苹果一定也是优于小米的，但是这也只是我的一点点看法，或许经历过什么重大变更之后或许也能觉得手机的安全比性能更重要，就像我当初从Windows精简版变成使用Windows LTSC版本，所以适合自己的，往往需要自己的经历去决定，尊重绝对的数据结论有的时候未必不是一种盲从呢？</p><h3 id="更多详细升级建议，见：">更多详细升级建议，见：</h3>
 <h1 id="云泽の小屋"><a href="https://zeyun.dpdns.org/ios26.html">云泽の小屋</a></h1>
+
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>使用animation实现复杂形态过渡动画</title>
+        <author>
+            <name>和光同尘</name>
+        </author>
+        <link href="https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations/"/>
+        <id>https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations/</id>
+        <media:content url="https://kynx.qzz.io/media/posts/24/24-2.png" medium="image" />
+            <category term="HTML&amp;CSS指北"/>
+
+        <updated>2025-09-20T09:11:29+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/24/24-2.png" alt="" />
+                    之前使用transition属性可以让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性animation。 格式：&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/24/24-2.png" class="type:primaryImage" alt="" /></p>
+                <p>之前使用<code>transition</code>属性可以让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性<code>animation</code>。</p><h2 id="animation属性组成"><code>animation</code>属性组成</h2>
+<blockquote>
+<ol>
+<li><strong>定义</strong> - 移动时间中每一个部分需要变换的属性</li>
+<li><strong>应用</strong> - 将定义的动画应用到元素上</li>
+</ol>
+</blockquote>
+<h3 id="定义">定义</h3>
+<p><strong>格式：</strong></p><pre><code class="language-css">@keyframes {
+    0% {
+        
+    }
+    50% {
+        
+    }
+    100% {
+        
+    }
+}
+</code></pre>
+<p><strong>写法：</strong></p><blockquote>
+<ul>
+<li>其中间可以是1-99的任意值，<code>50%</code>仅为格式示意</li>
+<li>在大括号内直接写属性需要实现的效果</li>
+</ul>
+</blockquote>
+<p>定义开始和结尾，可以使用上面的格式也可以使用下面的格式，虽然正确，但是统一性不强</p><pre><code class="language-css">@keyframes {
+    from {
+        
+    }
+    50% {
+        
+    }
+    to {
+        
+    }
+}
+</code></pre>
+<h3 id="应用">应用</h3>
+<p><strong>格式：</strong></p><pre><code class="language-css">.element {
+    animation: name(名称) duration(动画时间) timing-function(速度曲线) fill-mode(等待或者停止时显示的样式) delay(延迟时间) iteration-count(动画播放次数);
+    animation-play-state(动画暂停或者播放): ;
+}
+</code></pre>
+<p><strong>写法：</strong></p><blockquote>
+<ul>
+<li><code>animation-play-state</code>要单独写（<strong>例：</strong> 不要直接使用<code>animation: paused;</code>进行暂停）</li>
+<li>animation属性值需要按照顺序摆放，如果有<strong>不需要的直接不写即可</strong></li>
+</ul>
+</blockquote>
+<h2 id="animation进度条"><code>animation</code>进度条</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;进度条动画&lt;/title&gt;
+        &lt;style&gt;
+            .progressContainer {
+                margin: 20px auto;
+                width: 600px;
+                height: 20px;
+                background-color: grey;
+                border-radius: 20px;
+            }
+            .progressBar {
+                /* width: 200px; */
+                height: 20px;
+                background-color: green;
+                border-radius: 20px;
+                animation: fill 3s ease-in-out infinite;
+            }
+            @keyframes fill {
+                0% {
+                    width: 0;
+                }
+                100% {
+                    width: 600px;
+                }
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;progressContainer&quot;&gt;
+            &lt;div class=&quot;progressBar&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>效果预览：</strong></p><div class="progressContainer"><div class="progressBar"></div></div><style>.progressContainer{margin:20px auto;width:600px;height:20px;background-color:grey;border-radius:20px;}.progressBar{height:20px;background-color:green;border-radius:20px;animation:fill 3s ease-in-out infinite;}@keyframes fill{0%{width:0;}100%{width:600px;}}</style>
+
+<h3 id="详细教程-"><a href="../animation/tutorial.html">详细教程 =&gt;</a></h3>
 
             ]]>
         </content>
