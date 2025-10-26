@@ -10,6 +10,22 @@
     },
     "items": [
         {
+            "id": "https://kynx.qzz.io/20251025-reflection/",
+            "url": "https://kynx.qzz.io/20251025-reflection/",
+            "title": "2025.10.25 反思",
+            "summary": "在参加了TRAE Friends@南京的活动之后，我发现我所缺失的不是代码能力和学习能力，而是对于产品和软件有自己的思考。&hellip;",
+            "content_html": "<p>在参加了TRAE Friends@南京的活动之后，我发现我所缺失的不是代码能力和学习能力，而是对于产品和软件有自己的思考。</p><p>我承认我自己确实不会是一个愿意为了方便牺牲任何性能的人。且我对目录，软件都有着别人看起来甚至是有一点过于严谨。如果是Markdown文档编辑的软件我甚至会不喜欢任何多余的主题，就是这样的行为也被我的朋友称之为“赛博洁癖”。但是就是因为这样，我才发现根本就不可能会有什么很好的创意在我这里诞生。</p><p>之前看到过一个开源软件，名字是<code>Chronnote</code>，这是一个AI驱动的笔记软件。不得不说想法确实是非常新颖，但是这个软件我在第二个版本开始就再也没有用过，毕竟这样一个软件的开销自然是不小的，相比于<code>Typora</code>，我觉得没有任何一个功能是我觉得值得我留下的，就像之前没有找到<code>Typora</code>免费使用的方法的时候我一直都是使用的<code>Obsdian</code>这个笔记软件，但是我真的有了<code>Typora</code>之后我感觉<code>Obsdian</code>的那些别人吹的天花乱坠的功能在我这里狗屁不是。不是说这个软件不好用之类的，主要是如果占用资源<code>200MB</code>就能右很好的体验去写好一个Markdown文档我是断然不会去使用更大的资源去加上那些我觉得可能一个月都用不上几回的功能。</p><p>但是去了之后，我发现很多人做出来的功能都是我从来不会去使用甚至我觉得毫无意义的东西。就比如说寻找搭子的软件，这个软件从我的角度上来说就是一无是处，但是我却不能以偏概全的去否定这个软件在女生市场上的普及。我眼中似乎只有效率工具，对于玄学，算命，批改作业平台等等的东西觉得都是扯淡，毕竟我更喜欢的是两个效率工具的叠加使用去完成某种任务，或者是改变原有效率工具的使用用途，就比如微信，QQ上寻找搭子来替代别的软件，将Markdown编辑代替Word完成文档的撰写。但是我只从我的视角出发，却忽略了一个重要的东西，大多数人的需求。这或许就是市场需求。</p>",
+            "image": "https://kynx.qzz.io/media/posts/39/TRAE-FriendsNanjing.png",
+            "author": {
+                "name": "Kynx"
+            },
+            "tags": [
+                   "随笔小记"
+            ],
+            "date_published": "2025-10-26T22:44:02+08:00",
+            "date_modified": "2025-10-27T06:42:51+08:00"
+        },
+        {
             "id": "https://kynx.qzz.io/join-query/",
             "url": "https://kynx.qzz.io/join-query/",
             "title": "连接查询",
@@ -152,22 +168,6 @@
             ],
             "date_published": "2025-09-21T12:53:21+08:00",
             "date_modified": "2025-10-02T20:31:07+08:00"
-        },
-        {
-            "id": "https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations/",
-            "url": "https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations/",
-            "title": "使用animation实现复杂形态过渡动画",
-            "summary": "之前使用transition属性可以让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性animation。 格式：&hellip;",
-            "content_html": "<p>之前使用<code>transition</code>属性可以让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性<code>animation</code>。</p><h2 id=\"animation属性组成\"><code>animation</code>属性组成</h2>\n<blockquote>\n<ol>\n<li><strong>定义</strong> - 移动时间中每一个部分需要变换的属性</li>\n<li><strong>应用</strong> - 将定义的动画应用到元素上</li>\n</ol>\n</blockquote>\n<h3 id=\"定义\">定义</h3>\n<p><strong>格式：</strong></p><pre><code class=\"language-css\">@keyframes {\n    0% {\n        \n    }\n    50% {\n        \n    }\n    100% {\n        \n    }\n}\n</code></pre>\n<p><strong>写法：</strong></p><blockquote>\n<ul>\n<li>其中间可以是1-99的任意值，<code>50%</code>仅为格式示意</li>\n<li>在大括号内直接写属性需要实现的效果</li>\n</ul>\n</blockquote>\n<p>定义开始和结尾，可以使用上面的格式也可以使用下面的格式，虽然正确，但是统一性不强</p><pre><code class=\"language-css\">@keyframes {\n    from {\n        \n    }\n    50% {\n        \n    }\n    to {\n        \n    }\n}\n</code></pre>\n<h3 id=\"应用\">应用</h3>\n<p><strong>格式：</strong></p><pre><code class=\"language-css\">.element {\n    animation: name(名称) duration(动画时间) timing-function(速度曲线) fill-mode(等待或者停止时显示的样式) delay(延迟时间) iteration-count(动画播放次数);\n    animation-play-state(动画暂停或者播放): ;\n}\n</code></pre>\n<p><strong>写法：</strong></p><blockquote>\n<ul>\n<li><code>animation-play-state</code>要单独写（<strong>例：</strong> 不要直接使用<code>animation: paused;</code>进行暂停）</li>\n<li>animation属性值需要按照顺序摆放，如果有<strong>不需要的直接不写即可</strong></li>\n</ul>\n</blockquote>\n<h2 id=\"animation进度条\"><code>animation</code>进度条</h2>\n<pre><code class=\"language-html\">&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n    &lt;head&gt;\n        &lt;meta charset=&quot;utf-8&quot;&gt;\n        &lt;title&gt;进度条动画&lt;/title&gt;\n        &lt;style&gt;\n            .progressContainer {\n                margin: 20px auto;\n                width: 600px;\n                height: 20px;\n                background-color: grey;\n                border-radius: 20px;\n            }\n            .progressBar {\n                /* width: 200px; */\n                height: 20px;\n                background-color: green;\n                border-radius: 20px;\n                animation: fill 3s ease-in-out infinite;\n            }\n            @keyframes fill {\n                0% {\n                    width: 0;\n                }\n                100% {\n                    width: 600px;\n                }\n            }\n        &lt;/style&gt;\n    &lt;/head&gt;\n    &lt;body&gt;\n        &lt;div class=&quot;progressContainer&quot;&gt;\n            &lt;div class=&quot;progressBar&quot;&gt;&lt;/div&gt;\n        &lt;/div&gt;\n    &lt;/body&gt;\n&lt;/html&gt;\n</code></pre>\n<p><strong>效果预览：</strong></p><div class=\"progressContainer\"><div class=\"progressBar\"></div></div><style>.progressContainer{margin:20px auto;width:600px;height:20px;background-color:grey;border-radius:20px;}.progressBar{height:20px;background-color:green;border-radius:20px;animation:fill 3s ease-in-out infinite;}@keyframes fill{0%{width:0;}100%{width:600px;}}</style>\n\n<h3 id=\"详细教程-\"><a href=\"../animation/tutorial.html\">详细教程 =&gt;</a></h3>\n",
-            "image": "https://kynx.qzz.io/media/posts/24/24-2.png",
-            "author": {
-                "name": "Kynx"
-            },
-            "tags": [
-                   "HTML&amp;CSS指北"
-            ],
-            "date_published": "2025-09-20T09:11:29+08:00",
-            "date_modified": "2025-10-14T20:56:11+08:00"
         }
     ]
 }

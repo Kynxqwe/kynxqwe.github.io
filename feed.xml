@@ -3,12 +3,36 @@
     <title>隙间集</title>
     <link href="https://kynx.qzz.io/feed.xml" rel="self" />
     <link href="https://kynx.qzz.io" />
-    <updated>2025-10-23T22:45:35+08:00</updated>
+    <updated>2025-10-27T06:42:51+08:00</updated>
     <author>
         <name>Kynx</name>
     </author>
     <id>https://kynx.qzz.io</id>
 
+    <entry>
+        <title>2025.10.25 反思</title>
+        <author>
+            <name>Kynx</name>
+        </author>
+        <link href="https://kynx.qzz.io/20251025-reflection/"/>
+        <id>https://kynx.qzz.io/20251025-reflection/</id>
+        <media:content url="https://kynx.qzz.io/media/posts/39/TRAE-FriendsNanjing.png" medium="image" />
+            <category term="随笔小记"/>
+
+        <updated>2025-10-26T22:44:02+08:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://kynx.qzz.io/media/posts/39/TRAE-FriendsNanjing.png" alt="" />
+                    在参加了TRAE Friends@南京的活动之后，我发现我所缺失的不是代码能力和学习能力，而是对于产品和软件有自己的思考。&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://kynx.qzz.io/media/posts/39/TRAE-FriendsNanjing.png" class="type:primaryImage" alt="" /></p>
+                <p>在参加了TRAE Friends@南京的活动之后，我发现我所缺失的不是代码能力和学习能力，而是对于产品和软件有自己的思考。</p><p>我承认我自己确实不会是一个愿意为了方便牺牲任何性能的人。且我对目录，软件都有着别人看起来甚至是有一点过于严谨。如果是Markdown文档编辑的软件我甚至会不喜欢任何多余的主题，就是这样的行为也被我的朋友称之为“赛博洁癖”。但是就是因为这样，我才发现根本就不可能会有什么很好的创意在我这里诞生。</p><p>之前看到过一个开源软件，名字是<code>Chronnote</code>，这是一个AI驱动的笔记软件。不得不说想法确实是非常新颖，但是这个软件我在第二个版本开始就再也没有用过，毕竟这样一个软件的开销自然是不小的，相比于<code>Typora</code>，我觉得没有任何一个功能是我觉得值得我留下的，就像之前没有找到<code>Typora</code>免费使用的方法的时候我一直都是使用的<code>Obsdian</code>这个笔记软件，但是我真的有了<code>Typora</code>之后我感觉<code>Obsdian</code>的那些别人吹的天花乱坠的功能在我这里狗屁不是。不是说这个软件不好用之类的，主要是如果占用资源<code>200MB</code>就能右很好的体验去写好一个Markdown文档我是断然不会去使用更大的资源去加上那些我觉得可能一个月都用不上几回的功能。</p><p>但是去了之后，我发现很多人做出来的功能都是我从来不会去使用甚至我觉得毫无意义的东西。就比如说寻找搭子的软件，这个软件从我的角度上来说就是一无是处，但是我却不能以偏概全的去否定这个软件在女生市场上的普及。我眼中似乎只有效率工具，对于玄学，算命，批改作业平台等等的东西觉得都是扯淡，毕竟我更喜欢的是两个效率工具的叠加使用去完成某种任务，或者是改变原有效率工具的使用用途，就比如微信，QQ上寻找搭子来替代别的软件，将Markdown编辑代替Word完成文档的撰写。但是我只从我的视角出发，却忽略了一个重要的东西，大多数人的需求。这或许就是市场需求。</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>连接查询</title>
         <author>
@@ -660,121 +684,6 @@ SELECT * FROM student WHERE student_name IS NULL;
 <p>我觉得不会，毕竟在黑暗模式上面苹果已经证实了自己封闭的实力。不到一年时间，几乎全部的应用都已经吃上了黑暗模式，这个速度比安卓很多都要厂商用系统去强行将浅色模式应用改变成黑暗模式更彻底。毕竟是Swift，统一的标准执行起来确实速度是没话说的。</p><p>交互上面已经能够达到动画和外观的显示方式符合视觉逻辑，并且拥有自己的Swift语言，后面可能应用适配上面出现性能问题等，但是苹果应该是有能力去解决的。毕竟软件对于系统版本都卡的这么严，优化上比安卓这种要兼容各家系统的肯定是更快速，更轻松了。</p><h2 id="用续航和性能换得质感---关于我的看法">用续航和性能换得质感 - 关于我的看法</h2>
 <p>我知道，这是所有手机用户纠结的一个问题，而且至今，甚至是未来都不会有定论的一个问题，或者说是阴谋论。如果说抛开负优化等厂商能主观决定的事情，只是将这个系统完美的适配到你手机上，和原系统相比，一定是不如原系统的，但是如果没有这个参照的话，其实你也感觉不出来很明显的差距了。但是升级的权力在用户手上，而且升与不升也不是考试的是非对错。</p><p>不过在于我这样一个喜欢Windows只用LTSC版本，安卓拿到手第一件事情关闭甚至卸载系统更新软件的人看来，这个答案已经不言而喻了。虽然我一个从ios15开始就换到红米的人来说，对于苹果的系统的确是没有什么发言权了，而且系统质量上面，苹果一定也是优于小米的，但是这也只是我的一点点看法，或许经历过什么重大变更之后或许也能觉得手机的安全比性能更重要，就像我当初从Windows精简版变成使用Windows LTSC版本，所以适合自己的，往往需要自己的经历去决定，尊重绝对的数据结论有的时候未必不是一种盲从呢？</p><h3 id="更多详细升级建议，见：">更多详细升级建议，见：</h3>
 <h1 id="云泽の小屋"><a href="https://zeyun.dpdns.org/ios26.html">云泽の小屋</a></h1>
-
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>使用animation实现复杂形态过渡动画</title>
-        <author>
-            <name>Kynx</name>
-        </author>
-        <link href="https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations/"/>
-        <id>https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/24/24-2.png" medium="image" />
-            <category term="HTML&amp;CSS指北"/>
-
-        <updated>2025-09-20T09:11:29+08:00</updated>
-            <summary>
-                <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/24/24-2.png" alt="" />
-                    之前使用transition属性可以让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性animation。 格式：&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/24/24-2.png" class="type:primaryImage" alt="" /></p>
-                <p>之前使用<code>transition</code>属性可以让元素在变换的时候有了过渡的动画效果，但是如果想要实现一个属性的三次甚至多次变换，就需要使用另外一个动画属性<code>animation</code>。</p><h2 id="animation属性组成"><code>animation</code>属性组成</h2>
-<blockquote>
-<ol>
-<li><strong>定义</strong> - 移动时间中每一个部分需要变换的属性</li>
-<li><strong>应用</strong> - 将定义的动画应用到元素上</li>
-</ol>
-</blockquote>
-<h3 id="定义">定义</h3>
-<p><strong>格式：</strong></p><pre><code class="language-css">@keyframes {
-    0% {
-        
-    }
-    50% {
-        
-    }
-    100% {
-        
-    }
-}
-</code></pre>
-<p><strong>写法：</strong></p><blockquote>
-<ul>
-<li>其中间可以是1-99的任意值，<code>50%</code>仅为格式示意</li>
-<li>在大括号内直接写属性需要实现的效果</li>
-</ul>
-</blockquote>
-<p>定义开始和结尾，可以使用上面的格式也可以使用下面的格式，虽然正确，但是统一性不强</p><pre><code class="language-css">@keyframes {
-    from {
-        
-    }
-    50% {
-        
-    }
-    to {
-        
-    }
-}
-</code></pre>
-<h3 id="应用">应用</h3>
-<p><strong>格式：</strong></p><pre><code class="language-css">.element {
-    animation: name(名称) duration(动画时间) timing-function(速度曲线) fill-mode(等待或者停止时显示的样式) delay(延迟时间) iteration-count(动画播放次数);
-    animation-play-state(动画暂停或者播放): ;
-}
-</code></pre>
-<p><strong>写法：</strong></p><blockquote>
-<ul>
-<li><code>animation-play-state</code>要单独写（<strong>例：</strong> 不要直接使用<code>animation: paused;</code>进行暂停）</li>
-<li>animation属性值需要按照顺序摆放，如果有<strong>不需要的直接不写即可</strong></li>
-</ul>
-</blockquote>
-<h2 id="animation进度条"><code>animation</code>进度条</h2>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-        &lt;title&gt;进度条动画&lt;/title&gt;
-        &lt;style&gt;
-            .progressContainer {
-                margin: 20px auto;
-                width: 600px;
-                height: 20px;
-                background-color: grey;
-                border-radius: 20px;
-            }
-            .progressBar {
-                /* width: 200px; */
-                height: 20px;
-                background-color: green;
-                border-radius: 20px;
-                animation: fill 3s ease-in-out infinite;
-            }
-            @keyframes fill {
-                0% {
-                    width: 0;
-                }
-                100% {
-                    width: 600px;
-                }
-            }
-        &lt;/style&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;progressContainer&quot;&gt;
-            &lt;div class=&quot;progressBar&quot;&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p><strong>效果预览：</strong></p><div class="progressContainer"><div class="progressBar"></div></div><style>.progressContainer{margin:20px auto;width:600px;height:20px;background-color:grey;border-radius:20px;}.progressBar{height:20px;background-color:green;border-radius:20px;animation:fill 3s ease-in-out infinite;}@keyframes fill{0%{width:0;}100%{width:600px;}}</style>
-
-<h3 id="详细教程-"><a href="../animation/tutorial.html">详细教程 =&gt;</a></h3>
 
             ]]>
         </content>
