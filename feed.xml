@@ -5,14 +5,14 @@
     <link href="https://kynx.qzz.io" />
     <updated>2025-10-23T22:45:35+08:00</updated>
     <author>
-        <name>和光同尘</name>
+        <name>Kynx</name>
     </author>
     <id>https://kynx.qzz.io</id>
 
     <entry>
         <title>连接查询</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/join-query/"/>
         <id>https://kynx.qzz.io/join-query/</id>
@@ -58,7 +58,7 @@
     <entry>
         <title>绝对定位+相对定位 — 轮播图框架</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/absolute-positioning-relative-positioning-carousel-framework/"/>
         <id>https://kynx.qzz.io/absolute-positioning-relative-positioning-carousel-framework/</id>
@@ -161,7 +161,7 @@
     <entry>
         <title>固定定位</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/fixed-positioning/"/>
         <id>https://kynx.qzz.io/fixed-positioning/</id>
@@ -224,7 +224,7 @@
     <entry>
         <title>绝对定位</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/absolute-positioning/"/>
         <id>https://kynx.qzz.io/absolute-positioning/</id>
@@ -355,7 +355,7 @@
     <entry>
         <title>查询</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/mysql-query/"/>
         <id>https://kynx.qzz.io/mysql-query/</id>
@@ -457,7 +457,7 @@ SELECT * FROM student WHERE student_name IS NULL;
     <entry>
         <title>相对定位</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/relative-positioning/"/>
         <id>https://kynx.qzz.io/relative-positioning/</id>
@@ -540,7 +540,7 @@ SELECT * FROM student WHERE student_name IS NULL;
     <entry>
         <title>NAS搭建及使用</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/nas-setup-and-usage/"/>
         <id>https://kynx.qzz.io/nas-setup-and-usage/</id>
@@ -571,7 +571,7 @@ SELECT * FROM student WHERE student_name IS NULL;
     <entry>
         <title>数据表修改操作</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/modification-of-data-tables/"/>
         <id>https://kynx.qzz.io/modification-of-data-tables/</id>
@@ -638,7 +638,7 @@ SELECT * FROM student WHERE student_name IS NULL;
     <entry>
         <title>UI设计语言 — 观Liquid Glass发布感悟</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass/"/>
         <id>https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass/</id>
@@ -667,7 +667,7 @@ SELECT * FROM student WHERE student_name IS NULL;
     <entry>
         <title>使用animation实现复杂形态过渡动画</title>
         <author>
-            <name>和光同尘</name>
+            <name>Kynx</name>
         </author>
         <link href="https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations/"/>
         <id>https://kynx.qzz.io/utilize-animation-to-achieve-complex-shape-transition-animations/</id>
