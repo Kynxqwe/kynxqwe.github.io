@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
     <title>隙间集</title>
-    <link href="https://kynx.qzz.io/feed.xml" rel="self" />
-    <link href="https://kynx.qzz.io" />
-    <updated>2025-10-27T06:42:51+08:00</updated>
+    <link href="https://lyle.qzz.io/feed.xml" rel="self" />
+    <link href="https://lyle.qzz.io" />
+    <updated>2025-10-29T00:55:22+08:00</updated>
     <author>
         <name>Lyle</name>
     </author>
-    <id>https://kynx.qzz.io</id>
+    <id>https://lyle.qzz.io</id>
 
     <entry>
         <title>2025.10.25 反思</title>
         <author>
             <name>Lyle</name>
         </author>
-        <link href="https://kynx.qzz.io/20251025-reflection/"/>
-        <id>https://kynx.qzz.io/20251025-reflection/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/39/TRAE-FriendsNanjing.png" medium="image" />
+        <link href="https://lyle.qzz.io/20251025-reflection/"/>
+        <id>https://lyle.qzz.io/20251025-reflection/</id>
+        <media:content url="https://lyle.qzz.io/media/posts/39/TRAE-FriendsNanjing.png" medium="image" />
             <category term="随笔小记"/>
 
         <updated>2025-10-26T22:44:02+08:00</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/39/TRAE-FriendsNanjing.png" alt="" />
+                        <img src="https://lyle.qzz.io/media/posts/39/TRAE-FriendsNanjing.png" alt="" />
                     在参加了TRAE Friends@南京的活动之后，我发现我所缺失的不是代码能力和学习能力，而是对于产品和软件有自己的思考。&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/39/TRAE-FriendsNanjing.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://lyle.qzz.io/media/posts/39/TRAE-FriendsNanjing.png" class="type:primaryImage" alt="" /></p>
                 <p>在参加了TRAE Friends@南京的活动之后，我发现我所缺失的不是代码能力和学习能力，而是对于产品和软件有自己的思考。</p><p>我承认我自己确实不会是一个愿意为了方便牺牲任何性能的人。且我对目录，软件都有着别人看起来甚至是有一点过于严谨。如果是Markdown文档编辑的软件我甚至会不喜欢任何多余的主题，就是这样的行为也被我的朋友称之为“赛博洁癖”。但是就是因为这样，我才发现根本就不可能会有什么很好的创意在我这里诞生。</p><p>之前看到过一个开源软件，名字是<code>Chronnote</code>，这是一个AI驱动的笔记软件。不得不说想法确实是非常新颖，但是这个软件我在第二个版本开始就再也没有用过，毕竟这样一个软件的开销自然是不小的，相比于<code>Typora</code>，我觉得没有任何一个功能是我觉得值得我留下的，就像之前没有找到<code>Typora</code>免费使用的方法的时候我一直都是使用的<code>Obsdian</code>这个笔记软件，但是我真的有了<code>Typora</code>之后我感觉<code>Obsdian</code>的那些别人吹的天花乱坠的功能在我这里狗屁不是。不是说这个软件不好用之类的，主要是如果占用资源<code>200MB</code>就能右很好的体验去写好一个Markdown文档我是断然不会去使用更大的资源去加上那些我觉得可能一个月都用不上几回的功能。</p><p>但是去了之后，我发现很多人做出来的功能都是我从来不会去使用甚至我觉得毫无意义的东西。就比如说寻找搭子的软件，这个软件从我的角度上来说就是一无是处，但是我却不能以偏概全的去否定这个软件在女生市场上的普及。我眼中似乎只有效率工具，对于玄学，算命，批改作业平台等等的东西觉得都是扯淡，毕竟我更喜欢的是两个效率工具的叠加使用去完成某种任务，或者是改变原有效率工具的使用用途，就比如微信，QQ上寻找搭子来替代别的软件，将Markdown编辑代替Word完成文档的撰写。但是我只从我的视角出发，却忽略了一个重要的东西，大多数人的需求。这或许就是市场需求。</p>
             ]]>
         </content>
@@ -38,21 +38,21 @@
         <author>
             <name>Lyle</name>
         </author>
-        <link href="https://kynx.qzz.io/join-query/"/>
-        <id>https://kynx.qzz.io/join-query/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/37/Join-Query.png" medium="image" />
+        <link href="https://lyle.qzz.io/join-query/"/>
+        <id>https://lyle.qzz.io/join-query/</id>
+        <media:content url="https://lyle.qzz.io/media/posts/37/Join-Query.png" medium="image" />
             <category term="MySQL学习笔记"/>
 
         <updated>2025-10-23T21:24:15+08:00</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/37/Join-Query.png" alt="" />
+                        <img src="https://lyle.qzz.io/media/posts/37/Join-Query.png" alt="" />
                     相比于之前的查询，使用连接查询可以交叉多张表的数据进行查询，便于在整理的时候可以很清晰的表明ID所对应的名字，使其更容易辨别出来。 语法格式：&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/37/Join-Query.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://lyle.qzz.io/media/posts/37/Join-Query.png" class="type:primaryImage" alt="" /></p>
                 <p>相比于之前的查询，使用连接查询可以交叉多张表的数据进行查询，便于在整理的时候可以很清晰的表明<code>ID</code>所对应的名字，使其更容易辨别出来。</p><h2 id="内连接查询">内连接查询</h2>
 <p><strong>语法格式：</strong></p><pre><code class="language-sql">SELECT 需要显示的字段 FROM 表单1
     INNER JOIN 表单2 表单1.两张表共有字段=表单2.两张表共有字段;
@@ -84,21 +84,21 @@
         <author>
             <name>Lyle</name>
         </author>
-        <link href="https://kynx.qzz.io/absolute-positioning-relative-positioning-carousel-framework/"/>
-        <id>https://kynx.qzz.io/absolute-positioning-relative-positioning-carousel-framework/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/36/Carousel-Framework.png" medium="image" />
+        <link href="https://lyle.qzz.io/absolute-positioning-relative-positioning-carousel-framework/"/>
+        <id>https://lyle.qzz.io/absolute-positioning-relative-positioning-carousel-framework/</id>
+        <media:content url="https://lyle.qzz.io/media/posts/36/Carousel-Framework.png" medium="image" />
             <category term="HTML&amp;CSS指北"/>
 
         <updated>2025-10-22T21:47:03+08:00</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/36/Carousel-Framework.png" alt="" />
+                        <img src="https://lyle.qzz.io/media/posts/36/Carousel-Framework.png" alt="" />
                     源码 &lt;!DOCTYPE&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/36/Carousel-Framework.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://lyle.qzz.io/media/posts/36/Carousel-Framework.png" class="type:primaryImage" alt="" /></p>
                 <h2 id="源码">源码</h2>
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -187,21 +187,21 @@
         <author>
             <name>Lyle</name>
         </author>
-        <link href="https://kynx.qzz.io/fixed-positioning/"/>
-        <id>https://kynx.qzz.io/fixed-positioning/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/35/Fixed-Positioning.png" medium="image" />
+        <link href="https://lyle.qzz.io/fixed-positioning/"/>
+        <id>https://lyle.qzz.io/fixed-positioning/</id>
+        <media:content url="https://lyle.qzz.io/media/posts/35/Fixed-Positioning.png" medium="image" />
             <category term="HTML&amp;CSS指北"/>
 
         <updated>2025-10-22T21:39:57+08:00</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/35/Fixed-Positioning.png" alt="" />
+                        <img src="https://lyle.qzz.io/media/posts/35/Fixed-Positioning.png" alt="" />
                     固定定位可以使用于很多网站上，就比如正常滚动网页的时候，正常的网页上一般都会有一个上方，左侧等等位置会有一个导航栏等东西。但是随着页面滚动之后如果是页面元素会正常向上滚动，所以为了让这个元素正常固定，就需要使用到固定定位。 .elements&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/35/Fixed-Positioning.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://lyle.qzz.io/media/posts/35/Fixed-Positioning.png" class="type:primaryImage" alt="" /></p>
                 <p>固定定位可以使用于很多网站上，就比如正常滚动网页的时候，正常的网页上一般都会有一个上方，左侧等等位置会有一个导航栏等东西。但是随着页面滚动之后如果是页面元素会正常向上滚动，所以为了让这个元素正常固定，就需要使用到固定定位。</p><h2 id="概念">概念</h2>
 <table>
 <thead>
@@ -250,21 +250,21 @@
         <author>
             <name>Lyle</name>
         </author>
-        <link href="https://kynx.qzz.io/absolute-positioning/"/>
-        <id>https://kynx.qzz.io/absolute-positioning/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/33/absolute.png" medium="image" />
+        <link href="https://lyle.qzz.io/absolute-positioning/"/>
+        <id>https://lyle.qzz.io/absolute-positioning/</id>
+        <media:content url="https://lyle.qzz.io/media/posts/33/absolute.png" medium="image" />
             <category term="HTML&amp;CSS指北"/>
 
         <updated>2025-10-15T20:40:15+08:00</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/33/absolute.png" alt="" />
+                        <img src="https://lyle.qzz.io/media/posts/33/absolute.png" alt="" />
                     在使用相对定位对元素进行微调之后，在相对定位的元素内就可以对内部的组件进行很轻易的左右对齐和上下移动等等操作。但是相较于相对定位，在很多概念上面其实并不是非常一致，例如普通文档流中和定位上下文（包含块）等。 .elements&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/33/absolute.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://lyle.qzz.io/media/posts/33/absolute.png" class="type:primaryImage" alt="" /></p>
                 <p>在使用相对定位对元素进行微调之后，在相对定位的元素内就可以对内部的组件进行很轻易的左右对齐和上下移动等等操作。但是相较于相对定位，在很多概念上面其实并不是非常一致，例如普通文档流中和定位上下文（包含块）等。</p><h2 id="概念">概念</h2>
 <table>
 <thead>
@@ -381,21 +381,21 @@
         <author>
             <name>Lyle</name>
         </author>
-        <link href="https://kynx.qzz.io/mysql-query/"/>
-        <id>https://kynx.qzz.io/mysql-query/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/32/Query.png" medium="image" />
+        <link href="https://lyle.qzz.io/mysql-query/"/>
+        <id>https://lyle.qzz.io/mysql-query/</id>
+        <media:content url="https://lyle.qzz.io/media/posts/32/Query.png" medium="image" />
             <category term="MySQL学习笔记"/>
 
         <updated>2025-10-14T23:18:18+08:00</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/32/Query.png" alt="" />
+                        <img src="https://lyle.qzz.io/media/posts/32/Query.png" alt="" />
                     之前梳理过最简单的查询查询命令，也就是查询所有字段的命令，现在相比之前查询所有字段的命令无非就是多加上几个判断，筛选的条件，却可以使查询的内容更精准，提升查询的效率。 格式：&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/32/Query.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://lyle.qzz.io/media/posts/32/Query.png" class="type:primaryImage" alt="" /></p>
                 <p>之前梳理过最简单的查询查询命令，也就是查询所有字段的命令，现在相比之前查询所有字段的命令无非就是多加上几个判断，筛选的条件，却可以使查询的内容更精准，提升查询的效率。</p><h2 id="单表查询">单表查询</h2>
 <h3 id="查询所有字段：">查询所有字段：</h3>
 <p><strong>格式：</strong></p><pre><code class="language-sql">SELECT * FROM 表格;
@@ -483,21 +483,21 @@ SELECT * FROM student WHERE student_name IS NULL;
         <author>
             <name>Lyle</name>
         </author>
-        <link href="https://kynx.qzz.io/relative-positioning/"/>
-        <id>https://kynx.qzz.io/relative-positioning/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/31/Relative-positioning.png" medium="image" />
+        <link href="https://lyle.qzz.io/relative-positioning/"/>
+        <id>https://lyle.qzz.io/relative-positioning/</id>
+        <media:content url="https://lyle.qzz.io/media/posts/31/Relative-positioning.png" medium="image" />
             <category term="HTML&amp;CSS指北"/>
 
         <updated>2025-10-12T11:23:31+08:00</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/31/Relative-positioning.png" alt="" />
+                        <img src="https://lyle.qzz.io/media/posts/31/Relative-positioning.png" alt="" />
                     之前调整元素的位置只能使用margin,padding这些属性对其进行调整，例如元素的位置和周围的元素看起来高度不协调，一定是使用类似margin-top: 2px这样的方法去调整高度。但是这样必定会出现一个问题&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/31/Relative-positioning.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://lyle.qzz.io/media/posts/31/Relative-positioning.png" class="type:primaryImage" alt="" /></p>
                 <p>之前调整元素的位置只能使用<code>margin</code>,<code>padding</code>这些属性对其进行调整，例如元素的位置和周围的元素看起来高度不协调，一定是使用类似<code>margin-top: 2px</code>这样的方法去调整高度。但是这样必定会出现一个问题 — 如果存在父级元素，父级元素会受到这样移动的影响。如果想要达到移动的同时可以解决对父级元素的影响，相对定位一定是一个很好的解决方案。</p><h2 id="概念">概念</h2>
 <p>相对定位的相对是相对于元素自己本身的位置，所以其原本的元素会继续保持在原本文档流的位置不动，只是显示的图片，文字等信息会进行位置的移动。</p><h2 id="语法格式">语法格式</h2>
 <h3 id="属性">属性</h3>
@@ -566,21 +566,21 @@ SELECT * FROM student WHERE student_name IS NULL;
         <author>
             <name>Lyle</name>
         </author>
-        <link href="https://kynx.qzz.io/nas-setup-and-usage/"/>
-        <id>https://kynx.qzz.io/nas-setup-and-usage/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/28/677f5c027c6a14541.jpg_e1080.webp" medium="image" />
+        <link href="https://lyle.qzz.io/nas-setup-and-usage/"/>
+        <id>https://lyle.qzz.io/nas-setup-and-usage/</id>
+        <media:content url="https://lyle.qzz.io/media/posts/28/677f5c027c6a14541.jpg_e1080.webp" medium="image" />
             <category term="随笔小记"/>
 
         <updated>2025-10-07T19:47:07+08:00</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/28/677f5c027c6a14541.jpg_e1080.webp" alt="" />
+                        <img src="https://lyle.qzz.io/media/posts/28/677f5c027c6a14541.jpg_e1080.webp" alt="" />
                     搭建 相对安装Linux操作系统而言FNOS的安装已经是十分简单的，进入U盘引导，选择Graphic&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/28/677f5c027c6a14541.jpg_e1080.webp" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://lyle.qzz.io/media/posts/28/677f5c027c6a14541.jpg_e1080.webp" class="type:primaryImage" alt="" /></p>
                 <h2 id="搭建">搭建</h2>
 <p>相对安装Linux操作系统而言FNOS的安装已经是十分简单的，进入U盘引导，选择<code>Graphic Install</code>即可，但是在系统分区大小和使用Swap上还是需要注意。</p><h3 id="系统分区">系统分区</h3>
 <p>系统分区大小其推荐的大小通常是64G，但是往往占用没有这么高，所以我选择的是使用默认大小的一半。</p><figure class="post__image"><img loading="lazy" src="../media/files/隙光微尘/NAS搭建及使用/image-20251007184859616.png" alt="安装后硬盘占用情况" data-is-external-image="true"></figure><h3 id="swap">Swap</h3>
@@ -597,21 +597,21 @@ SELECT * FROM student WHERE student_name IS NULL;
         <author>
             <name>Lyle</name>
         </author>
-        <link href="https://kynx.qzz.io/modification-of-data-tables/"/>
-        <id>https://kynx.qzz.io/modification-of-data-tables/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/26/Shu-Ju-Biao-Xiu-Gai.png" medium="image" />
+        <link href="https://lyle.qzz.io/modification-of-data-tables/"/>
+        <id>https://lyle.qzz.io/modification-of-data-tables/</id>
+        <media:content url="https://lyle.qzz.io/media/posts/26/Shu-Ju-Biao-Xiu-Gai.png" medium="image" />
             <category term="MySQL学习笔记"/>
 
         <updated>2025-09-28T20:38:00+08:00</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/26/Shu-Ju-Biao-Xiu-Gai.png" alt="" />
+                        <img src="https://lyle.qzz.io/media/posts/26/Shu-Ju-Biao-Xiu-Gai.png" alt="" />
                     字段和数据是组成数据表的两大核心要素，因此对它们的更改操作至关重要，直接关系到数据的完整性、一致性和系统稳定性。 重命名操作可以分为以下两种写法：&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/26/Shu-Ju-Biao-Xiu-Gai.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://lyle.qzz.io/media/posts/26/Shu-Ju-Biao-Xiu-Gai.png" class="type:primaryImage" alt="" /></p>
                 <p><strong>字段</strong>和<strong>数据</strong>是组成数据表的两大核心要素，因此对它们的更改操作至关重要，直接关系到数据的完整性、一致性和系统稳定性。</p><h2 id="字段信息的修改">字段信息的修改</h2>
 <h3 id="重命名">重命名</h3>
 <p><strong>重命名操作可以分为以下两种写法：</strong></p><pre><code class="language-mysql">RENAME 旧名字 TO 新名字;
@@ -664,21 +664,21 @@ SELECT * FROM student WHERE student_name IS NULL;
         <author>
             <name>Lyle</name>
         </author>
-        <link href="https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass/"/>
-        <id>https://kynx.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass/</id>
-        <media:content url="https://kynx.qzz.io/media/posts/25/25-2.png" medium="image" />
+        <link href="https://lyle.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass/"/>
+        <id>https://lyle.qzz.io/ui-design-language-reflections-on-the-release-of-liquid-glass/</id>
+        <media:content url="https://lyle.qzz.io/media/posts/25/25-2.png" medium="image" />
             <category term="随笔小记"/>
 
         <updated>2025-09-21T12:53:21+08:00</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://kynx.qzz.io/media/posts/25/25-2.png" alt="" />
+                        <img src="https://lyle.qzz.io/media/posts/25/25-2.png" alt="" />
                     这个题目其实从一开始Beta版开始的时候就已经起草，但是一直到现在又重新写一遍，其中有我想讲的很多事情。 一开始看到的最多的是ios26的系统的发布，手机作为日常不离手的通讯工具，这个肯定是最收关注的。但是这种东西对于我来说其实是很无感的，毕竟就像Windows7换成Windows10，我反而会更喜欢Windows10一点，有可能是觉得平面的性能更好的缘故吧，但是在经历过很多的IDE洗礼之后我反而是更关注性能与视觉上的清晰——也就是文字的观感。在很多IDE上面其中背景的颜色以及文字的高亮都是可以调整的，但是在我自己瞎鼓捣的时候就很容易出现文字颜色和背景颜色十分相近而看不清楚的情况。&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://kynx.qzz.io/media/posts/25/25-2.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://lyle.qzz.io/media/posts/25/25-2.png" class="type:primaryImage" alt="" /></p>
                 <p>这个题目其实从一开始Beta版开始的时候就已经起草，但是一直到现在又重新写一遍，其中有我想讲的很多事情。</p><h2 id="为什么要用玻璃？">为什么要用玻璃？</h2>
 <p>一开始看到的最多的是ios26的系统的发布，手机作为日常不离手的通讯工具，这个肯定是最收关注的。但是这种东西对于我来说其实是很无感的，毕竟就像Windows7换成Windows10，我反而会更喜欢Windows10一点，有可能是觉得平面的性能更好的缘故吧，但是在经历过很多的IDE洗礼之后我反而是更关注性能与视觉上的清晰——也就是文字的观感。在很多IDE上面其中背景的颜色以及文字的高亮都是可以调整的，但是在我自己瞎鼓捣的时候就很容易出现文字颜色和背景颜色十分相近而看不清楚的情况。</p><p>所以在一开始ios26 Beta版本刚刚出来的时候我其实是十分不理解苹果的用意的，因为手机作为一个再平常不过的通讯工具，喜欢玩游戏的注意的是游戏内容，喜欢社交的更注意和朋友之间的关系，很多人对于系统升级其实是无感的，毕竟很多年轻人都是上手即用，都不存在学习成本的，但是中年人和老年人却觉得界面陌生，甚至有人还会觉得手机会被淘汰的更快。与我而言这其实是对于我的一种煎熬，虽然我不使用，但是对于安卓也是一种影响，后来升级之后性能降低，续航减弱，也让我对这个设计语言充满着排斥和敌意。</p><p>最近ios26的公测版和正式版陆续发布，我发现之前在Beta版中的问题都得到了解决，这也是我第一次对于质感有点感觉，毕竟之前一直是觉得Google的Material UI十分的好，甚至根本就不需要高斯模糊，有这观感留给性能和续航不好吗？但是苹果用玻璃确实是玩出了真真正正的层级的感觉，例如解锁的时候，上滑之后就像是一扇从下而上的打开，整个视觉逻辑更强了，使得交互动画的意义更强了。</p><h2 id="liquid-glass-和-windows-7-一个设计语言是不是过时了？">Liquid Glass 和 Windows 7 一个设计语言是不是过时了？</h2>
 <p>我觉得不会，毕竟在黑暗模式上面苹果已经证实了自己封闭的实力。不到一年时间，几乎全部的应用都已经吃上了黑暗模式，这个速度比安卓很多都要厂商用系统去强行将浅色模式应用改变成黑暗模式更彻底。毕竟是Swift，统一的标准执行起来确实速度是没话说的。</p><p>交互上面已经能够达到动画和外观的显示方式符合视觉逻辑，并且拥有自己的Swift语言，后面可能应用适配上面出现性能问题等，但是苹果应该是有能力去解决的。毕竟软件对于系统版本都卡的这么严，优化上比安卓这种要兼容各家系统的肯定是更快速，更轻松了。</p><h2 id="用续航和性能换得质感---关于我的看法">用续航和性能换得质感 - 关于我的看法</h2>
